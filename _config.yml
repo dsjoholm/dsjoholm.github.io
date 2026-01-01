@@ -1,7 +1,8 @@
 baseurl: /tufte-jekyll
-title: Tufte-Jekyll
-subtitle: Content-centric blogging
-author: clay harmon
+title: A site about bits and bobs
+subtitle: Daniel's website
+author: Daniel Sjoholm
+email: dsjoholm22@gmail.com
 simple_search: http://google.com/search
 description: A Jekyll theme for content-rich sites
 name: tufte
