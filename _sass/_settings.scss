@@ -13,5 +13,12 @@ $contrast-color: #e37676;
 $border-color: #333333;
 $link-style: color; // choices are 'color' or 'underline'. Color option styles links with $contrast-color set above
 
-
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #000000 !important;
+  color: #eeeeee !important;
+}
+/* Ensure links and sidenotes are visible in dark mode */
+body.dark-mode a { color: #8bb9fe; }
+body.dark-mode .sidenote, body.dark-mode .marginnote { color: #bbbbbb; }
 
