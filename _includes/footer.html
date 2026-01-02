@@ -13,3 +13,23 @@
 <span>This site created with the <a href="//github.com/clayh53/tufte-jekyll">Tufte theme for {{site.subtitle}} </a> in <a href="//jekyllrb.com">Jekyll</a>.</span> 
 </div>  
 </footer>
+
+<script>
+  const toggle = document.getElementById('dark-mode-toggle');
+  const body = document.body;
+
+  // Check for saved preference
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+  }
+
+  toggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    // Save preference
+    if (body.classList.contains('dark-mode')) {
+      localStorage.setItem('theme', 'dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
