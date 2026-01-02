@@ -33,3 +33,46 @@
     }
   });
 </script>
+
+
+<!-- Link popping up -->
+
+
+
+<div id="link-preview"></div>
+
+<script>
+const previewBox = document.getElementById('link-preview');
+const internalLinks = document.querySelectorAll('article a:not([href^="http"])');
+
+internalLinks.forEach(link => {
+  link.addEventListener('mouseenter', async (e) => {
+    const url = link.getAttribute('href');
+    
+    // Position the box near the mouse
+    previewBox.style.left = e.pageX + 10 + 'px';
+    previewBox.style.top = e.pageY + 10 + 'px';
+    previewBox.style.visibility = 'visible';
+    previewBox.style.opacity = '1';
+
+    try {
+      const response = await fetch(url);
+      const text = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(text, 'text/html');
+      
+      const title = doc.querySelector('title').innerText.split('|')[0];
+      const snippet = doc.querySelector('p').innerText.substring(0, 100) + '...';
+
+      previewBox.innerHTML = `<h3>${title}</h3><p>${snippet}</p>`;
+    } catch (err) {
+      previewBox.innerHTML = `<p>Loading preview...</p>`;
+    }
+  });
+
+  link.addEventListener('mouseleave', () => {
+    previewBox.style.visibility = 'hidden';
+    previewBox.style.opacity = '0';
+  });
+});
+</script>
