@@ -1,7 +1,7 @@
 ---
-layout: page
+layout: full-width
 title: "Projects"
-nav_order: 3
+nav_order: 4
 ---
 # My Work
 
