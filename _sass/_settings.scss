@@ -22,3 +22,41 @@ body.dark-mode {
 body.dark-mode a { color: #8bb9fe; } /* this is the highlight or contrast color, I think */
 body.dark-mode .sidenote, body.dark-mode .marginnote { color: #bbbbbb; }
 
+/* --- Link Highlighting --- */
+a {
+  text-decoration: none;
+  padding: 2px 4px;
+  border-radius: 3px;
+  background-color: rgba(90, 151, 242, 0.15); /* Light blue highlight */
+  position: relative;
+  display: inline-block; /* Helps with icon positioning */
+}
+
+/* --- External Link Styling --- */
+/* Selects any link that starts with "http" */
+a[href^="http"]::after {
+  content: " ↗"; /* Or a URL to an SVG icon */
+  font-size: 0.7rem;
+  vertical-align: super;
+  margin-left: 2px;
+  opacity: 0.7;
+}
+
+/* --- Internal Link Styling --- */
+/* Selects links that DON'T start with "http" */
+a:not([href^="http"]):not([href^="#"])::after {
+  content: ""; 
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-image: url('/assets/img/rhino.png'); /* Path to your logo */
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 3px;
+}
+
+/* --- Dark Mode Adjustments --- */
+body.dark-mode a {
+  background-color: rgba(139, 185, 254, 0.2); /* Slightly brighter highlight for dark mode */
+  color: #8bb9fe !important;
+}
