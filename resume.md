@@ -1,7 +1,7 @@
 ---
-layout: page
+layout: full-width
 title: "My Resume"
-nav_order: 4
+nav_order: 5
 ---
 
 # My Professional Experience
