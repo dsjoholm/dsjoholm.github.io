@@ -59,3 +59,42 @@ article a img, .content a img {
   background-color: transparent !important;
   padding: 0 !important;
 }
+
+
+
+
+
+
+
+
+/* Link hovering */
+/* The Preview Popover */
+#link-preview {
+  position: absolute;
+  visible: hidden;
+  opacity: 0;
+  width: 250px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+  transition: opacity 0.2s ease;
+  pointer-events: none; /* So it doesn't get in the way of the mouse */
+  font-size: 0.9rem;
+  color: #333;
+}
+
+#link-preview h3 { margin-top: 0; font-size: 1.1rem; color: #111; }
+
+/* Dark mode version */
+body.dark-mode #link-preview {
+  background-color: #222;
+  border-color: #444;
+  color: #eee;
+}
+body.dark-mode #link-preview h3 { color: #fff; }
+
+
+
