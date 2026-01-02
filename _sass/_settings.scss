@@ -7,18 +7,18 @@ $body-font: ETBembo, "Chronicle Text G2", Palatino, "Palatino Linotype", "Palati
 $sans-font: "Gill Sans", "Gill Sans MT", "Gotham Narrow", "Lato", Calibri, sans-serif;
 $code-font: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 $url-font: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;
-$text-color: #5e79cc;
-$bg-color: #000000;
-$contrast-color: #e37676;
+$text-color: #333333;
+$bg-color: #ffffff;
+$contrast-color: #5a97f2;
 $border-color: #333333;
 $link-style: color; // choices are 'color' or 'underline'. Color option styles links with $contrast-color set above
 
 /* Dark mode styles */
 body.dark-mode {
   background-color: #000000 !important;
-  color: #eeeeee !important;
+  color: #eeeeee !important; /* this is the text color, I think */
 }
 /* Ensure links and sidenotes are visible in dark mode */
-body.dark-mode a { color: #8bb9fe; }
+body.dark-mode a { color: #8bb9fe; } /* this is the highlight or contrast color, I think */
 body.dark-mode .sidenote, body.dark-mode .marginnote { color: #bbbbbb; }
 
