@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: full-width
 title: "Blog1"
 nav_order: 1
 ---
