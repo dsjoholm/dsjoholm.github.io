@@ -32,18 +32,20 @@ article a, .content a {
   position: relative;
 }
 
-/* --- External Link Favicons --- */
-article a[href^="http"]::after, .content a[href^="http"]::after {
-  content: ""; 
-  display: inline-block;
+/* Style for the favicon we will inject via JavaScript */
+.external-favicon {
   width: 14px;
   height: 14px;
-  margin-left: 4px;
+  margin-left: 5px;
   vertical-align: middle;
-  background-size: contain;
-  background-repeat: no-repeat;
-  /* This pulls the favicon dynamically based on the link's URL */
-  background-image: url('https://www.google.com/s2/favicons?sz=64&domain_url=' + attr(href));
+  border-radius: 2px;
+  display: inline-block;
+}
+
+/* Ensure the link highlight doesn't swallow the icon */
+article a {
+  display: inline-flex;
+  align-items: center;
 }
 
 /* --- Internal Link Styling (Targeted) --- */
