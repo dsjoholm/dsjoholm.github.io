@@ -1,6 +1,7 @@
 ---
 layout: full-width
 title: "Projects"
+nav_order: 2
 ---
 # My Work
 
