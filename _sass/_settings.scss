@@ -116,7 +116,6 @@ h1 a::after, h2 a::after, h3 a::after {
   margin: 0 0 8px 0; 
   font-size: 0.95rem; 
   font-weight: 800 !important;
-  font-style: italic;
   color: #111;
   display: block;
   width: 100%;
@@ -126,6 +125,8 @@ h1 a::after, h2 a::after, h3 a::after {
 #link-preview p { 
   margin: 0; 
   width: 100%;
+  font-weight: 400;
+  font-style: italic;
   display: block;
 }
 
