@@ -22,6 +22,14 @@ body.dark-mode {
 body.dark-mode a { color: #8bb9fe; } /* this is the highlight or contrast color, I think */
 body.dark-mode .sidenote, body.dark-mode .marginnote { color: #bbbbbb; }
 
+/* Make the horizontal rules visible in dark mode */
+body.dark-mode hr, 
+body.dark-mode hr.slender {
+  border-top: 1px solid #444 !important;
+  background-color: #444 !important;
+  opacity: 0.6;
+}
+
 /* --- Targeted Link Highlighting --- */
 /* This only affects links inside the main article/content area */
 article a, .content a {
