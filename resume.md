@@ -1,6 +1,7 @@
 ---
 layout: full-width
 title: "My Resume"
+nav_order: 3
 ---
 
 # My Professional Experience
