@@ -94,30 +94,47 @@ h1 a::after, h2 a::after, h3 a::after {
 /* The Preview Popover */
 #link-preview {
   position: absolute;
-  visible: hidden;
+  visibility: hidden;
   opacity: 0;
-  width: 250px;
+  width: 280px; /* Slightly wider for better readability */
   background-color: #ffffff;
   border: 1px solid #ddd;
-  padding: 15px;
-  border-radius: 8px;
+  padding: 12px; /* Uniform padding */
+  border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   z-index: 1000;
   transition: opacity 0.2s ease;
-  pointer-events: none; /* So it doesn't get in the way of the mouse */
-  font-size: 0.9rem;
+  pointer-events: none;
+  font-size: 0.95rem; /* Base font size */
+  line-height: 1.4;
   color: #333;
+  text-align: left;
 }
 
-#link-preview h3 { margin-top: 0; font-size: 1.1rem; color: #111; }
+/* Title styling: Same size as body, Bold and Italic */
+#link-preview h3 { 
+  margin: 0 0 8px 0; 
+  font-size: 0.95rem; 
+  font-weight: bold;
+  font-style: italic;
+  color: #111;
+  display: block;
+  width: 100%;
+}
 
-/* Dark mode version */
+/* Snippet text styling */
+#link-preview p { 
+  margin: 0; 
+  width: 100%;
+  display: block;
+}
+
+/* Dark mode adjustments */
 body.dark-mode #link-preview {
-  background-color: #222;
+  background-color: #1a1a1a;
   border-color: #444;
   color: #eee;
 }
 body.dark-mode #link-preview h3 { color: #fff; }
-
 
 
