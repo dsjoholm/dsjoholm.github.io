@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: full-width
 title:  "Tufte-style Jekyll blog"
 date:   2020-04-13 09:46:04
 categories: jekyll css
