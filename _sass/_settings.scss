@@ -60,6 +60,15 @@ article a img, .content a img {
   padding: 0 !important;
 }
 
+/* Remove highlighting and icons from Headers that are also links */
+h1 a, h2 a, h3 a, .post-title a {
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+
+h1 a::after, h2 a::after, h3 a::after {
+  content: "" !important; /* Removes the ↗ or logo icon */
+}
 
 
 
