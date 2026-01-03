@@ -76,3 +76,25 @@ internalLinks.forEach(link => {
   });
 });
 </script>
+
+
+<!-- For the favicon thing -->
+<script>
+  // Find all links starting with http (external)
+  const links = document.querySelectorAll('article a[href^="http"]');
+
+  links.forEach(link => {
+    // Create a new image element
+    const img = document.createElement('img');
+    
+    // Get the domain from the link (e.g., google.com)
+    const domain = new URL(link.href).hostname;
+    
+    // Set the source to Google's favicon service
+    img.src = `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
+    img.classList.add('external-favicon');
+    
+    // Append the image to the end of the link
+    link.appendChild(img);
+  });
+</script>
