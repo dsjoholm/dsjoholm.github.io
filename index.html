@@ -4,20 +4,42 @@ title: blog2
 nav_exclude: true
 # Note that this index page uses a full-width layout!
 ---
-# Welcome to my site!
+---
+layout: page
+---
 
-Yippee! We've got a nice home page, digne de confiance.
+<div style="text-align: center;">
+  <h1 style="font-size: 3rem; margin-bottom: 0.5em;">Welcome to my site!</h1>
+</div>
 
-<!-- 
-  <h1 class="content-listing-header sans">Articles</h1>
-  <ul class="content-listing ">
-    {% for post in site.posts %}      
-        <li class="listing">
-          <hr class="slender">
-          <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="contrast">{{ post.title }}</h3></a>
-          <br><span class="smaller">{{ post.date | date: "%B %-d, %Y" }}</span>  <br/>
-          <div>{{ post.excerpt }}</div> 
-        </li>
-    {% endfor %}
-  </ul> 
--->
+<p>Enter your first paragraph here. Talk about who you are and what you do. Tufte's style thrives on clear, concise prose.</p>
+
+<p>Enter your second paragraph here. You might mention your professional background or your current interests.</p>
+
+<p>Enter your third paragraph here. This is a good place to mention what visitors can expect to find on this site.</p>
+
+<hr class="slender">
+
+## Recent writings
+
+<ul style="list-style-type: none; padding-left: 0;">
+  {% for post in site.posts limit:5 %}
+    <li style="margin-bottom: 0.8em;">
+      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<hr class="slender">
+
+## Tags
+
+<div class="tag-cloud">
+  {% assign tags = site.tags | sort %}
+  {% for tag in tags %}
+    {% assign tag_name = tag[0] %}
+    <a href="{{ site.baseurl }}/tags#{{ tag_name | slugize }}" style="margin-right: 15px; display: inline-block;">
+      #{{ tag_name }}
+    </a>
+  {% endfor %}
+</div>
