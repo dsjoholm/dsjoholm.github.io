@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: full-width
 title: "Hello, and let me be the first to welcome myself to my new site"
 date: 2026-01-01
 ---
