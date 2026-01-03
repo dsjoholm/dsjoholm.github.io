@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "Blog1"
 nav_order: 1
 ---
