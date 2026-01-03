@@ -1,6 +1,6 @@
 ---
 layout: full-width
-title: "Blog1"
+title: "Posts and Writings"
 nav_order: 1
 ---
 
