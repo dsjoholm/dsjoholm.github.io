@@ -32,13 +32,18 @@ article a, .content a {
   position: relative;
 }
 
-/* --- External Link Styling (Targeted) --- */
+/* --- External Link Favicons --- */
 article a[href^="http"]::after, .content a[href^="http"]::after {
-  content: " ↗"; 
-  font-size: 0.7rem;
-  vertical-align: super;
-  margin-left: 2px;
-  opacity: 0.7;
+  content: ""; 
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 4px;
+  vertical-align: middle;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* This pulls the favicon dynamically based on the link's URL */
+  background-image: url('https://www.google.com/s2/favicons?sz=64&domain_url=' + attr(href));
 }
 
 /* --- Internal Link Styling (Targeted) --- */
@@ -69,7 +74,6 @@ h1 a, h2 a, h3 a, .post-title a {
 h1 a::after, h2 a::after, h3 a::after {
   content: "" !important; /* Removes the ↗ or logo icon */
 }
-
 
 
 
