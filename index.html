@@ -4,9 +4,6 @@ title: blog2
 nav_exclude: true
 # Note that this index page uses a full-width layout!
 ---
----
-layout: page
----
 
 <div style="text-align: center;">
   <h1 style="font-size: 3rem; margin-bottom: 0.5em;">Welcome to my site!</h1>
@@ -20,7 +17,7 @@ layout: page
 
 <hr class="slender">
 
-## Recent writings
+<h2>Recent writings</h2>
 
 <ul style="list-style-type: none; padding-left: 0;">
   {% for post in site.posts limit:5 %}
@@ -32,7 +29,7 @@ layout: page
 
 <hr class="slender">
 
-## Tags
+<h2>Tags</h2>
 
 <div class="tag-cloud">
   {% assign tags = site.tags | sort %}
