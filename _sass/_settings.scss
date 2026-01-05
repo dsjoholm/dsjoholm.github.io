@@ -64,10 +64,10 @@ article a:not([href^="http"]):not([href^="#"])::after,
   width: 20px;
   height: 20px;
   background-image: url('/assets/img/badge.png');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  margin-left: 3px;
-  margin-right: 3px;
+  margin-left: 6px;
+  margin-right: 6px;
   margin-top: 3px
 }
 
