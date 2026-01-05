@@ -204,7 +204,7 @@ header nav.group img.badge {
 header nav.group a { transform: translateY(-0.3rem); } */
 /* Nudge only the text links, not the logo link */
 header nav.group a:not(:first-child) {
-  transform: translateY(-0.75rem); /* Adjust this value specifically for the text */
+  transform: translateY(-1.1rem); /* Adjust this value specifically for the text */
 }
 
 /* Ensure the logo link stays at base zero */
