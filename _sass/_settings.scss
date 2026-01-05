@@ -113,7 +113,8 @@ h1 a::after, h2 a::after, h3 a::after {
 
 /* Title styling: Same size as body, Bold and Italic */
 #link-preview h3 { 
-  margin: 0 0 8px 0; 
+  margin: 0 0 8px 0;
+  font: Consolas;
   font-size: 0.95rem; 
   font-weight: 800 !important;
   color: #111;
@@ -125,6 +126,7 @@ h1 a::after, h2 a::after, h3 a::after {
 #link-preview p { 
   margin: 0; 
   width: 100%;
+  font: Consolas;
   font-size: 0.75rem;
   font-weight: 400 !important;
   font-style: italic;
