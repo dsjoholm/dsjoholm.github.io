@@ -1,5 +1,5 @@
 ---
-layout: full-width
+layout: page
 title: "Posts and Writings"
 nav_order: 1
 ---
