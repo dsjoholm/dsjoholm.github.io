@@ -176,22 +176,28 @@ footer hr.slender {
 }
 
 /* Trying to align toggle */
+/* --- Precise Header Alignment --- */
 header nav.group {
   display: flex !important;
+  align-items: center !important; /* Vertical center */
+  line-height: 1 !important;    /* Reset line height to prevent text from 'sitting' high */
+}
+
+header nav.group a, 
+header nav.group button {
+  display: inline-flex !important;
   align-items: center !important;
-  justify-content: flex-start;
-  padding: 1rem 0;
+  height: 100%;                  /* Forces them to share the same height context */
+  margin-top: 0 !important;      /* Removes Tufte default top margins */
+  margin-bottom: 0 !important;
+  vertical-align: middle !important;
 }
 
-/* Ensure the nav links have some breathing room from each other */
-header nav.group a {
-  margin-right: 15px;
+header nav.group img.badge {
+  display: block;
+  margin: 0 !important;          /* Prevents image margins from pushing the container */
 }
 
-/* Specific fix for the toggle button to ensure it doesn't move on mobile */
-#dark-mode-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-}
+/* If the text still feels a pixel or two too high, 
+   uncomment the line below to manually nudge it: */
+/* header nav.group a { transform: translateY(1px); } */
