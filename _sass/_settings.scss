@@ -152,3 +152,25 @@ footer hr.slender {
   /* Or use calc if the padding is fixed */
   /* margin-left: calc(-1 * var(--content-padding)); */
 }
+
+
+/* For the tag formatting */
+/* Specific styling for Home and Post tags */
+.tag-link, .post-tags a {
+  color: #d9534f !important; /* A nice red color */
+  background-color: transparent !important; /* Removes blue highlight */
+  padding: 0 !important;
+  display: inline !important; /* Ensures commas sit next to text */
+}
+
+/* Remove the internal logo icon from tags */
+.tag-link::after, .post-tags a::after {
+  content: "" !important;
+  display: none !important;
+}
+
+/* Spacing for the tag cloud container */
+.tag-cloud {
+  margin-top: 1rem;
+  line-height: 1.8; /* Adds space between rows of tags */
+}
