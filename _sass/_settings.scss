@@ -61,8 +61,8 @@ article a:not([href^="http"]):not([href^="#"])::after,
 .content a:not([href^="http"]):not([href^="#"])::after {
   content: ""; 
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   background-image: url('/assets/img/badge.png');
   background-size: cover;
   background-repeat: no-repeat;
