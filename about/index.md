@@ -1,5 +1,5 @@
 ---
-layout: full-width
+layout: page
 title: About Me
 nav_order: 4
 ---
