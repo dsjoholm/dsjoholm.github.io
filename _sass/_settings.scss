@@ -174,3 +174,24 @@ footer hr.slender {
   margin-top: 1rem;
   line-height: 1.8; /* Adds space between rows of tags */
 }
+
+/* Trying to align toggle */
+header nav.group {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start;
+  padding: 1rem 0;
+}
+
+/* Ensure the nav links have some breathing room from each other */
+header nav.group a {
+  margin-right: 15px;
+}
+
+/* Specific fix for the toggle button to ensure it doesn't move on mobile */
+#dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
