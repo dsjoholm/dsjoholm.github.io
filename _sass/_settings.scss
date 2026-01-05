@@ -152,3 +152,17 @@ footer hr.slender {
   /* Or use calc if the padding is fixed */
   /* margin-left: calc(-1 * var(--content-padding)); */
 }
+
+/* Controlling index.html post list */
+/* Allow the recent posts list to use the full page width */
+.fullwidth-list {
+  width: 100% !important;
+  max-width: 90% !important; /* Adjust this % if it hits the very edge */
+}
+
+.fullwidth-list li {
+  width: 100%;
+  /* This prevents the text from wrapping to a second line */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ... if the title is somehow longer than the whole screen */
+}
