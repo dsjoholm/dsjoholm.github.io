@@ -1,5 +1,5 @@
 ---
-layout: full-width
+layout: page
 title: "My Projects"
 nav_order: 2
 ---
