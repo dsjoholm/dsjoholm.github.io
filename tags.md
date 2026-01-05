@@ -2,7 +2,7 @@
 layout: page
 title: Tags
 permalink: /tags/
-nav_exclude = true
+nav_exclude: true
 ---
 
 {% assign tags = site.tags | sort %}
