@@ -217,3 +217,27 @@ header nav.group a:first-child {
   transform: translateY(-0.15); /* Adjust this separately if needed */
 }
 
+
+/* Trying to center */
+/* Center the main content column */
+article, .content, .post {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 900px; /* Adjust this to control how wide the total area is */
+  padding-left: 5%;
+  padding-right: 5%;
+  float: none !important; /* Tufte sometimes uses floats which break centering */
+}
+
+/* Adjust the text body width within that centered block */
+article > section, 
+.post-content {
+  width: 60%; /* This is the 'Tufte' standard for the main text column */
+  margin: 0 auto 0 0; /* Keeps the text on the left of its container, leaving room for sidenotes on the right */
+}
+header, footer {
+  max-width: 900px; /* Must match the article/content max-width above */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 5%;
+}
