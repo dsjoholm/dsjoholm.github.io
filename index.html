@@ -19,9 +19,9 @@ nav_exclude: true
 
 <h2>Recent writings</h2>
 
-<ul class="fullwidth-list" style="list-style-type: none; padding-left: 0;">
+<ul style="list-style-type: none; padding-left: 0;">
   {% for post in site.posts limit:5 %}
-    <li style="margin-bottom: 0.8em>
+    <li style="margin-bottom: 0.8em;">
       <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
     </li>
   {% endfor %}
