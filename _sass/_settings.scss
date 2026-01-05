@@ -176,28 +176,39 @@ footer hr.slender {
 }
 
 /* Trying to align toggle */
-/* --- Precise Header Alignment --- */
+/* --- Hard Reset for Header Alignment --- */
 header nav.group {
   display: flex !important;
-  align-items: center !important; /* Vertical center */
-  line-height: 1 !important;    /* Reset line height to prevent text from 'sitting' high */
+  align-items: center !important;
+  height: 60px; /* Force a fixed height for the nav bar to align within */
 }
 
 header nav.group a, 
-header nav.group button {
-  display: inline-flex !important;
-  align-items: center !important;
-  height: 100%;                  /* Forces them to share the same height context */
-  margin-top: 0 !important;      /* Removes Tufte default top margins */
-  margin-bottom: 0 !important;
-  vertical-align: middle !important;
+header nav.group button,
+header nav.group div {
+  display: flex !important;
+  align-items: center !important; /* Force vertical centering */
+  margin: 0 10px 0 0 !important; /* Standardize margins */
+  padding: 0 !important;
+  border: none !important;
+  text-decoration: none !important;
+  height: 100% !important; /* Make every item fill the 60px height */
+}
+
+/* Remove Tufte's default bottom border/padding that nudges links up */
+header nav.group a {
+  border-bottom: none !important;
 }
 
 header nav.group img.badge {
-  display: block;
-  margin: 0 !important;          /* Prevents image margins from pushing the container */
+  max-height: 40px; /* Adjust based on your badge size */
+  width: auto;
+  display: block !important;
+  margin: 0 !important;
 }
 
-/* If the text still feels a pixel or two too high, 
-   uncomment the line below to manually nudge it: */
-header nav.group a { transform: translateY(-3rem); }
+/* Specific nudge: If text still looks high/low, use this specific property */
+header nav.group a, 
+header nav.group .nav-dot {
+  line-height: 0 !important; /* Collapses text box to just the character size */
+}
