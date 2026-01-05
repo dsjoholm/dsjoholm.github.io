@@ -216,3 +216,28 @@ header nav.group a:first-child {
 #dark-mode-toggle {
   transform: translateY(-0.15); /* Adjust this separately if needed */
 }
+
+
+
+/* Stoppimg site from going off to the right */
+/* Prevent horizontal overflow and shifting */
+html, body {
+  overflow-x: hidden; /* Stops the horizontal scrollbar */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure the main Tufte layout doesn't push beyond the screen */
+#layout {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Force the header and footer to stay centered relative to the screen */
+header, footer {
+  width: 100%;
+  max-width: 90%; /* Or whatever width your 'page' layout uses */
+  margin-left: auto;
+  margin-right: auto;
+}
