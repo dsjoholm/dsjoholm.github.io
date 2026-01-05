@@ -43,7 +43,8 @@
 
 <script>
 const previewBox = document.getElementById('link-preview');
-const internalLinks = document.querySelectorAll('article a:not([href^="http"])');
+const internalLinks = Array.from(document.querySelectorAll('article a:not([href^="http"])'))
+                           .filter(link => !link.getAttribute('href').includes('/tags'));
 
 internalLinks.forEach(link => {
   link.addEventListener('mouseenter', async (e) => {
