@@ -200,5 +200,19 @@ header nav.group img.badge {
 
 /* If the text still feels a pixel or two too high, 
    uncomment the line below to manually nudge it: */
-/* header nav.group a { transform: translateY(1px); } */
-header nav.group a { transform: translateY(-0.3rem); }
+/* header nav.group a { transform: translateY(1px); } 
+header nav.group a { transform: translateY(-0.3rem); } */
+/* Nudge only the text links, not the logo link */
+header nav.group a:not(:first-child) {
+  transform: translateY(-0.75rem); /* Adjust this value specifically for the text */
+}
+
+/* Ensure the logo link stays at base zero */
+header nav.group a:first-child {
+  transform: none !important;
+}
+
+/* Ensure the Dark Mode button is also independent */
+#dark-mode-toggle {
+  transform: translateY(0); /* Adjust this separately if needed */
+}
