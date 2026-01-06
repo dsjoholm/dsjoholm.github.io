@@ -3,7 +3,7 @@
 
   
   <!-- Statistics Section -->
-  <div class="footer-stats" style="text-align: center; margin-bottom: 1.5rem; font-size: 0.6rem; line-height: 1.8;">
+  <div class="footer-stats credits" style="text-align: center; margin-bottom: 1.5rem;">
     {% assign total_words = 0 %}
     {% assign book_review_count = 0 %}
     {% assign travel_count = 0 %}
@@ -26,13 +26,12 @@
       {% endif %}
     {% endfor %}
     
-    <p style="margin: 0.5rem 0;">Total number of words I've written in this space: <strong>{{ total_words | number_with_delimiter: ',' }}</strong></p>
-    <p style="margin: 0.5rem 0;">Book reviews I've written: <strong>{{ book_review_count }}</strong></p>
-    <p style="margin: 0.5rem 0;">Travel narratives I've written: <strong>{{ travel_count }}</strong></p>
-    <p style="margin: 0.5rem 0;">Urban planning posts I've written: <strong>{{ urban_planning_count }}</strong></p>
+    <span style="display: block; margin: 0.5rem 0;">Total number of words I've written in this space: <strong>{{ total_words | number_with_delimiter: ',' }}</strong></span>
+    <span style="display: block; margin: 0.5rem 0;">Book reviews I've written: <strong>{{ book_review_count }}</strong></span>
+    <span style="display: block; margin: 0.5rem 0;">Travel narratives I've written: <strong>{{ travel_count }}</strong></span>
+    <span style="display: block; margin: 0.5rem 0;">Urban planning posts I've written: <strong>{{ urban_planning_count }}</strong></span>
   </div>
 
-    
   <ul class="footer-links">
     <li><a href="mailto:dsjoholm22@gmail.com"><span class="icon-mail3"></span></a></li>    
     {% for entry in site.data.social %}
