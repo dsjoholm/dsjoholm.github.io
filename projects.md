@@ -3,7 +3,6 @@ layout: page
 title: "My Projects"
 nav_order: 2
 ---
-# My Work
 
 Check out my latest work below:
 
