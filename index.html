@@ -16,7 +16,7 @@ nav_exclude: true
   
   <hr class="slender">
   
-  <h1 style="font-size: 1.5rem; ">Recent Writings</h1>
+  <h1 style="font-size: 2.25rem; ">Recent Writings</h1>
   
   <ul style="list-style-type: none; padding-left: 0;">
     {% for post in site.posts limit:5 %}
@@ -28,7 +28,7 @@ nav_exclude: true
   
   <hr class="slender">
   
-  <h1 style="margin-bottom: 1.5rem;">Tags</h1> <div class="tag-cloud">
+  <h1 style="margin-bottom: 1.5rem; font-size: 2.25rem;">Tags</h1> <div class="tag-cloud">
     {% assign tags = site.tags | sort %}
     {% for tag in tags %}
       {% assign tag_name = tag[0] %}
