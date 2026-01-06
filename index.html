@@ -18,7 +18,7 @@ nav_exclude: true
   
   <h2>Recent writings</h2>
   
-  <ul style="list-style-type: none; padding-left: 0;">
+  <ul style="list-style-type: none; padding-left: 0; text-align: center;">
     {% for post in site.posts limit:5 %}
       <li style="margin-bottom: 0.8em;">
         <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -28,7 +28,7 @@ nav_exclude: true
   
   <hr class="slender">
   
-  <h2 style="margin-bottom: 1.5rem;">Tags</h2> <div class="tag-cloud">
+  <h2 style="margin-bottom: 1.5rem; text_align: center;">Tags</h2> <div class="tag-cloud">
     {% assign tags = site.tags | sort %}
     {% for tag in tags %}
       {% assign tag_name = tag[0] %}
