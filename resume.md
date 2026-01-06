@@ -4,8 +4,6 @@ title: "My Resume"
 nav_order: 3
 ---
 
-# My Professional Experience
-
 ### Education
 * University of Example, 2022
 
