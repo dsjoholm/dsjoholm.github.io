@@ -4,8 +4,6 @@ title: "Posts and Writings"
 nav_order: 1
 ---
 
-# My Blog
-
 {% for post in site.posts %}
   <p>
     <span>{{ post.date | date: "%b %-d, %Y" }}</span> — 
