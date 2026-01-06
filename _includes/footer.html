@@ -1,5 +1,38 @@
 <footer>
   <hr class="slender"> <!-- Not going all the way to the end of the page -->
+
+  
+  <!-- Statistics Section -->
+  <div class="footer-stats" style="text-align: center; margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.8;">
+    {% assign total_words = 0 %}
+    {% assign book_review_count = 0 %}
+    {% assign travel_count = 0 %}
+    {% assign urban_planning_count = 0 %}
+    
+    {% for post in site.posts %}
+      {% assign words = post.content | number_of_words %}
+      {% assign total_words = total_words | plus: words %}
+      
+      {% if post.tags contains "book-review" %}
+        {% assign book_review_count = book_review_count | plus: 1 %}
+      {% endif %}
+      
+      {% if post.tags contains "travel" %}
+        {% assign travel_count = travel_count | plus: 1 %}
+      {% endif %}
+      
+      {% if post.tags contains "urban-planning" %}
+        {% assign urban_planning_count = urban_planning_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    
+    <p style="margin: 0.5rem 0;">Total number of words I've written in this space: <strong>{{ total_words | number_with_delimiter: ',' }}</strong></p>
+    <p style="margin: 0.5rem 0;">Book reviews I've written: <strong>{{ book_review_count }}</strong></p>
+    <p style="margin: 0.5rem 0;">Travel narratives I've written: <strong>{{ travel_count }}</strong></p>
+    <p style="margin: 0.5rem 0;">Urban planning posts I've written: <strong>{{ urban_planning_count }}</strong></p>
+  </div>
+
+    
   <ul class="footer-links">
     <li><a href="mailto:dsjoholm22@gmail.com"><span class="icon-mail3"></span></a></li>    
     {% for entry in site.data.social %}
