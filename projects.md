@@ -6,4 +6,4 @@ nav_order: 2
 
 Check out my latest work below:
 
-* [Project One Title](google.com) (We will link this later)
+* [Project One Title](https://www.google.com) (We will link this later)
