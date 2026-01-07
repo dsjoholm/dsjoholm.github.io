@@ -8,6 +8,8 @@ hide_header: true
 
 [🇫🇷 Mon CV complet en français](https://drive.google.com/file/d/1-MHpF3aj8yGbr6VRuiq5a72YP1IO2x1E/view?usp=sharing)
 
+# Education
+
 ### University of California, Los Angeles (UCLA)
 
 Master in Urban and Regional Planning, Transportation Policy and Planning concentration
