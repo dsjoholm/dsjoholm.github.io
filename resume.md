@@ -23,9 +23,10 @@ Master in Governing the Large Metropolis, focused on **transportation-related go
 ## University of California, San Diego (UCSD)
 * Bachelor in Urban Studies and Planning, Computational Social Sciences minor
 * GPA: 3.99, graduated Summa Cum Laude
-{% sidenote 'sn-id-3' 'Advanced GIS for Planners; Planning for Sustainable Communities; and Transportation Planning'%}  
 
+<br>
 <hr class="slender">
+<br>
 
 # Professional Experience
 
