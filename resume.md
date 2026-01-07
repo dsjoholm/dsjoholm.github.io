@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: "My Resume"
 nav_order: 3
 ---
