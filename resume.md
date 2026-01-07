@@ -25,6 +25,7 @@ Master in Governing the Large Metropolis, focused on **transportation-related go
 * GPA: 3.99, graduated Summa Cum Laude
 {% sidenote 'sn-id-3' 'Advanced GIS for Planners; Planning for Sustainable Communities; and Transportation Planning'%}  
 
+<hr class="slender">
 
 # Professional Experience
 
