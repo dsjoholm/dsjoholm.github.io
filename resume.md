@@ -3,8 +3,8 @@ layout: page
 title: "My Resume"
 nav_order: 3
 ---
-[🇺🇸 My full resumé in English](https://drive.google.com/file/d/1gAfp7HGP0uetJ7o1YLeIonFcF3vj3c-x/view?usp=sharing) 
-[🇫🇷 Mon CV complet en français](https://drive.google.com/file/d/1-MHpF3aj8yGbr6VRuiq5a72YP1IO2x1E/view?usp=sharing)
+* [🇺🇸 My full resumé in English](https://drive.google.com/file/d/1gAfp7HGP0uetJ7o1YLeIonFcF3vj3c-x/view?usp=sharing) 
+* [🇫🇷 Mon CV complet en français](https://drive.google.com/file/d/1-MHpF3aj8yGbr6VRuiq5a72YP1IO2x1E/view?usp=sharing)
 
 ## University of California, Los Angeles (UCLA)
 * Master in Urban and Regional Planning, Transportation Policy and Planning concentration
