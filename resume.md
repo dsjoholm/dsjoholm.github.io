@@ -22,7 +22,7 @@ Master in Governing the Large Metropolis, focused on **transportation-related go
 
 ## University of California, San Diego (UCSD)
 * Bachelor in Urban Studies and Planning, Computational Social Sciences minor
-* GPA: 3.99, graduated Summa Cum Laude hdhwhwdhd{% sidenote 'sn-id-3' 'Advanced GIS for Planners; Planning for Sustainable Communities; and Transportation Planning'%} 
+* GPA: 3.99, graduated Summa Cum Laude hdhwhwdhd
 
 # Professional Experience
 
@@ -30,4 +30,4 @@ Master in Governing the Large Metropolis, focused on **transportation-related go
 
 Bellevue, WA, USA (June 2025 - August 2025)
 
-In this role, my first one at a private consulting company, I worked in CDM Smith's innovative road user charging team and participated in multiple projects. To aid a redesign of Chicago's I-290 Corridor, I wrote policy and funding recommendations for Illinois’ Blue Ribbon Commission on Transportation Infrastructure Funding and Policy. I helped implement and analyze data in support of new tolling technology in Washington State, and performed subsidy analyses for road user charge studies in Washington and Nevada. 
+In this role, my first one at a private consulting company, I worked in CDM Smith's innovative road user charging team and participated in multiple projects. To aid a redesign of Chicago's I-290 Corridor, I wrote policy and funding recommendations for Illinois’ Blue Ribbon Commission on Transportation Infrastructure Funding and Policy. I helped implement and analyze data in support of new tolling technology in Washington State, and performed subsidy analyses for road user charge studies in Washington and Nevada.{% sidenote 'sn-id-3' 'Advanced GIS for Planners; Planning for Sustainable Communities; and Transportation Planning'%}  
