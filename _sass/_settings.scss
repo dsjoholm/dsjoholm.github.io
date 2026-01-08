@@ -98,10 +98,11 @@ h1 a::after, h2 a::after, h3 a::after {
   position: absolute;
   visibility: hidden;
   opacity: 0;
-  width: 280px; /* Slightly wider for better readability */
+  width: 350px; /* Slightly wider for better readability */
+  height: 425px;
   background-color: #ffffff;
   border: 1px solid #ddd;
-  padding: 12px; /* Uniform padding */
+  padding: 15px; /* Uniform padding */
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   z-index: 1000;
@@ -117,7 +118,7 @@ h1 a::after, h2 a::after, h3 a::after {
 #link-preview h3 { 
   margin: 0 0 8px 0;
   font: Consolas;
-  font-size: 0.95rem; 
+  font-size: 1.2rem; 
   font-weight: 800 !important;
   color: #111;
   display: block;
