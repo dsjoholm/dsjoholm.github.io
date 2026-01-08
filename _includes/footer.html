@@ -93,13 +93,28 @@ internalLinks.forEach(link => {
       const text = await response.text();
       const parser = new DOMParser();
       const doc = parser.parseFromString(text, 'text/html');
-      
-      const title = doc.querySelector('title').innerText.split('|')[0];
-      const snippet = doc.querySelector('p').innerText.substring(0, 100) + '...';
 
+      // Get title
+      const title = doc.querySelector('title').innerText.split('|')[0];
+
+      // Get the second paragraph from the article
+      const article = doc.querySelector('article');
+      const paragraphs = article ? article.querySelectorAll('p') : doc.querySelectorAll('p');
+      
+      let snippet = '';
+      if (paragraphs.length >= 2) {
+        // Get the second paragraph (index 1)
+        snippet = paragraphs[1].innerText.substring(0, 300).trim() + '...';
+      } else if (paragraphs.length === 1) {
+        // Fallback to first if there's only one
+        snippet = paragraphs[0].innerText.substring(0, 300).trim() + '...';
+      } else {
+        snippet = 'No preview available.';
+      }
+      
       previewBox.innerHTML = `<h3>${title}</h3><p>${snippet}</p>`;
     } catch (err) {
-      previewBox.innerHTML = `<p>Loading preview...</p>`;
+      previewBox.innerHTML = `<p>Could not load preview.</p>`;
     }
   });
 
