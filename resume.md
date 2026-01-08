@@ -24,7 +24,7 @@ GPA: 3.9{% sidenote 'sn-id-1' 'Relevant courses include: Land Use and Transporta
 
 Master in Governing the Large Metropolis, focused on **transportation-related governance problems** in large cities worldwide{% sidenote 'sn-id-2' 'Relevant courses include: Urban Infrastructure Management; Data Analysis, AI, and Cartography; and AI and Strategic Planning for Major Projects'%}
 
-## University of California, San Diego (UCSD)
+### University of California, San Diego (UCSD)
 * Bachelor in Urban Studies and Planning, Computational Social Sciences minor
 * GPA: 3.99, graduated Summa Cum Laude
 
@@ -50,19 +50,19 @@ As a student researcher, I was actively involved in both academic- and community
 
 San Diego, CA, USA (August 2022 - April 2024)
 
-I had two main roles in this position. First of all, I used the San Diego Supercomputer Center's resources to monitor and model, in real time, fires emerging throughout the state and communicate information about their potential risk and danger to firefighters on the ground. I also used proprietary climate and transportation data in order to analyze the risk climate change poses to California’s roads and rail rights-of-way.
+I had two main roles in this position. First of all, I used the San Diego Supercomputer Center's resources to monitor and model, in real time, fires emerging throughout the state and communicate information about their potential **risk and danger** to firefighters on the ground. I also used proprietary climate and transportation data in order to **analyze the risk climate change poses** to California’s roads and rail rights-of-way.
 
 ### Airport Transit and Planning Intern, San Diego Airport
 
 San Diego, CA, USA (June 2023 - August 2023)
 
-My main charge as an airport transit intern was to propose a redesign of a bus route connecting the airport to a nearby rail station. To do this, I authored and deployed a comprehensive rider survey studying the quality public bus service to the airport and used transportation modeling software to recommend a new bus route, improved frequency, and better wayfinding. These proposals were later put into practice by the airport.
+My main charge as an airport transit intern was to propose a **wholesale redesign of a bus route** connecting the airport to a nearby rail station. To do this, I authored and deployed a comprehensive rider survey studying the quality public bus service to the airport and used transportation modeling software to recommend a new bus route, improved frequency, and better wayfinding. These proposals were later put into practice by the airport.
 
 ### Undergraduate Research Intern, UC San Diego Climate Action Resilience Scholars
 
 San Diego, CA, USA (January 2023 - June 2023)
 
-This role, which was both a class and an internship, allowed me to more deeply engage in the San Diego community through environmental justice activism. With 25 fellow student interns, I helped organize educational festivals and engaged in project-based collaborative research and activism with six local environmental justice organizations. I also produced, wrote, and widely distributed a research-based newspaper covering transportation policy and food systems.{% sidenote 'sn-id-3' 'Please see the "Projects" tab for a link to this'%}
+This role, which was both a class and an internship, allowed me to more deeply engage in the San Diego community through environmental justice activism. With 25 fellow student interns, I helped **organize educational festivals** and engaged in project-based collaborative research and activism with six local environmental justice organizations. I also produced, wrote, and widely distributed a **research-based newspaper** covering transportation policy and food systems.{% sidenote 'sn-id-3' 'Please see the "Projects" tab for a link to this'%}
 
 ### Cashier, Target
 
