@@ -99,7 +99,7 @@ h1 a::after, h2 a::after, h3 a::after {
   visibility: hidden;
   opacity: 0;
   width: 350px; /* Slightly wider for better readability */
-  height: 200px;
+  max-height: 200px;
   background-color: #ffffff;
   border: 1px solid #ddd;
   padding: 15px; /* Uniform padding */
