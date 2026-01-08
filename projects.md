@@ -4,7 +4,7 @@ title: "My Projects"
 nav_order: 2
 ---
 
-Please check out my various projects below:
+Please check out some various projects of mine below:
 
 [Pathways to Perseverance](https://drive.google.com/file/d/1H1NM52nMWLzavGJf20MrzRbr-hxBNSmb/view): My undergraduate thesis. Compares coastal railway systems in California and the Netherlands, gives suggestions on improving climate resilience of coastal transportation networks.
 
