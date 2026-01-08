@@ -42,10 +42,10 @@ article a, .content a {
 
 /* Style for the favicon we will inject via JavaScript */
 .external-favicon {
-  width: 14px;
-  height: 14px;
+  width: 9px;
+  height: 9px;
   margin-left: 5px;
-  vertical-align: middle;
+  vertical-align: super;
   border-radius: 2px;
   display: inline-block;
 }
