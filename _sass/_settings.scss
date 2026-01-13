@@ -7,26 +7,26 @@ $body-font: ETBembo, "Chronicle Text G2", Palatino, "Palatino Linotype", "Palati
 $sans-font: "Gill Sans", "Gill Sans MT", "Gotham Narrow", "Lato", Calibri, sans-serif;
 $code-font: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 $url-font: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;
-$text-color: #333333;
-$bg-color: #fffff8;
-$contrast-color: #5a97f2;
-$border-color: #333333;
+$text-color: #eeeeee;
+$bg-color: #111111;
+$contrast-color: #8bb9fe;
+$border-color: #cccccc;
 $link-style: color; // choices are 'color' or 'underline'. Color option styles links with $contrast-color set above
 
 /* Dark mode styles */
-body.dark-mode {
-  background-color: #111111 !important;
-  color: #eeeeee !important; /* this is the text color, I think */
+body.light-mode {
+  background-color: #fffff8 !important;
+  color: #333333 !important; /* this is the text color, I think */
 }
 /* Ensure links and sidenotes are visible in dark mode */
-body.dark-mode a { color: #8bb9fe; } /* this is the highlight or contrast color, I think */
-body.dark-mode .sidenote, body.dark-mode .marginnote { color: #bbbbbb; }
+body.light-mode a { color: #5a97f2; } /* this is the highlight or contrast color, I think */
+body.light-mode .sidenote, body.light-mode .marginnote { color: #666666; }
 
 /* Make the horizontal rules visible in dark mode */
-body.dark-mode hr, 
-body.dark-mode hr.slender {
-  border-top: 1px solid #444 !important;
-  background-color: #444 !important;
+body.light-mode hr, 
+body.light-mode hr.slender {
+  border-top: 1px solid #333 !important;
+  background-color: #333 !important;
   opacity: 0.6;
 }
 
@@ -104,8 +104,8 @@ h1 a::after, h2 a::after, h3 a::after {
   min-height: 60px;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
+  background-color: #1a1a1a;
+  border: 1px solid #444;
   padding: 15px; /* Uniform padding */
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -114,7 +114,7 @@ h1 a::after, h2 a::after, h3 a::after {
   pointer-events: none;
   font-size: 0.95rem; /* Base font size */
   line-height: 1.4;
-  color: #333;
+  color: #eee;
   text-align: left;
 }
 
@@ -124,7 +124,7 @@ h1 a::after, h2 a::after, h3 a::after {
   font: Consolas;
   font-size: 1.2rem; 
   font-weight: 800 !important;
-  color: #111;
+  color: #fff;
   display: block;
   width: 100%;
 }
@@ -141,12 +141,12 @@ h1 a::after, h2 a::after, h3 a::after {
 }
 
 /* Dark mode adjustments */
-body.dark-mode #link-preview {
-  background-color: #1a1a1a;
-  border-color: #444;
-  color: #eee;
+body.light-mode #link-preview {
+  background-color: #ffffff;
+  border-color: #ddd;
+  color: #333;
 }
-body.dark-mode #link-preview h3 { color: #fff; }
+body.light-mode #link-preview h3 { color: #111; }
 
 /* This should try to fix the footer slender */
 footer hr.slender {
