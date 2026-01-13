@@ -51,13 +51,22 @@
   const body = document.body;
 
   // Check for saved preference
-  if (localStorage.getItem('theme') === 'dark') {
+  // 1. Check for saved preference OR browser settings
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
     body.classList.add('dark-mode');
   }
 
   toggle.addEventListener('click', () => {
+    // 2. Toggle the class
     body.classList.toggle('dark-mode');
-    // Save preference
+    
+    // 3. Explicitly remove "light-mode" if the theme added it via layout
+    if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+    }
+
+    // 4. Save preference
     if (body.classList.contains('dark-mode')) {
       localStorage.setItem('theme', 'dark');
     } else {
