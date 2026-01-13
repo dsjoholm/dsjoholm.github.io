@@ -34,14 +34,12 @@
 
   <ul class="footer-links">
     <li><a href="mailto:dsjoholm22@gmail.com"><span class="icon-mail3"></span></a></li>    
-    <li><a href="https://www.linkedin.com/in/d-sjoholm/"><span class="icon-linkedin"></span></a></li>
-    <li><a href="https://www.github.com/dsjoholm"><span class="icon-github"></span></a></li>
-    <!-- {% for entry in site.data.social %}
+    {% for entry in site.data.social %}
       <li>
         <a href="{{ entry.link }}"><span class="{{ entry.icon }}"></span></a>
       </li>
     {% endfor %}  
-  </ul> -->
+  </ul>
 <div class="credits">
 <span>&copy; {{ site.time | date: '%Y' }} &nbsp;&nbsp;{{site.author | upcase }}</span></br> <br>
 <span>This site created with the <a href="//github.com/clayh53/tufte-jekyll">Tufte theme</a> in <a href="//jekyllrb.com">Jekyll</a>. All errors are my own, unless they are major, in which case they are somebody else’s fault but I would appreciate knowing about them so as to determine who is to blame.</span> 
