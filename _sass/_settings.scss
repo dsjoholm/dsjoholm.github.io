@@ -103,6 +103,7 @@ h1 a::after, h2 a::after, h3 a::after {
   max-height: 200px;
   min-height: 60x;
   overflow-y: auto;
+  overflow-x: hidden;
   background-color: #ffffff;
   border: 1px solid #ddd;
   padding: 15px; /* Uniform padding */
