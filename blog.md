@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Posts and Writings"
+title: "Writings"
 nav_order: 1
 ---
 
