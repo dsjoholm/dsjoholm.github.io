@@ -644,3 +644,78 @@ hr.slender {
   content: "\eae4";
 }
 /*-- End of Icomoon icon font section --*/
+
+/*-- For the email signup button --*/
+/* Email signup form styling */
+.email-signup {
+  text-align: center;
+  margin: 1.5rem auto 2rem;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-width: 500px;
+  background-color: #fafafa;
+}
+
+.email-signup h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.email-signup p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.email-signup form {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.email-signup input[type="email"] {
+  flex: 1;
+  max-width: 300px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #fff;
+  color: #333;
+}
+
+.email-signup button {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background-color: #5a97f2;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 400;
+  transition: background-color 0.2s ease;
+}
+
+.email-signup button:hover {
+  background-color: #4080db;
+}
+
+/* Dark mode styling */
+body.dark-mode .email-signup {
+  background-color: #1a1a1a;
+  border-color: #444;
+}
+
+body.dark-mode .email-signup input[type="email"] {
+  background-color: #2a2a2a;
+  border-color: #555;
+  color: #eee;
+}
+
+body.dark-mode .email-signup input[type="email"]::placeholder {
+  color: #888;
+}
