@@ -21,6 +21,24 @@ nav_exclude: true
   but probably made some mistakes when setting up and designing it.</p>
   
   <hr class="slender">
+
+  
+  <div style="text-align: center;">
+    <h1 style="font-size: 1.5rem; margin-bottom: 0.5em;">A cat selected just for you</h1>
+  </div>
+  
+  <div style="text-align: center; margin: 2rem 0;">
+  <img id="random-cat" 
+       alt="Random cat" 
+       style="max-width: 400px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  </div>
+
+  <script>
+  document.getElementById('random-cat').src = 
+    'https://cataas.com/cat/says/Hello!?type=square&position=center&font=Impact&fontSize=50&fontColor=%23fff&fontBackground=none&' + new Date().getTime();
+  </script>
+
+  <hr class="slender">
   
   <h1 style="font-size: 2.25rem; ">Recent Writings</h1>
   
