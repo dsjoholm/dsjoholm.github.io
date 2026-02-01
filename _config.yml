@@ -1,4 +1,5 @@
-baseurl: /tufte-jekyll
+url: "https://dsjoholm.github.io"
+baseurl: ""
 title: A site about bits and bobs
 subtitle: Daniel's website
 author: Daniel Sjoholm
