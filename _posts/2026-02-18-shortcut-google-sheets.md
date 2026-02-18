@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Shortcut to connect iPhone to Google Sheets"
+title: "I really enjoy Apple Shortcuts"
 date: 2026-02-18
 tags:
   - tech
@@ -14,3 +14,5 @@ It is easy to use and virtually foolproof.
 Link to the Shortcut can be found (here)[https://www.icloud.com/shortcuts/f866b7c7b2db4520bca9d708b513016a]. 
 
 This is only a slight modification of the template laid out (here)[https://thiagoalves.ai/sending-data-to-google-sheets-using-ios-shortcuts/] by Thiago Alves. He did the hard work, I just modified the input to be numeric and stripped out part of his Shortcut I did not find necessary.
+
+Anyway, Apple Shortcuts is a terrific functionality. The uses for it are endless and it's highly adaptable to whatever situation you find yourself in.
