@@ -8,7 +8,7 @@ Please check out some various projects of mine below:
 
 [Extreme Heat and Community Resilience Evaluation Project](https://drive.google.com/file/d/1TeFDEzoELQkyUsLml4YWCxpjPq8kEEPW/view?usp=sharing): My graduate thesis at Sciences Po Paris, completed in a group of 6. Summarizes our travels and interviews in Europe, and makes recommendations for decision-makers in California. Tackles issues of high heat in terms of systems planning, architectural regulations, governmental prioritization, and transportation.
 
-[Pathways to Perseverance](https://drive.google.com/file/d/1H1NM52nMWLzavGJf20MrzRbr  -hxBNSmb/view): My undergraduate thesis at UC San Diego. Compares coastal railway systems in California and the Netherlands, gives suggestions on improving climate resilience of coastal transportation networks.
+[Pathways to Perseverance](https://drive.google.com/file/d/1ufpty-Amr9b8-xMEMLh_Ce3z4vTgbBuD/view?usp=sharing): My undergraduate thesis at UC San Diego. Compares coastal railway systems in California and the Netherlands, gives suggestions on improving climate resilience of coastal transportation networks.
 
 [Burdens for Affordable Housing Residents in San Diego](https://ucits.org/projects/examining-transportation-access-and-cost-burdens-for-affordable-housing-residents-in-san-diego/): A Homelessness Hub project. Using quantitative and qualitative methods, we determined the transportation burden—both monetary and temporal—for people living in 6 low-income housing developments in San Diego.
 
