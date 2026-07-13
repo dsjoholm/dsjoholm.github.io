@@ -22,7 +22,9 @@ GPA: 3.9{% sidenote 'sn-id-1' 'Relevant courses include: Land Use and Transporta
 
 ### Paris Institute of Political Science (Sciences Po Paris)
 
-Master in Governing the Large Metropolis, focused on **transportation-related governance problems** in large cities worldwide{% sidenote 'sn-id-2' 'Relevant courses include: Urban Infrastructure Management; Data Analysis, AI, and Cartography; and AI and Strategic Planning for Major Projects'%}
+Master in Governing the Large Metropolis, focused on **transportation-related governance problems** in large cities worldwide
+
+GPA: 17/20, graduated Summa Cum Laude{% sidenote 'sn-id-2' 'Relevant courses include: Urban Infrastructure Management; Data Analysis, AI, and Cartography; and AI and Strategic Planning for Major Projects'%}
 
 ### University of California, San Diego (UCSD)
 * Bachelor in Urban Studies and Planning, Computational Social Sciences minor
