@@ -8,7 +8,7 @@ hide_header: true
 
 [🇫🇷 Mon CV complet en français](https://drive.google.com/file/d/1-MHpF3aj8yGbr6VRuiq5a72YP1IO2x1E/view?usp=sharing)
 
-[My urban planning and design portfolio](https://drive.google.com/file/d/1CMMcu7o3FerJWOXt3EJ8FhtHy5-RwDAM/view?usp=sharing)
+[My urban planning and design portfolio](https://drive.google.com/file/d/124P7aUp5dcPLhyJlRjIR-3AJHqySNTLi/view?usp=sharing)
 
 <br>
 <hr class="slender">
