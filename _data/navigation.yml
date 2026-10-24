@@ -6,5 +6,7 @@
   url: /posts/
 - title: books
   url: /books/
+- title: lists
+  url: /lists/
 - title: cv
   url: /resume.html

@@ -1,0 +1,12 @@
+---
+layout: default
+---
+{% if page.updated %}<p class="list-updated">last updated: {{ page.updated | date: "%B %-d, %Y" | downcase }}</p>{% endif %}
+<h1>{{ page.title }}</h1>
+{% if page.description %}<p class="subtitle">{{ page.description }}</p>{% endif %}
+
+<div class="list-body">
+{{ content }}
+</div>
+
+<p class="list-back"><a href="{{ '/lists/' | relative_url }}">← all lists</a></p>

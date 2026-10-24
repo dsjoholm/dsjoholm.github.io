@@ -21,3 +21,15 @@ page:
   extension: md
 git:
   branch: master
+
+# Lists: one Markdown file each in the _lists folder, shown at /lists/<file-name>/
+collections:
+  lists:
+    output: true
+    permalink: /lists/:name/
+
+defaults:
+  - scope:
+      type: lists
+    values:
+      layout: list

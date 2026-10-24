@@ -1,7 +1,17 @@
 <header>
   <nav class="site-nav">
     {% for item in site.data.navigation %}
-      <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} class="active" aria-current="page"{% endif %}>[{{ item.title }}]</a>
+      {% comment %} Highlight the section you're in: its own page, pages inside it
+         (e.g. /lists/films/ for /lists/), and any post for [posts]. {% endcomment %}
+      {% assign here = page.url | remove: ".html" %}
+      {% assign target = item.url | remove: ".html" %}
+      {% assign prefix = here | slice: 0, target.size %}
+      {% assign current = false %}
+      {% if here == target %}{% assign current = true %}
+      {% elsif target != "/" and prefix == target %}{% assign current = true %}
+      {% elsif item.url == "/posts/" and page.layout == "post" %}{% assign current = true %}
+      {% endif %}
+      <a href="{{ item.url | relative_url }}"{% if current %} class="active" aria-current="page"{% endif %}>[{{ item.title }}]</a>
     {% endfor %}
   </nav>
 </header>
