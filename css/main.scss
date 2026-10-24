@@ -842,6 +842,9 @@ article a.book-link:hover { background: none; color: var(--fg); }
 
 .welcome p { margin-bottom: 1.25rem; }
 
+/* A one-line paragraph still makes room for its whole two-line letter */
+.drop-cap { display: flow-root; }
+
 /* The cat is a polaroid, slightly tilted, inside a dashed "cut here" line */
 .cat {
   justify-self: center;
