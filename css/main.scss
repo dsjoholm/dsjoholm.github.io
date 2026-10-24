@@ -613,6 +613,94 @@ article a.post-title:hover { background: none; color: var(--fg); text-decoration
 }
 
 /* ==========================================================================
+   Lists
+   ========================================================================== */
+
+.list-index {
+  list-style: none;
+  max-width: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+.list-index li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+article .list-index a { text-decoration: none; }
+article .list-index a:hover { background: none; color: var(--fg); }
+article .list-index a:hover .list-index-title { text-decoration: underline; }
+
+.list-index-title {
+  display: block;
+  font-family: var(--mono);
+  font-size: 1rem;
+}
+
+.list-index-desc,
+.list-index-date {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.list-index-date { white-space: nowrap; }
+
+.list-updated {
+  margin: 0 0 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.list-body { max-width: var(--text); margin-top: 2rem; }
+
+/* Numbered items get monospace numbers: 01. 02. 03. */
+.list-body ol {
+  list-style: none;
+  counter-reset: item;
+  padding-left: 0;
+}
+
+.list-body ol > li {
+  counter-increment: item;
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+.list-body ol > li::before {
+  content: counter(item, decimal-leading-zero) ".";
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.list-body blockquote footer {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.list-back {
+  margin-top: 3rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+.list-back a { text-decoration: none; }
+
+/* ==========================================================================
    Bookshelf
    ========================================================================== */
 
@@ -644,7 +732,8 @@ article a.post-title:hover { background: none; color: var(--fg); text-decoration
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
-  gap: 2rem 2rem;
+  gap: 2.5rem 2.5rem;
+  padding: 10px;                   /* room for the dashed outlines */
 }
 
 .shelf li { margin: 0; }
@@ -662,6 +751,8 @@ article a.book-link:hover { background: none; color: var(--fg); }
   position: relative;
   aspect-ratio: 2 / 3;
   background: rgba(255, 255, 255, 0.06);
+  outline: 2px dashed var(--fg);   /* same "cut here" line as the home page cat */
+  outline-offset: 8px;
   transition: transform 400ms ease;
 }
 
@@ -723,7 +814,7 @@ article a.book-link:hover { background: none; color: var(--fg); }
 }
 
 @media (max-width: 30rem) {
-  .shelf { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+  .shelf { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.75rem; }
 }
 
 /* ==========================================================================
