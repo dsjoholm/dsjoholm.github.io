@@ -2,7 +2,9 @@
 #
 #   title:    the book's title
 #   author:   the author's name
-#   finished: the date you finished it, as YYYY-MM-DD
+#   finished: the date you finished it, as YYYY-MM-DD. Leave it out for a
+#             book you're reading now: it goes first on the shelf, marked
+#             "reading now", and shows in the "currently" line in the footer.
 #   isbn:     optional; helps find the right cover (copy it from StoryGraph)
 #   cover:    optional; a saved image such as /assets/img/books/my-book.jpg,
 #             or any image link. Leave it out and the cover is found

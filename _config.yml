@@ -4,6 +4,9 @@ title: Bits and bobs
 subtitle: Daniel's website
 author: Daniel Sjoholm
 email: dsjoholm22@gmail.com
+# Shown in the footer's "currently" line, with the local time there
+location: Washington, DC
+location_timezone: America/New_York
 simple_search: http://google.com/search
 description: Daniel Sjoholm's website, with writing, projects, and résumé
 
