@@ -27,6 +27,18 @@
       --line: {{ colors.fg }}40;
       --code-bg: {{ colors.fg }}14;
     }
+
+    /* Pixel mouse pointers, drawn in these colors by _plugins/favicon.rb.
+       Text keeps the normal text cursor so selecting it feels familiar. */
+    html { cursor: url("{{ '/cursor-arrow.svg' | relative_url }}?v={{ icon_version }}") 0 0, default; }
+    a, button, label, select, summary, [tabindex="0"] {
+      cursor: url("{{ '/cursor-hand.svg' | relative_url }}?v={{ icon_version }}") 5 0, pointer;
+    }
+    article p, article li, article blockquote, article td, article h1, article h2,
+    article h3, figcaption, .sidenote, .marginnote, .cv-desc, input, textarea { cursor: text; }
+    article p a, article li a, .sidenote a, .cv-desc a {
+      cursor: url("{{ '/cursor-hand.svg' | relative_url }}?v={{ icon_version }}") 5 0, pointer;
+    }
   </style>
 
   <!-- MathJax loads only if turned on in _data/options.yml -->

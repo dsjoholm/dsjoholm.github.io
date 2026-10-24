@@ -2,10 +2,12 @@
 # (color_scheme in _config.yml, colors in _data/themes.yml), so the icon
 # always matches the site, even for schemes added later.
 #
-# Writes three files into the built site:
+# Writes these files into the built site:
 #   /favicon.svg           sharp at any size (most browsers)
 #   /favicon-32.png        for browsers that don't use SVG icons
 #   /apple-touch-icon.png  180×180, for "Add to Home Screen" on phones
+#   /cursor-arrow.svg      pixel mouse pointer
+#   /cursor-hand.svg       pixel pointing hand, for links and buttons
 
 require "zlib"
 
@@ -28,7 +30,67 @@ module PixelCatFavicon
     "................",
   ].freeze
 
+  # Mouse pointers: "o" = outline (background color), "w" = fill (text color)
+  ARROW = [
+    "o...........",
+    "oo..........",
+    "owo.........",
+    "owwo........",
+    "owwwo.......",
+    "owwwwo......",
+    "owwwwwo.....",
+    "owwwwwwo....",
+    "owwwwwwwo...",
+    "owwwwwwwwo..",
+    "owwwwwwwwwo.",
+    "owwwwwwoooo.",
+    "owwwowwo....",
+    "owwoowwo....",
+    "owo..owwo...",
+    "oo...owwo...",
+    "o.....owwo..",
+    "......owwo..",
+    ".......oo...",
+  ].freeze
+
+  HAND = [
+    ".....oo.........",
+    "....owwo........",
+    "....owwo........",
+    "....owwo........",
+    "....owwooo......",
+    "....owwowwooo...",
+    "....owwowwowwoo.",
+    ".oo.owwowwowwowo",
+    "owwoowwwwwwwwowo",
+    "owwwowwwwwwwwwwo",
+    ".owwowwwwwwwwwwo",
+    "..owwwwwwwwwwwwo",
+    "..owwwwwwwwwwwo.",
+    "...owwwwwwwwwwo.",
+    "...owwwwwwwwwo..",
+    "....owwwwwwwwo..",
+    "....owwwwwwwwo..",
+    "....oooooooooo..",
+  ].freeze
+
   module_function
+
+  # An SVG drawn from one of the pixel grids above, 1 CSS pixel per cell
+  def pointer_svg(grid, outline, fill)
+    paths = { "o" => [], "w" => [] }
+    grid.each_with_index do |line, y|
+      line.each_char.with_index { |c, x| paths[c] << "M#{x} #{y}h1v1h-1z" if paths[c] }
+    end
+    w = grid.first.length
+    h = grid.length
+    <<~SVG
+      <svg xmlns="http://www.w3.org/2000/svg" width="#{w}" height="#{h}" viewBox="0 0 #{w} #{h}" shape-rendering="crispEdges">
+      <path fill="#{outline}" d="#{paths['o'].join}"/>
+      <path fill="#{fill}" d="#{paths['w'].join}"/>
+      </svg>
+    SVG
+  end
 
   def rgb(hex)
     hex.to_s.delete("#").scan(/../).map { |c| c.to_i(16) }
@@ -90,4 +152,6 @@ Jekyll::Hooks.register :site, :post_write do |site|
   File.write(File.join(site.dest, "favicon.svg"), PixelCatFavicon.svg(bg, fg))
   File.binwrite(File.join(site.dest, "favicon-32.png"), PixelCatFavicon.png(32, bg, fg))
   File.binwrite(File.join(site.dest, "apple-touch-icon.png"), PixelCatFavicon.png(180, bg, fg))
+  File.write(File.join(site.dest, "cursor-arrow.svg"), PixelCatFavicon.pointer_svg(PixelCatFavicon::ARROW, bg, fg))
+  File.write(File.join(site.dest, "cursor-hand.svg"), PixelCatFavicon.pointer_svg(PixelCatFavicon::HAND, bg, fg))
 end
