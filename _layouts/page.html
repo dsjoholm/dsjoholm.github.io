@@ -2,8 +2,8 @@
 layout: default
 ---
 {% unless page.hide_header %}
-  <h1>{{ page.title}}</h1>
-  <p class="subtitle">{{ page.date | date: "%B %-d, %Y" }}</p>
+  <h1>{{ page.title }}</h1>
+  {% if page.date %}<p class="subtitle">{{ page.date | date: "%B %-d, %Y" }}</p>{% endif %}
 {% endunless %}
 
 {{ content }}

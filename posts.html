@@ -1,0 +1,57 @@
+---
+layout: page
+title: Posts
+permalink: /posts/
+---
+{% assign tags = site.tags | sort %}
+
+<nav class="tag-filter" aria-label="Filter posts by tag">
+  <button type="button" data-tag="" aria-pressed="true">[all]</button>
+  {% for tag in tags %}<button type="button" data-tag="{{ tag[0] | slugify }}" aria-pressed="false">[#{{ tag[0] }}]</button>
+  {% endfor %}
+</nav>
+
+{% assign by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{% for year in by_year %}
+<section class="post-year">
+  <h2>{{ year.name }}</h2>
+  <ul class="post-list">
+    {% for post in year.items %}
+    {% assign words = post.content | number_of_words %}
+    {% assign minutes = words | divided_by: 230 | plus: 1 %}
+    <li data-tags="{% for t in post.tags %}{{ t | slugify }} {% endfor %}">
+      <span class="post-date">{{ post.date | date: "%b %-d" | downcase }}</span>
+      <div>
+        <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="post-meta">{{ minutes }} min{% for t in post.tags %} · #{{ t }}{% endfor %}</span>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+
+<script>
+  // Tag buttons: show only posts with that tag. The choice is kept in the
+  // address (?tag=travel) so a filtered list can be linked to.
+  (function () {
+    const buttons = document.querySelectorAll('.tag-filter button');
+    const posts = document.querySelectorAll('.post-list li');
+    const years = document.querySelectorAll('.post-year');
+
+    function show(tag) {
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tag === tag)));
+      posts.forEach((li) => { li.hidden = tag && !li.dataset.tags.split(' ').includes(tag); });
+      years.forEach((y) => { y.hidden = !y.querySelector('li:not([hidden])'); });
+    }
+
+    buttons.forEach((b) => b.addEventListener('click', () => {
+      const tag = b.dataset.tag;
+      history.replaceState(null, '', tag ? '?tag=' + tag : location.pathname);
+      show(tag);
+    }));
+
+    const start = new URLSearchParams(location.search).get('tag') || '';
+    if ([...buttons].some((b) => b.dataset.tag === start)) show(start);
+  })();
+</script>

@@ -1,0 +1,12 @@
+# The links at the top of every page, in order.
+# "title" is what shows inside the [brackets].
+- title: daniel sjoholm
+  url: /
+- title: posts
+  url: /posts/
+- title: books
+  url: /books/
+- title: lists
+  url: /lists/
+- title: cv
+  url: /resume.html

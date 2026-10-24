@@ -1,0 +1,28 @@
+# My bookshelf. To add a book, copy an entry and change it.
+#
+#   title:    the book's title
+#   author:   the author's name
+#   finished: the date you finished it, as YYYY-MM-DD
+#   isbn:     optional; helps find the right cover (copy it from StoryGraph)
+#   cover:    optional; a saved image such as /assets/img/books/my-book.jpg,
+#             or any image link. Leave it out and the cover is found
+#             automatically from the ISBN, or from the title and author.
+#   review:   optional; link to your review post, e.g. /articles/26/my-review
+
+- title: Crying in H Mart
+  author: Michelle Zauner
+  finished: 2026-10-22
+  isbn: 9780525657743
+  cover: /assets/img/books/crying-in-h-mart.jpg
+
+- title: The Seven Dials Mystery
+  author: Agatha Christie
+  finished: 2026-06-24
+  isbn: 9780008196226
+  cover: /assets/img/books/the-seven-dials-mystery.jpg
+
+- title: "Breakneck: China's Quest to Engineer the Future"
+  author: Dan Wang
+  finished: 2026-05-20
+  isbn: 9781324106036
+  cover: /assets/img/books/breakneck.jpg

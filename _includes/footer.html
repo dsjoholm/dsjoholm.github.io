@@ -1,156 +1,50 @@
 <footer>
-  <hr class="slender"> <!-- Not going all the way to the end of the page -->
+  <hr class="slender">
 
   <!-- Statistics Section -->
-  <div class="footer-stats credits" style="text-align: center; margin-bottom: 0.75rem;">
+  <div class="footer-stats">
     {% assign total_words = 0 %}
     {% assign book_review_count = 0 %}
     {% assign travel_count = 0 %}
     {% assign urban_planning_count = 0 %}
-    
+
     {% for post in site.posts %}
       {% assign words = post.content | number_of_words %}
       {% assign total_words = total_words | plus: words %}
-      
+
       {% if post.tags contains "book-review" %}
         {% assign book_review_count = book_review_count | plus: 1 %}
       {% endif %}
-      
+
       {% if post.tags contains "travel" %}
         {% assign travel_count = travel_count | plus: 1 %}
       {% endif %}
-      
+
       {% if post.tags contains "urban-planning" %}
         {% assign urban_planning_count = urban_planning_count | plus: 1 %}
       {% endif %}
     {% endfor %}
-    
-    <span style="display: block; margin: 0.5rem 0;">Total number of words I've written in this space: <strong>{{ total_words | number_with_delimiter: ',' }}</strong></span>
-    <span style="display: block; margin: 0.5rem 0;">Book reviews I've written: <strong>{{ book_review_count }}</strong></span>
-    <span style="display: block; margin: 0.5rem 0;">Travel narratives I've written: <strong>{{ travel_count }}</strong></span>
-    <span style="display: block; margin: 0.5rem 0;">Urban planning posts I've written: <strong>{{ urban_planning_count }}</strong></span>
+
+    <p>Total number of words I've written in this space: <strong>{{ total_words | number_with_delimiter: ',' }}</strong></p>
+    <p>Book reviews I've written: <strong>{{ book_review_count }}</strong></p>
+    <p>Travel narratives I've written: <strong>{{ travel_count }}</strong></p>
+    <p>Urban planning posts I've written: <strong>{{ urban_planning_count }}</strong></p>
   </div>
 
-  <ul class="footer-links">
-    <li><a href="mailto:dsjoholm22@gmail.com"><span class="icon-mail3"></span></a></li>    
+  <nav class="footer-links">
+    <a href="mailto:{{ site.email }}">[email]</a>
     {% for entry in site.data.social %}
-      <li>
-        <a href="{{ entry.link }}"><span class="{{ entry.icon }}"></span></a>
-      </li>
-    {% endfor %}  
-  </ul>
-<div class="credits">
-<span>&copy; {{ site.time | date: '%Y' }} &nbsp;&nbsp;{{site.author | upcase }}</span></br> <br>
-<span>This site was created with the <a href="//github.com/clayh53/tufte-jekyll">Tufte theme</a> in <a href="//jekyllrb.com">Jekyll</a></span> 
-</div>  
+      <a href="{{ entry.link }}">[{{ entry.name }}]</a>
+    {% endfor %}
+    <a href="{{ '/feed.xml' | relative_url }}">[rss]</a>
+  </nav>
+
+  <div class="credits">
+    <p>&copy; {{ site.time | date: '%Y' }} &nbsp;{{ site.author | upcase }}</p>
+    <p>This site was created with the <a href="https://github.com/clayh53/tufte-jekyll">Tufte theme</a> in <a href="https://jekyllrb.com">Jekyll</a></p>
+  </div>
 </footer>
 
-<script>
-  const toggle = document.getElementById('dark-mode-toggle');
-  const body = document.body;
-
-  // Check for saved preference
-  // 1. Check for saved preference OR browser settings
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    body.classList.add('dark-mode');
-  }
-
-  toggle.addEventListener('click', () => {
-    // 2. Toggle the class
-    body.classList.toggle('dark-mode');
-    
-    // 3. Explicitly remove "light-mode" if the theme added it via layout
-    if (body.classList.contains('light-mode')) {
-        body.classList.remove('light-mode');
-    }
-
-    // 4. Save preference
-    if (body.classList.contains('dark-mode')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
-  });
-</script>
-
-
-<!-- Link popping up -->
-
-
-
-<div id="link-preview"></div>
-
-<script>
-const previewBox = document.getElementById('link-preview');
-const internalLinks = Array.from(document.querySelectorAll('article a:not([href^="http"])'))
-                           .filter(link => !link.getAttribute('href').includes('/tags'));
-
-internalLinks.forEach(link => {
-  link.addEventListener('mouseenter', async (e) => {
-    const url = link.getAttribute('href');
-    
-    // Position the box near the mouse
-    previewBox.style.left = e.pageX + 10 + 'px';
-    previewBox.style.top = e.pageY + 10 + 'px';
-    previewBox.style.visibility = 'visible';
-    previewBox.style.opacity = '1';
-
-    try {
-      const response = await fetch(url);
-      const text = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(text, 'text/html');
-
-      // Get title
-      const title = doc.querySelector('title').innerText.split('|')[0];
-
-      // Get the second paragraph from the article
-      const article = doc.querySelector('article');
-      const paragraphs = article ? article.querySelectorAll('p') : doc.querySelectorAll('p');
-      
-      let snippet = '';
-      if (paragraphs.length >= 2) {
-        // Get the second paragraph (index 1)
-        snippet = paragraphs[1].innerText.substring(0, 300).trim() + '...';
-      } else if (paragraphs.length === 1) {
-        // Fallback to first if there's only one
-        snippet = paragraphs[0].innerText.substring(0, 300).trim() + '...';
-      } else {
-        snippet = 'No preview available.';
-      }
-      
-      previewBox.innerHTML = `<h3>${title}</h3><p>${snippet}</p>`;
-    } catch (err) {
-      previewBox.innerHTML = `<p>Could not load preview.</p>`;
-    }
-  });
-
-  link.addEventListener('mouseleave', () => {
-    previewBox.style.visibility = 'hidden';
-    previewBox.style.opacity = '0';
-  });
-});
-</script>
-
-
-<!-- For the favicon thing -->
-<script>
-  // Find all links starting with http (external)
-  const links = document.querySelectorAll('article a[href^="http"]');
-
-  links.forEach(link => {
-    // Create a new image element
-    const img = document.createElement('img');
-    
-    // Get the domain from the link (e.g., google.com)
-    const domain = new URL(link.href).hostname;
-    
-    // Set the source to Google's favicon service
-    img.src = `https://www.google.com/s2/favicons?sz=64&domain=${domain}`;
-    img.classList.add('external-favicon');
-    
-    // Append the image to the end of the link
-    link.appendChild(img);
-  });
-</script>
+<div id="link-preview" aria-hidden="true"></div>
+<script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/scramble.js' | relative_url }}" defer></script>

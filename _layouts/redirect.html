@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Forwards an old address to its new page, so old links keep working.
+     Set "redirect_to" in the page's front matter. A "#section" at the end
+     of the old link becomes "?tag=section" if "hash_to_tag" is true. -->
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="{{ page.redirect_to | absolute_url }}">
+  <meta http-equiv="refresh" content="0; url={{ page.redirect_to | relative_url }}">
+  <script>
+    (function () {
+      var target = {{ page.redirect_to | relative_url | jsonify }};
+      {% if page.hash_to_tag %}
+      if (location.hash.length > 1) target += '?tag=' + encodeURIComponent(location.hash.slice(1));
+      {% endif %}
+      location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <p>This page has moved to <a href="{{ page.redirect_to | relative_url }}">{{ page.redirect_to | absolute_url }}</a>.</p>
+</body>
+</html>

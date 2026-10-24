@@ -1,0 +1,89 @@
+# Color schemes. Pick one with `color_scheme:` in _config.yml.
+#   bg:    background
+#   fg:    main text, borders, highlights
+#   muted: dates, captions, sidenotes (a mix of fg and bg, kept readable)
+#   ink:   whichever of bg/fg is darker; used on the white polaroid
+
+navy:
+  name: navy (the original)
+  bg: '#000758'
+  fg: '#ffffff'
+  muted: '#9ea1c0'
+  ink: '#000758'
+
+klein-blue:
+  name: klein blue
+  bg: '#002fa7'
+  fg: '#ffffff'
+  muted: '#9eb0de'
+  ink: '#002fa7'
+
+ultraviolet:
+  name: ultraviolet
+  bg: '#3a0ca3'
+  fg: '#ffffff'
+  muted: '#b4a3dc'
+  ink: '#3a0ca3'
+
+racing-green:
+  name: racing green
+  bg: '#0f3d2e'
+  fg: '#f3ebd8'
+  muted: '#9ca997'
+  ink: '#0f3d2e'
+
+oxblood:
+  name: oxblood
+  bg: '#5c0f1b'
+  fg: '#f6e7d8'
+  muted: '#bb9590'
+  ink: '#5c0f1b'
+
+deep-teal:
+  name: deep teal
+  bg: '#004e57'
+  fg: '#ffffff'
+  muted: '#9ebcbf'
+  ink: '#004e57'
+
+tomato:
+  name: tomato
+  bg: '#c8241c'
+  fg: '#ffffff'
+  muted: '#f8e3e1'
+  ink: '#c8241c'
+
+magenta:
+  name: magenta
+  bg: '#9c1458'
+  fg: '#ffffff'
+  muted: '#e1b9cd'
+  ink: '#9c1458'
+
+burnt-orange:
+  name: burnt orange
+  bg: '#b8400b'
+  fg: '#fff8ee'
+  muted: '#f7e4d5'
+  ink: '#b8400b'
+
+chartreuse:
+  name: chartreuse
+  bg: '#d9f223'
+  fg: '#111111'
+  muted: '#5d6618'
+  ink: '#111111'
+
+safety-orange:
+  name: safety orange
+  bg: '#ff5f1f'
+  fg: '#111111'
+  muted: '#482314'
+  ink: '#111111'
+
+paper-and-ink:
+  name: paper & ink
+  bg: '#f1eadb'
+  fg: '#1b1b3a'
+  muted: '#6a6876'
+  ink: '#1b1b3a'

@@ -1,0 +1,156 @@
+# Everything on the CV page. Edit this file to update it.
+# Text in "description" can use Markdown: **bold**, [links](https://...).
+
+documents:
+  - title: full resume (english)
+    url: https://drive.google.com/file/d/1gAfp7HGP0uetJ7o1YLeIonFcF3vj3c-x/view?usp=sharing
+  - title: cv complet (français)
+    url: https://drive.google.com/file/d/1-MHpF3aj8yGbr6VRuiq5a72YP1IO2x1E/view?usp=sharing
+  - title: planning & design portfolio
+    url: https://drive.google.com/file/d/124P7aUp5dcPLhyJlRjIR-3AJHqySNTLi/view?usp=sharing
+
+education:
+  - school: University of California, Los Angeles (UCLA)
+    location: Los Angeles, CA
+    dates: 2024 – 2026
+    degree: Master in Urban and Regional Planning
+    description: >-
+      **Transportation Policy and Planning** concentration. GPA: 3.9
+    courses: Land Use and Transportation Funding; Transportation Finance; Bicycle and Pedestrian Planning; Transportation Design Studio
+
+  - school: Paris Institute of Political Science (Sciences Po Paris)
+    location: Paris, France
+    dates: 2024 – 2026
+    degree: Master in Governing the Large Metropolis
+    description: >-
+      Focused on **transportation-related governance problems** in large cities worldwide.
+      GPA: 17/20, graduated Summa Cum Laude
+    courses: Urban Infrastructure Management; Data Analysis, AI, and Cartography; AI and Strategic Planning for Major Projects
+
+  - school: University of California, San Diego (UCSD)
+    location: San Diego, CA
+    dates: 2021 – 2024
+    degree: Bachelor in Urban Studies and Planning
+    description: >-
+      Computational Social Sciences minor. GPA: 3.99, graduated Summa Cum Laude
+
+experience:
+  - org: CDM Smith
+    location: Bellevue, WA
+    dates: June 2025 – August 2025
+    role: Transportation Planning Intern
+    description: >-
+      In this role, my first one at a private consulting company, I worked in CDM Smith's
+      innovative **road user charging team** and participated in multiple projects. To aid a
+      redesign of Chicago's I-290 Corridor, I wrote **policy and funding recommendations** for
+      Illinois’ Blue Ribbon Commission on Transportation Infrastructure Funding and Policy. I
+      helped implement and analyze data in support of new tolling technology in Washington
+      State, and performed **subsidy analyses for road user charge studies** in Washington and
+      Nevada.
+
+  - org: UC San Diego Homelessness Hub
+    location: San Diego, CA
+    dates: October 2022 – September 2024
+    role: Student Transportation and Housing Researcher
+    description: >-
+      As a student researcher, I was actively involved in both academic- and community-focused
+      projects. Primarily, I developed and studied ways to improve the **equitability and
+      sustainability** of San Diego’s transportation systems. I also served as the Homelessness
+      Hub's data manager and created **geospatial datasets** on homelessness in San Diego along
+      with mapping and analyzing crime and other social phenomena. Furthermore, I had the
+      opportunity to liaison with government agencies like SANDAG and the City of San Diego.
+
+  - org: San Diego Supercomputer Center
+    location: San Diego, CA
+    dates: August 2022 – April 2024
+    role: Fire Risk and Resilience Activist
+    description: >-
+      I had two main roles in this position. First of all, I used the San Diego Supercomputer
+      Center's resources to monitor and model, in real time, fires emerging throughout the state
+      and communicate information about their potential **risk and danger** to firefighters on
+      the ground. I also used proprietary climate and transportation data in order to **analyze
+      the risk climate change poses** to California’s roads and rail rights-of-way.
+
+  - org: San Diego Airport
+    location: San Diego, CA
+    dates: June 2023 – August 2023
+    role: Airport Transit and Planning Intern
+    description: >-
+      My main charge as an airport transit intern was to propose a **wholesale redesign of a bus
+      route** connecting the airport to a nearby rail station. To do this, I authored and
+      deployed a comprehensive rider survey studying the quality of public bus service to the
+      airport and used transportation modeling software to recommend a new bus route, improved
+      frequency, and better wayfinding. These proposals were later put into practice by the
+      airport.
+
+  - org: UC San Diego Climate Action Resilience Scholars
+    location: San Diego, CA
+    dates: January 2023 – June 2023
+    role: Undergraduate Research Intern
+    description: >-
+      This role, which was both a class and an internship, allowed me to more deeply engage in
+      the San Diego community through environmental justice activism. With 25 fellow student
+      interns, I helped **organize educational festivals** and engaged in project-based
+      collaborative research and activism with six local environmental justice organizations. I
+      also produced, wrote, and widely distributed a **[research-based newspaper](#climate-change-gazette)**
+      covering transportation policy and food systems.
+
+  - org: Target
+    location: San Diego, CA
+    dates: March 2021 – September 2021
+    role: Cashier
+    description: >-
+      This was my first ever job. As a cashier, I received praise for my problem solving
+      abilities and was quickly allowed to begin training other new cashiers.
+
+projects:
+  - title: Extreme Heat and Community Resilience Evaluation Project
+    url: https://drive.google.com/file/d/1TeFDEzoELQkyUsLml4YWCxpjPq8kEEPW/view?usp=sharing
+    context: Graduate thesis, Sciences Po Paris
+    description: >-
+      Completed in a group of 6. Summarizes our travels and interviews in Europe, and makes
+      recommendations for decision-makers in California. Tackles issues of high heat in terms of
+      systems planning, architectural regulations, governmental prioritization, and
+      transportation.
+
+  - title: Pathways to Perseverance
+    url: https://drive.google.com/file/d/1ufpty-Amr9b8-xMEMLh_Ce3z4vTgbBuD/view?usp=sharing
+    context: Undergraduate thesis, UC San Diego
+    description: >-
+      Compares coastal railway systems in California and the Netherlands, gives suggestions on
+      improving climate resilience of coastal transportation networks.
+
+  - title: Burdens for Affordable Housing Residents in San Diego
+    url: https://ucits.org/projects/examining-transportation-access-and-cost-burdens-for-affordable-housing-residents-in-san-diego/
+    context: Homelessness Hub project
+    description: >-
+      Using quantitative and qualitative methods, we determined the transportation burden—both
+      monetary and temporal—for people living in 6 low-income housing developments in San Diego.
+
+  - title: A Politically Viable Road User Charge in San Diego County
+    url: https://drive.google.com/file/d/14DsNos1jy2DNBuTS9WtHRtcd7dE6v8qw/view
+    context: UCLA class project
+    description: >-
+      Conducted extensive research to put together a 3-page policy brief about road user charging
+      in Southern California.
+
+  - title: Climate Change Gazette
+    url: https://www.canva.com/design/DAFij0JuUs0/W1sYDBEzWQERcNOnr6HNmQ/edit?utm_content=DAFij0JuUs0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+    context: UCSD internship project
+    description: >-
+      With a partner, created a 10-page interactive and engaging newspaper about various facets
+      of the climate change issue.
+
+  - title: Investigation of car crashes in school zones
+    url: https://colab.research.google.com/drive/1VJ8nAs1jAjws0kwCS6RiutKDoaFBaq_e?usp=sharing
+    context: Sciences Po project
+    description: >-
+      Gathered, cleaned, and analyzed geospatial data in Python to determine trends in car crashes
+      near schools, and their correlation with environmental quality.
+
+  - title: Activation and greening of Porte de La Villette, Paris
+    url: https://drive.google.com/file/d/1CVO9yvfSt-SyHgzqHs3ghM6x1Mmj62vr/view?usp=sharing
+    context: Sciences Po project
+    description: >-
+      Worked in a group of 3 to devise environmental, economic, and safety-related improvements to
+      Paris' Porte de la Villette area.

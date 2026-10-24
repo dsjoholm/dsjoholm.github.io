@@ -1,0 +1,18 @@
+---
+layout: page
+title: Lists
+permalink: /lists/
+---
+{% assign lists = site.lists | sort: "updated" | reverse %}
+
+<ul class="list-index">
+  {% for list in lists %}
+  <li>
+    <a href="{{ list.url | relative_url }}">
+      <span class="list-index-title">{{ list.title }}</span>
+      {% if list.description %}<span class="list-index-desc">{{ list.description }}</span>{% endif %}
+    </a>
+    {% if list.updated %}<span class="list-index-date">{{ list.updated | date: "%b %Y" | downcase }}</span>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
