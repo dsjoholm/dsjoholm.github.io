@@ -87,6 +87,11 @@ body {
   padding: 4rem 1rem 3rem;
 }
 
+@media (max-width: 40rem) {
+  .container { padding-top: 2rem; }
+  .site-nav { margin-bottom: 2rem; }
+}
+
 /* ==========================================================================
    Navigation: [home] [posts] [cv] ...
    ========================================================================== */
@@ -416,11 +421,60 @@ footer strong { color: var(--fg); font-weight: normal; }
 .credits a { color: var(--muted); }
 .credits a:hover { color: var(--fg); }
 
-/* Home page drop caps (restyled in the home page phase) */
+/* ==========================================================================
+   Home page
+   ========================================================================== */
+
+/* Big first letter of each welcome paragraph: a white block, like the
+   highlighted link in the navigation, two lines tall */
 .drop-cap::first-letter {
   float: left;
   font-family: var(--mono);
-  font-size: 3.2em;
-  line-height: 0.85;
-  margin: 0.1em 0.12em 0 0;
+  font-size: 2.6rem;
+  line-height: 1;
+  padding: 0.1rem 0.4rem 0.2rem;
+  margin: 0.3rem 0.6rem 0 0;
+  background: var(--fg);
+  color: var(--bg);
 }
+
+.welcome p { margin-bottom: 1.25rem; }
+
+.cat {
+  margin: 2.5rem 0 0;
+}
+
+#cat-canvas {
+  display: block;
+  width: 12rem;
+  height: 12rem;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border: 1px solid var(--fg);
+  box-shadow: 4px 4px 0 var(--fg);
+  background: var(--bg);
+}
+
+#cat-canvas.loading { opacity: 0.3; }
+
+.cat figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+}
+
+.cat button {
+  font: inherit;
+  color: var(--fg);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.cat button:hover,
+.cat button:focus-visible { background: var(--fg); color: var(--bg); outline: none; }
+
+.cat button:disabled { opacity: 0.5; cursor: wait; }

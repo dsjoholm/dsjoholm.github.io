@@ -67,7 +67,7 @@
   document.querySelectorAll('.site-nav a, article h1').forEach((el) => scramble(el, 700));
 
   // Scramble on hover / keyboard focus
-  document.querySelectorAll('a').forEach((link) => {
+  document.querySelectorAll('a, button').forEach((link) => {
     const duration = Math.min(700, 250 + link.textContent.length * 15);
     link.addEventListener('mouseenter', () => scramble(link, duration));
     link.addEventListener('focus', () => scramble(link, duration));

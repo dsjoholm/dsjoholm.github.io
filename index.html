@@ -1,61 +1,25 @@
 ---
-layout: page
-nav_exclude: true
-# Note that this index page uses a full-width layout!
+layout: default
 ---
-<div class="long-content">
-  <div style="text-align: center;">
-    <h1 style="font-size: 3rem; margin-bottom: 0.5em;">Welcome!</h1>
-  </div>
-  
+<h1>Welcome!</h1>
+
+<div class="welcome">
   <p class="drop-cap">Thank you for finding this website. I'm glad you're here. My name is Daniel: I'm an American urban planning student in Paris. I do hope
   to be writing here frequently, and I've also gathered my projects and professional experience.</p>
-  
+
   <p class="drop-cap">Writings here should be a good look into my personality and what I enjoy. I want this to make my website somewhere that I can write not only without distractions,
   but without (too much) feedback as well.</p>
-  
-  <p class="drop-cap">I don't as of yet know what I'll write about, but  I aim to be relatively frequent in publishing. That schedule is being left vague extremely intentionally!
+
+  <p class="drop-cap">I don't as of yet know what I'll write about, but I aim to be relatively frequent in publishing. That schedule is being left vague extremely intentionally!
   I am also hosting my resume and a list of my projects here.</p>
-  
-  <hr class="slender">
-
-  
-  <div style="text-align: center;">
-    <h1 style="font-size: 1.5rem; margin-bottom: 0.5em;">A cat selected just for you!</h1>
-    <h1 style="font-size: 0.75rem; margin-bottom: 0.5em;">Refresh this page to see a brand new cat</h1>
-  </div>
-  
-  <div style="text-align: center; margin: 2rem 0;">
-  <img id="random-cat" 
-       alt="Random cat" 
-       style="max-width: 400px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-  </div>
-
-  <script>
-  document.getElementById('random-cat').src = 
-    'https://cataas.com/cat/says/Hello!?type=square&position=center&font=Impact&fontSize=50&fontColor=%23fff&fontBackground=none&' + new Date().getTime();
-  </script>
-
-  <hr class="slender">
-  
-  <h1 style="font-size: 2.25rem; ">Recent Writings</h1>
-  
-  <ul style="list-style-type: none; padding-left: 0;">
-    {% for post in site.posts limit:5 %}
-      <li style="margin-bottom: 0.8em;">
-        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-  
-  <hr class="slender">
-  
-  <h1 style="margin-bottom: 1.5rem; font-size: 2.25rem;">Tags</h1> <div class="tag-cloud">
-    {% assign tags = site.tags | sort %}
-    {% for tag in tags %}
-      {% assign tag_name = tag[0] %}
-      <a href="{{ site.baseurl }}/tags#{{ tag_name | slugize }}" class="tag-link">
-        #{{ tag_name }}</a>{% unless forloop.last %}, {% endunless %}
-    {% endfor %}
-  </div>
 </div>
+
+<figure class="cat">
+  <canvas id="cat-canvas" class="loading" width="144" height="144" role="img" aria-label="A randomly chosen cat, drawn in pixels"></canvas>
+  <figcaption>
+    <span>a cat selected just for you</span>
+    <button type="button" id="new-cat">[new cat]</button>
+  </figcaption>
+</figure>
+
+<script src="{{ '/assets/js/cat.js' | relative_url }}" defer></script>
