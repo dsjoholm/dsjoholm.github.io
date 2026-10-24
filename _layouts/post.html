@@ -6,6 +6,8 @@ layout: default
 
 {{ content }}
 
+<script src="{{ '/assets/js/subway.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+
 {% if page.tags.size > 0 %}
 <div class="post-tags">
   tags:
