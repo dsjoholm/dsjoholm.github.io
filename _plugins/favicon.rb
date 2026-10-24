@@ -45,15 +45,17 @@ module PixelCatFavicon
     row.between?(0, CAT.length - 1) && col.between?(0, 15) && CAT[row][col] == "#"
   end
 
+  # One single shape (rather than a square per pixel), so no faint seams
+  # appear between pixels when the icon is shown large
   def svg(bg, fg)
-    rects = []
+    squares = []
     CAT.each_with_index do |line, y|
-      line.each_char.with_index { |c, x| rects << %(<rect x="#{x}" y="#{y + 1}" width="1" height="1"/>) if c == "#" }
+      line.each_char.with_index { |c, x| squares << "M#{x} #{y + 1}h1v1h-1z" if c == "#" }
     end
     <<~SVG
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">
       <rect width="16" height="16" fill="#{bg}"/>
-      <g fill="#{fg}">#{rects.join}</g>
+      <path fill="#{fg}" d="#{squares.join}"/>
       </svg>
     SVG
   end

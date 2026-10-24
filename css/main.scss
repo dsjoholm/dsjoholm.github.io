@@ -880,6 +880,9 @@ article a.book-link:hover { background: none; color: var(--fg); }
 
 #cat-img.loading { opacity: 0.3; }
 
+/* When both cat services are down, the pixel cat stands in: keep it crisp */
+#cat-img.pixel-cat { image-rendering: pixelated; }
+
 .cat figcaption {
   display: flex;
   flex-direction: column;

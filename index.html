@@ -14,7 +14,8 @@ layout: default
   </div>
 
   <figure class="cat">
-    <img id="cat-img" class="loading" width="400" height="400" alt="A randomly chosen cat">
+    <img id="cat-img" class="loading" width="400" height="400" alt="A randomly chosen cat"
+         data-fallback="{{ '/favicon.svg' | relative_url }}">
     <figcaption>
       <span>a cat selected just for you</span>
       <button type="button" id="new-cat">[new cat]</button>
