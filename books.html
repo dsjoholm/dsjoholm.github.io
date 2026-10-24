@@ -1,0 +1,41 @@
+---
+layout: page
+title: Bookshelf
+permalink: /books/
+---
+{% assign books = site.data.books | sort: "finished" | reverse %}
+
+<div class="shelf-controls">
+  <label for="shelf-sort">sort by</label>
+  <select id="shelf-sort">
+    <option value="finished">date read</option>
+    <option value="title">title</option>
+    <option value="author">author</option>
+  </select>
+  <span class="shelf-count">{{ books.size }} books</span>
+</div>
+
+<ul class="shelf" id="shelf">
+  {% for book in books %}
+  <li class="book"
+      data-title="{{ book.title | escape }}"
+      data-author="{{ book.author | escape }}"
+      data-finished="{{ book.finished | date: '%Y-%m-%d' }}">
+    {% if book.review %}<a class="book-link" href="{{ book.review | relative_url }}">{% else %}<div class="book-link" tabindex="0">{% endif %}
+      <div class="book-cover">
+        <img alt="Cover of {{ book.title | escape }}" loading="lazy"
+             {% if book.cover %}src="{{ book.cover | relative_url }}"{% endif %}
+             data-isbn="{{ book.isbn }}">
+        <span class="book-fallback">{{ book.title }}<br><small>{{ book.author }}</small></span>
+      </div>
+      <div class="book-info">
+        <span class="book-title">{{ book.title }}</span>
+        <span class="book-author">{{ book.author }}</span>
+        <span class="book-date">finished {{ book.finished | date: "%b %Y" | downcase }}{% if book.review %} · <u>review</u>{% endif %}</span>
+      </div>
+    {% if book.review %}</a>{% else %}</div>{% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+<script src="{{ '/assets/js/books.js' | relative_url }}" defer></script>

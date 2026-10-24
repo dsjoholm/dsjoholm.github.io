@@ -536,6 +536,120 @@ h3.cv-role a:hover { text-decoration: underline; background: none; color: var(--
 }
 
 /* ==========================================================================
+   Bookshelf
+   ========================================================================== */
+
+.shelf-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  margin: 0 0 2.5rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.shelf-controls select {
+  font: inherit;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--fg);
+  padding: 0.2rem 0.4rem;
+  cursor: pointer;
+}
+
+.shelf-count { margin-left: auto; }
+
+.shelf {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+  gap: 2rem 2rem;
+}
+
+.shelf li { margin: 0; }
+
+.book-link {
+  display: block;
+  color: var(--fg);
+  text-decoration: none;
+  outline: none;
+}
+
+article a.book-link:hover { background: none; color: var(--fg); }
+
+.book-cover {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  background: rgba(255, 255, 255, 0.06);
+  transition: transform 400ms ease;
+}
+
+.book-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 300ms;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.book-cover.loaded img { opacity: 1; }
+
+/* Shown only when no cover image could be found */
+.book-fallback {
+  display: none;
+  position: absolute;
+  inset: 0;
+  padding: 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+.book-fallback small { display: block; margin-top: 0.5rem; opacity: 0.7; }
+.book-cover.no-image .book-fallback { display: block; }
+.book-cover.no-image img { display: none; }
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 0.75rem;
+  opacity: 0;
+  transition: opacity 400ms;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.book-title { color: var(--fg); }
+.book-author,
+.book-date { color: var(--muted); }
+
+/* Hover (or keyboard focus): the cover lifts and the details fade in */
+.book-link:hover .book-cover,
+.book-link:focus-visible .book-cover { transform: translateY(-0.75rem); }
+
+.book-link:hover .book-info,
+.book-link:focus-visible .book-info { opacity: 1; }
+
+/* Phones and tablets can't hover, so always show the details there */
+@media (hover: none) {
+  .book-info { opacity: 1; }
+}
+
+@media (max-width: 30rem) {
+  .shelf { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+}
+
+/* ==========================================================================
    Home page
    ========================================================================== */
 

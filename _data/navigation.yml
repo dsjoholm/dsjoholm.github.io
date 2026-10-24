@@ -4,5 +4,7 @@
   url: /
 - title: posts
   url: /blog.html
+- title: books
+  url: /books/
 - title: cv
   url: /resume.html
