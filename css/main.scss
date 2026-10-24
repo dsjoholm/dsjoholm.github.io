@@ -17,7 +17,7 @@
   --mono: "Departure Mono", ui-monospace, Menlo, Consolas, monospace;
   --serif: "ET Book", Palatino, "Palatino Linotype", Georgia, serif;
 
-  --column: 28rem;                     /* width of the main text column */
+  --column: 40rem;                    /* width of the main text column */
   --note: 13rem;                       /* width of sidenotes on wide screens */
   --gap: 2.5rem;                       /* space between text and sidenotes */
 }
@@ -290,7 +290,9 @@ input.margin-toggle { display: none; }
 label.margin-toggle { cursor: pointer; }
 label.sidenote-number { display: inline; }
 
-@media (min-width: 62rem) {
+/* Sidenotes go in the margin only when there is room for them on the right:
+   column + 2 × (note + gap) = 40 + 2 × 15.5 = 71rem */
+@media (min-width: 72rem) {
   .sidenote,
   .marginnote {
     float: right;
@@ -306,7 +308,7 @@ label.sidenote-number { display: inline; }
   figure.fullwidth { width: calc(100% + var(--note) + var(--gap)); }
 }
 
-@media (max-width: 61.99rem) {
+@media (max-width: 71.99rem) {
   .sidenote,
   .marginnote { display: none; }
 
@@ -422,6 +424,72 @@ footer strong { color: var(--fg); font-weight: normal; }
 .credits a:hover { color: var(--fg); }
 
 /* ==========================================================================
+   CV page
+   ========================================================================== */
+
+.cv-documents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  margin: 0 0 1rem;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+}
+
+.cv-documents a { text-decoration: none; }
+
+.cv-section { margin-top: 3rem; }
+
+.cv-section h2 {
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.cv-entry { margin-bottom: 2rem; scroll-margin-top: 2rem; }
+
+.cv-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.cv-org { color: var(--fg); }
+.cv-location { color: var(--muted); margin-left: 0.5rem; }
+.cv-dates { white-space: nowrap; }
+
+h3.cv-role {
+  margin: 0.4rem 0 0.5rem;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+h3.cv-role a { text-decoration: none; }
+h3.cv-role a:hover { text-decoration: underline; background: none; color: var(--fg); }
+
+.cv-desc { font-size: 1rem; line-height: 1.6; }
+.cv-desc p { margin: 0; }
+
+.cv-courses {
+  margin: 0.5rem 0 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+@media (max-width: 40rem) {
+  .cv-head { flex-direction: column; }
+  .cv-location { display: block; margin-left: 0; }
+}
+
+/* ==========================================================================
    Home page
    ========================================================================== */
 
@@ -440,34 +508,43 @@ footer strong { color: var(--fg); font-weight: normal; }
 
 .welcome p { margin-bottom: 1.25rem; }
 
+/* The cat sits in a little window with a title bar */
 .cat {
+  width: 20rem;
+  max-width: calc(100% - 6px);
   margin: 2.5rem 0 0;
+  border: 2px solid var(--fg);
+  box-shadow: 6px 6px 0 var(--fg);
 }
 
-#cat-canvas {
-  display: block;
-  width: 12rem;
-  height: 12rem;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  border: 1px solid var(--fg);
-  box-shadow: 4px 4px 0 var(--fg);
-  background: var(--bg);
-}
-
-#cat-canvas.loading { opacity: 0.3; }
-
-.cat figcaption {
+.cat-bar {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 0.75rem;
-  margin-top: 1rem;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+  background: var(--fg);
+  color: var(--bg);
   font-size: 0.75rem;
+  white-space: nowrap;
 }
+
+.cat-bar span { overflow: hidden; text-overflow: ellipsis; }
+
+#cat-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  transition: opacity 200ms;
+}
+
+#cat-img.loading { opacity: 0.3; }
 
 .cat button {
   font: inherit;
-  color: var(--fg);
+  color: var(--bg);
   background: none;
   border: 0;
   padding: 0;
@@ -475,6 +552,6 @@ footer strong { color: var(--fg); font-weight: normal; }
 }
 
 .cat button:hover,
-.cat button:focus-visible { background: var(--fg); color: var(--bg); outline: none; }
+.cat button:focus-visible { background: var(--bg); color: var(--fg); outline: none; }
 
 .cat button:disabled { opacity: 0.5; cursor: wait; }

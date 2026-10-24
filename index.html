@@ -15,11 +15,11 @@ layout: default
 </div>
 
 <figure class="cat">
-  <canvas id="cat-canvas" class="loading" width="144" height="144" role="img" aria-label="A randomly chosen cat, drawn in pixels"></canvas>
-  <figcaption>
+  <figcaption class="cat-bar">
     <span>a cat selected just for you</span>
     <button type="button" id="new-cat">[new cat]</button>
   </figcaption>
+  <img id="cat-img" class="loading" width="400" height="400" alt="A randomly chosen cat">
 </figure>
 
 <script src="{{ '/assets/js/cat.js' | relative_url }}" defer></script>
