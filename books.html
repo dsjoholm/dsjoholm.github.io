@@ -17,7 +17,7 @@ permalink: /books/
       data-author="{{ book.author | escape }}">
     {% if book.review %}<a class="book-link" href="{{ book.review | relative_url }}">{% else %}<div class="book-link" tabindex="0">{% endif %}
       <div class="book-cover">
-        <img alt="Cover of {{ book.title | escape }}" loading="lazy"
+        <img alt="Cover of {{ book.title | escape }}"{% if forloop.index > 12 %} loading="lazy"{% endif %}
              {% if book.cover %}src="{{ book.cover | relative_url }}"{% endif %}
              data-isbn="{{ book.isbn }}">
         <span class="book-fallback">{{ book.title }}<br><small>{{ book.author }}</small></span>
