@@ -15,7 +15,8 @@
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
   <link rel="preload" href="{{ "/fonts/departure-mono/DepartureMono-Regular.woff2" | relative_url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}">
+  <!-- ?v= is the build time, so browsers fetch the new file after every change -->
+  <link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}?v={{ site.time | date: "%s" }}">
   <!-- Colors from the scheme chosen in _config.yml (see _data/themes.yml) -->
   <style>
     :root {
