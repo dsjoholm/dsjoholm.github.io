@@ -715,15 +715,6 @@ article .list-index a:hover .list-index-title { text-decoration: underline; }
   color: var(--muted);
 }
 
-.shelf-controls select {
-  font: inherit;
-  color: var(--fg);
-  background: var(--bg);
-  border: 1px solid var(--fg);
-  padding: 0.2rem 0.4rem;
-  cursor: pointer;
-}
-
 .shelf-count { margin-left: auto; }
 
 .shelf {

@@ -6,12 +6,7 @@ permalink: /books/
 {% assign books = site.data.books | sort: "finished" | reverse %}
 
 <div class="shelf-controls">
-  <label for="shelf-sort">sort by</label>
-  <select id="shelf-sort">
-    <option value="finished">date read</option>
-    <option value="title">title</option>
-    <option value="author">author</option>
-  </select>
+  <span>sorted by date read</span>
   <span class="shelf-count">{{ books.size }} books</span>
 </div>
 
@@ -19,8 +14,7 @@ permalink: /books/
   {% for book in books %}
   <li class="book"
       data-title="{{ book.title | escape }}"
-      data-author="{{ book.author | escape }}"
-      data-finished="{{ book.finished | date: '%Y-%m-%d' }}">
+      data-author="{{ book.author | escape }}">
     {% if book.review %}<a class="book-link" href="{{ book.review | relative_url }}">{% else %}<div class="book-link" tabindex="0">{% endif %}
       <div class="book-cover">
         <img alt="Cover of {{ book.title | escape }}" loading="lazy"
