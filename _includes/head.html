@@ -4,7 +4,12 @@
   {% assign colors = site.data.themes[site.color_scheme] | default: site.data.themes.navy %}
   <meta name="theme-color" content="{{ colors.bg }}">
 
-  <link rel="icon" type="image/png" href="{{ "/assets/img/Logo_and_Favicon.png" | relative_url }}">
+  <!-- Pixel-cat icons, drawn in the current colors by _plugins/favicon.rb.
+       The ?v= part changes with the colors, so browsers don't keep an old icon. -->
+  {% capture icon_version %}{{ colors.bg | remove: "#" }}{{ colors.fg | remove: "#" }}{% endcapture %}
+  <link rel="icon" type="image/svg+xml" href="{{ "/favicon.svg" | relative_url }}?v={{ icon_version }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/favicon-32.png" | relative_url }}?v={{ icon_version }}">
+  <link rel="apple-touch-icon" href="{{ "/apple-touch-icon.png" | relative_url }}?v={{ icon_version }}">
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">

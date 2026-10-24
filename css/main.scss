@@ -823,8 +823,13 @@ article a.book-link:hover { background: none; color: var(--fg); }
   align-items: start;
 }
 
+/* Words that depend on where the cat is: beside the text, or below it */
+.narrow-only { display: none; }
+
 @media (max-width: 60rem) {
   .home { grid-template-columns: minmax(0, var(--text)); }
+  .wide-only { display: none; }
+  .narrow-only { display: inline; }
 }
 
 /* Big first letter of each welcome paragraph: a white block, like the
