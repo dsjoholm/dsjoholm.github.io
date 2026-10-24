@@ -64,7 +64,7 @@
     try { url = new URL(link.href); } catch (e) { return; }
     if (url.origin !== location.origin) return;              // other sites
     if (url.pathname === location.pathname) return;          // same page / #anchors
-    if (url.pathname.startsWith('/tags')) return;            // tag links
+    if (url.pathname.startsWith('/tags') || url.searchParams.has('tag')) return; // tag links
     if (/\.(jpe?g|png|gif|pdf|xml)$/i.test(url.pathname)) return;
 
     link.addEventListener('mouseenter', async (e) => {

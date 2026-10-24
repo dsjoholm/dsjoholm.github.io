@@ -536,6 +536,83 @@ h3.cv-role a:hover { text-decoration: underline; background: none; color: var(--
 }
 
 /* ==========================================================================
+   Posts page
+   ========================================================================== */
+
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  margin: 0 0 1rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+.tag-filter button {
+  font: inherit;
+  color: var(--fg);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.tag-filter button:hover,
+.tag-filter button:focus-visible,
+.tag-filter button[aria-pressed="true"] {
+  background: var(--fg);
+  color: var(--bg);
+  outline: none;
+}
+
+.post-year h2 {
+  max-width: var(--text);
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.post-list {
+  list-style: none;
+  max-width: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+.post-list li {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0 1rem;
+  align-items: baseline;
+  margin: 0 0 1.25rem;
+}
+
+.post-list li[hidden], .post-year[hidden] { display: none; }
+
+.post-date {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+article a.post-title {
+  font-size: 1.25rem;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+article a.post-title:hover { background: none; color: var(--fg); text-decoration: underline; }
+
+.post-meta {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ==========================================================================
    Bookshelf
    ========================================================================== */
 
