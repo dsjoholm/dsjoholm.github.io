@@ -17,9 +17,10 @@
   --mono: "Departure Mono", ui-monospace, Menlo, Consolas, monospace;
   --serif: "ET Book", Palatino, "Palatino Linotype", Georgia, serif;
 
-  --column: 40rem;                    /* width of the main text column */
-  --note: 13rem;                       /* width of sidenotes on wide screens */
-  --gap: 2.5rem;                       /* space between text and sidenotes */
+  --page: 66rem;                       /* width of the whole page */
+  --text: 40rem;                       /* max width of paragraphs, for easy reading */
+  --note: 14rem;                       /* width of sidenotes on wide screens */
+  --gap: 3rem;                         /* space between text and sidenotes */
 }
 
 /* ==========================================================================
@@ -82,9 +83,30 @@ body {
 ::selection { background: var(--fg); color: var(--bg); }
 
 .container {
-  max-width: var(--column);
+  max-width: var(--page);
   margin: 0 auto;
   padding: 4rem 1rem 3rem;
+}
+
+@media (min-width: 48rem) {
+  .container { padding-left: 2rem; padding-right: 2rem; }
+}
+
+/* Running text keeps a readable line length; the space to its right holds
+   sidenotes in posts. Wide pieces (home page, CV, bookshelf) use it all. */
+article > p,
+article > ul,
+article > ol,
+article > blockquote,
+article > h2,
+article > h3,
+article > h4,
+article > pre,
+article > table,
+article > .epigraph,
+article > figure:not(.fullwidth),
+article > .post-tags {
+  max-width: var(--text);
 }
 
 @media (max-width: 40rem) {
@@ -290,9 +312,9 @@ input.margin-toggle { display: none; }
 label.margin-toggle { cursor: pointer; }
 label.sidenote-number { display: inline; }
 
-/* Sidenotes go in the margin only when there is room for them on the right:
-   column + 2 × (note + gap) = 40 + 2 × 15.5 = 71rem */
-@media (min-width: 72rem) {
+/* Sidenotes go in the right margin only when there is room for them:
+   text + note + gap + page padding = 40 + 14 + 3 + 4 = 61rem */
+@media (min-width: 61rem) {
   .sidenote,
   .marginnote {
     float: right;
@@ -305,10 +327,10 @@ label.sidenote-number { display: inline; }
 
   label.margin-toggle:not(.sidenote-number) { display: none; }
 
-  figure.fullwidth { width: calc(100% + var(--note) + var(--gap)); }
+  figure.fullwidth { max-width: calc(var(--text) + var(--note) + var(--gap)); }
 }
 
-@media (max-width: 71.99rem) {
+@media (max-width: 60.99rem) {
   .sidenote,
   .marginnote { display: none; }
 
@@ -484,6 +506,30 @@ h3.cv-role a:hover { text-decoration: underline; background: none; color: var(--
   color: var(--muted);
 }
 
+/* Wide screens: organization, place and dates on the left; role and
+   description on the right */
+@media (min-width: 52rem) {
+  .cv-entry {
+    display: grid;
+    grid-template-columns: 17rem minmax(0, var(--text));
+    column-gap: 3rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .cv-head {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 0.3rem;
+  }
+
+  .cv-entry > :not(.cv-head) { grid-column: 2; }
+
+  h3.cv-role { margin-top: 0; }
+  .cv-location { display: block; margin-left: 0; }
+}
+
 @media (max-width: 40rem) {
   .cv-head { flex-direction: column; }
   .cv-location { display: block; margin-left: 0; }
@@ -492,6 +538,18 @@ h3.cv-role a:hover { text-decoration: underline; background: none; color: var(--
 /* ==========================================================================
    Home page
    ========================================================================== */
+
+/* Wide screens: welcome text on the left, cat on the right */
+.home {
+  display: grid;
+  grid-template-columns: minmax(0, var(--text)) minmax(18rem, 1fr);
+  column-gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 60rem) {
+  .home { grid-template-columns: minmax(0, var(--text)); }
+}
 
 /* Big first letter of each welcome paragraph: a white block, like the
    highlighted link in the navigation, two lines tall */
@@ -508,28 +566,23 @@ h3.cv-role a:hover { text-decoration: underline; background: none; color: var(--
 
 .welcome p { margin-bottom: 1.25rem; }
 
-/* The cat sits in a little window with a title bar */
+/* The cat is a polaroid, slightly tilted, inside a dashed "cut here" line */
 .cat {
-  width: 20rem;
-  max-width: calc(100% - 6px);
-  margin: 2.5rem 0 0;
-  border: 2px solid var(--fg);
-  box-shadow: 6px 6px 0 var(--fg);
+  justify-self: center;
+  width: 17rem;
+  max-width: calc(100% - 2rem);
+  margin: 3.5rem 0 2rem;
+  padding: 0.75rem 0.75rem 0;
+  background: #fff;
+  transform: rotate(-2deg);
+  outline: 2px dashed var(--fg);
+  outline-offset: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
-.cat-bar {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-  margin: 0;
-  padding: 0.2rem 0.5rem;
-  background: var(--fg);
-  color: var(--bg);
-  font-size: 0.75rem;
-  white-space: nowrap;
+@media (max-width: 60rem) {
+  .cat { justify-self: start; margin-left: 1rem; }
 }
-
-.cat-bar span { overflow: hidden; text-overflow: ellipsis; }
 
 #cat-img {
   display: block;
@@ -537,14 +590,27 @@ h3.cv-role a:hover { text-decoration: underline; background: none; color: var(--
   height: auto;
   aspect-ratio: 1;
   object-fit: cover;
+  background: #ddd;
   transition: opacity 200ms;
 }
 
 #cat-img.loading { opacity: 0.3; }
 
+.cat figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.9rem 0 1rem;
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+}
+
 .cat button {
   font: inherit;
   color: var(--bg);
+  opacity: 0.6;
   background: none;
   border: 0;
   padding: 0;
@@ -552,6 +618,6 @@ h3.cv-role a:hover { text-decoration: underline; background: none; color: var(--
 }
 
 .cat button:hover,
-.cat button:focus-visible { background: var(--bg); color: var(--fg); outline: none; }
+.cat button:focus-visible { opacity: 1; background: var(--bg); color: #fff; outline: none; }
 
-.cat button:disabled { opacity: 0.5; cursor: wait; }
+.cat button:disabled { opacity: 0.3; cursor: wait; }

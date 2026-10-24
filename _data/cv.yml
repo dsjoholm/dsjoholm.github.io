@@ -12,7 +12,7 @@ documents:
 education:
   - school: University of California, Los Angeles (UCLA)
     location: Los Angeles, CA
-    dates:
+    dates: 2024 – 2026
     degree: Master in Urban and Regional Planning
     description: >-
       **Transportation Policy and Planning** concentration. GPA: 3.9
@@ -20,7 +20,7 @@ education:
 
   - school: Paris Institute of Political Science (Sciences Po Paris)
     location: Paris, France
-    dates:
+    dates: 2024 – 2026
     degree: Master in Governing the Large Metropolis
     description: >-
       Focused on **transportation-related governance problems** in large cities worldwide.
@@ -29,7 +29,7 @@ education:
 
   - school: University of California, San Diego (UCSD)
     location: San Diego, CA
-    dates:
+    dates: 2021 – 2024
     degree: Bachelor in Urban Studies and Planning
     description: >-
       Computational Social Sciences minor. GPA: 3.99, graduated Summa Cum Laude

@@ -1,8 +1,9 @@
 // Text scramble effect: letters flicker through random characters, then
 // settle back into the real text from left to right.
 //
-// - Headings and navigation scramble once when a page loads.
-// - Links scramble whenever the mouse moves onto them (or keyboard focus).
+// - The page title and the top navigation scramble once when a page loads.
+// - The top navigation and footer links scramble on hover (or keyboard
+//   focus). Links inside posts and pages don't, so they stay easy to click.
 // - Nothing happens for visitors who ask their device for reduced motion.
 
 (function () {
@@ -67,7 +68,7 @@
   document.querySelectorAll('.site-nav a, article h1').forEach((el) => scramble(el, 700));
 
   // Scramble on hover / keyboard focus
-  document.querySelectorAll('a, button').forEach((link) => {
+  document.querySelectorAll('.site-nav a, .footer-links a').forEach((link) => {
     const duration = Math.min(700, 250 + link.textContent.length * 15);
     link.addEventListener('mouseenter', () => scramble(link, duration));
     link.addEventListener('focus', () => scramble(link, duration));

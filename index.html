@@ -1,25 +1,27 @@
 ---
 layout: default
 ---
-<h1>Welcome!</h1>
+<div class="home">
+  <div class="welcome">
+    <h1>Welcome!</h1>
 
-<div class="welcome">
-  <p class="drop-cap">Thank you for finding this website. I'm glad you're here. My name is Daniel: I'm an American urban planning student in Paris. I do hope
-  to be writing here frequently, and I've also gathered my projects and professional experience.</p>
+    <p class="drop-cap">Thank you for finding this website. I'm glad you're here. My name is Daniel: I'm an American urban planning student in Paris. I do hope
+    to be writing here frequently, and I've also gathered my projects and professional experience.</p>
 
-  <p class="drop-cap">Writings here should be a good look into my personality and what I enjoy. I want this to make my website somewhere that I can write not only without distractions,
-  but without (too much) feedback as well.</p>
+    <p class="drop-cap">Writings here should be a good look into my personality and what I enjoy. I want this to make my website somewhere that I can write not only without distractions,
+    but without (too much) feedback as well.</p>
 
-  <p class="drop-cap">I don't as of yet know what I'll write about, but I aim to be relatively frequent in publishing. That schedule is being left vague extremely intentionally!
-  I am also hosting my resume and a list of my projects here.</p>
+    <p class="drop-cap">I don't as of yet know what I'll write about, but I aim to be relatively frequent in publishing. That schedule is being left vague extremely intentionally!
+    I am also hosting my resume and a list of my projects here.</p>
+  </div>
+
+  <figure class="cat">
+    <img id="cat-img" class="loading" width="400" height="400" alt="A randomly chosen cat">
+    <figcaption>
+      <span>a cat selected just for you</span>
+      <button type="button" id="new-cat">[new cat]</button>
+    </figcaption>
+  </figure>
 </div>
-
-<figure class="cat">
-  <figcaption class="cat-bar">
-    <span>a cat selected just for you</span>
-    <button type="button" id="new-cat">[new cat]</button>
-  </figcaption>
-  <img id="cat-img" class="loading" width="400" height="400" alt="A randomly chosen cat">
-</figure>
 
 <script src="{{ '/assets/js/cat.js' | relative_url }}" defer></script>
