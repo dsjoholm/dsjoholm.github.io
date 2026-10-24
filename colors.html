@@ -1,0 +1,88 @@
+---
+layout: default
+title: Color options
+permalink: /colors/
+sitemap: false
+---
+<!-- A hidden page (not linked anywhere) for comparing the color schemes in
+     _data/themes.yml. To switch the site's colors, change color_scheme in
+     _config.yml to one of the names shown here. -->
+<style>
+  .palettes { display: grid; grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+  .pal {
+    --line: color-mix(in srgb, var(--fg) 28%, transparent);
+    background: var(--bg); color: var(--fg);
+    border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent);
+    padding: 1.25rem 1.25rem 1rem; cursor: pointer; position: relative;
+    transition: transform 150ms;
+  }
+  .pal:hover { transform: translateY(-3px); }
+  .pal .site-nav { margin-bottom: 1.25rem; font-size: 0.75rem; font-family: var(--mono); }
+  .pal .site-nav a { text-decoration: none; }
+  .pal h3 { font-family: var(--mono); font-size: 1.25rem; margin: 0 0 0.75rem; color: var(--fg); }
+  .pal p { font-family: var(--serif); font-size: 1rem; line-height: 1.45; margin: 0 0 0.75rem; max-width: none; }
+  .pal .meta { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); margin: 0; }
+  .pal .row { display: flex; gap: 1.25rem; align-items: flex-end; }
+  .pal .mini-book { width: 3.2rem; flex: none; outline: 2px dashed var(--fg); outline-offset: 5px; margin: 6px 6px 6px 0; }
+  .pal .mini-book img { display: block; width: 100%; }
+  .pal .name { display: block; margin: -0.5rem 0 0.9rem; font-family: var(--mono); font-size: 0.65rem; color: var(--muted); }
+  .pal.chosen { box-shadow: 0 0 0 3px var(--fg), 0 0 0 6px var(--bg); }
+  .pal-note { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+</style>
+
+<p class="pal-note">Click a scheme to recolor this whole page with it. To use one on the site, put its <b>bold name</b> after <code>color_scheme:</code> in _config.yml. The two numbers are contrast scores for body text and grey text (4.5 or more is easy to read).</p>
+
+<div class="palettes" id="palettes"></div>
+
+<template id="pal-tpl">
+  <div class="pal">
+    <span class="name"></span>
+    <nav class="site-nav"><a class="active">[daniel sjoholm]</a><a>[posts]</a><a>[books]</a></nav>
+    <h3>Welcome!</h3>
+    <div class="row">
+      <div>
+        <p class="drop-cap">Thank you for finding this website. I'm glad you're here.</p>
+        <p class="meta">feb 18 · 2 min · #tech</p>
+      </div>
+      <div class="mini-book"><img src="{{ '/assets/img/books/crying-in-h-mart.jpg' | relative_url }}" alt=""></div>
+    </div>
+  </div>
+</template>
+
+<script>
+  const palettes = Object.entries({{ site.data.themes | jsonify }});
+  const current = {{ site.color_scheme | jsonify }};
+
+  function lum(hex) {
+    const c = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255)
+      .map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  }
+  function contrast(a, b) {
+    const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p);
+    return ((x + 0.05) / (y + 0.05)).toFixed(1);
+  }
+  const root = document.documentElement;
+  const wrap = document.getElementById('palettes');
+  const tpl = document.getElementById('pal-tpl');
+
+  palettes.forEach(([key, { bg, fg, muted, ink }]) => {
+    const el = tpl.content.firstElementChild.cloneNode(true);
+    el.style.setProperty('--bg', bg);
+    el.style.setProperty('--fg', fg);
+    el.style.setProperty('--muted', muted);
+    el.querySelector('.name').innerHTML =
+      '<b>' + key + '</b>' + (key === current ? ' (in use)' : '') + ' · contrast ' + contrast(fg, bg) + ' / ' + contrast(muted, bg);
+    el.addEventListener('click', () => {
+      root.style.setProperty('--bg', bg);
+      root.style.setProperty('--fg', fg);
+      root.style.setProperty('--muted', muted);
+      root.style.setProperty('--ink', ink);
+      root.style.setProperty('--line', fg + '40');
+      root.style.setProperty('--code-bg', fg + '14');
+      document.querySelectorAll('.pal').forEach((p) => p.classList.remove('chosen'));
+      el.classList.add('chosen');
+    });
+    wrap.appendChild(el);
+  });
+</script>

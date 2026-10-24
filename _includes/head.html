@@ -1,7 +1,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#000758">
+  {% assign colors = site.data.themes[site.color_scheme] | default: site.data.themes.navy %}
+  <meta name="theme-color" content="{{ colors.bg }}">
 
   <link rel="icon" type="image/png" href="{{ "/assets/img/Logo_and_Favicon.png" | relative_url }}">
 
@@ -10,6 +11,17 @@
 
   <link rel="preload" href="{{ "/fonts/departure-mono/DepartureMono-Regular.woff2" | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}">
+  <!-- Colors from the scheme chosen in _config.yml (see _data/themes.yml) -->
+  <style>
+    :root {
+      --bg: {{ colors.bg }};
+      --fg: {{ colors.fg }};
+      --muted: {{ colors.muted }};
+      --ink: {{ colors.ink }};
+      --line: {{ colors.fg }}40;
+      --code-bg: {{ colors.fg }}14;
+    }
+  </style>
 
   <!-- MathJax loads only if turned on in _data/options.yml -->
   {% if site.data.options.mathjax %}

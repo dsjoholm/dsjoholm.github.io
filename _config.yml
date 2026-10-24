@@ -6,6 +6,11 @@ author: Daniel Sjoholm
 email: dsjoholm22@gmail.com
 simple_search: http://google.com/search
 description: Daniel Sjoholm's website, with writing, projects, and résumé
+
+# Site colors: one of the names in _data/themes.yml
+# (navy, klein-blue, ultraviolet, racing-green, oxblood, deep-teal, tomato,
+#  magenta, burnt-orange, chartreuse, safety-orange, paper-and-ink)
+color_scheme: racing-green
 name: tufte
 markdown: kramdown
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
