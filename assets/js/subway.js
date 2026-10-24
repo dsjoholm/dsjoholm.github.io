@@ -12,18 +12,39 @@
   const end = article.querySelector('.post-tags') || article.lastElementChild;
 
   // ---- Build the bar ----------------------------------------------------
+  // A small pixel tram rides the line ("#" body, "w" windows)
+  const TRAM = [
+    '.############.',
+    '#ww#ww#ww#ww##',
+    '#ww#ww#ww#ww##',
+    '##############',
+    '.##........##.',
+  ];
+  const tramSvg =
+    '<svg viewBox="0 0 14 5" width="28" height="10" shape-rendering="crispEdges" aria-hidden="true">' +
+    TRAM.map((row, y) => [...row].map((c, x) =>
+      c === '#' ? `<rect x="${x}" y="${y}" width="1" height="1" fill="var(--fg)"/>`
+      : c === 'w' ? `<rect x="${x}" y="${y}" width="1" height="1" fill="var(--bg)"/>` : ''
+    ).join('')).join('') +
+    '</svg>';
+
+  // The line is named after the post's first letter, like a metro line
+  const letter = (title.textContent.trim()[0] || '•').toUpperCase();
+
   const bar = document.createElement('nav');
   bar.className = 'subway';
   bar.setAttribute('aria-label', 'Sections of this post');
   bar.innerHTML =
     '<div class="subway-inner">' +
-    '  <div class="subway-track"><div class="subway-fill"></div></div>' +
+    '  <span class="subway-bullet" aria-hidden="true">' + letter + '</span>' +
+    '  <div class="subway-track"><div class="subway-fill"></div><span class="subway-tram">' + tramSvg + '</span></div>' +
     '  <span class="subway-next"></span>' +
     '</div>';
   document.body.appendChild(bar);
 
   const track = bar.querySelector('.subway-track');
   const fill = bar.querySelector('.subway-fill');
+  const tram = bar.querySelector('.subway-tram');
   const next = bar.querySelector('.subway-next');
 
   const stations = [
@@ -32,10 +53,10 @@
     { name: 'end of the line', el: end, terminus: true },
   ];
 
-  stations.forEach((station) => {
+  stations.forEach((station, i) => {
     const stop = document.createElement('button');
     stop.type = 'button';
-    stop.className = 'subway-stop';
+    stop.className = 'subway-stop' + (i === 0 || station.terminus ? ' terminus' : '');
     stop.title = station.name;
     stop.setAttribute('aria-label', 'Go to: ' + station.name);
     stop.addEventListener('click', () => {
@@ -68,6 +89,7 @@
   function update() {
     const progress = Math.min(1, Math.max(0, (window.scrollY - start) / (finish - start)));
     fill.style.width = (progress * 100) + '%';
+    tram.style.left = (progress * 100) + '%';
 
     let current = 0;
     stations.forEach((s, i) => {

@@ -1,15 +1,7 @@
 <footer>
   <hr class="slender">
 
-  {% comment %} "currently" line: the book being read (a book in _data/books.yml
-     with no finished date), where I am, and the time there. {% endcomment %}
-  {% assign now_reading = site.data.books | where_exp: "b", "b.finished == nil" | first %}
-  <p class="currently">
-    <span class="currently-label">currently:</span>
-    {% if now_reading %}<span>reading <a href="{{ '/books/' | relative_url }}"><em>{{ now_reading.title }}</em></a></span><span class="sep">·</span>{% endif %}
-    {% if site.location %}<span>in {{ site.location }}</span>{% endif %}
-    {% if site.location_timezone %}<span class="sep">·</span><span><span class="local-time" data-timezone="{{ site.location_timezone }}"></span> local time</span>{% endif %}
-  </p>
+  {% unless page.url == "/" %}{% include currently.html %}{% endunless %}
 
   <!-- Statistics Section -->
   <div class="footer-stats">

@@ -1,22 +1,26 @@
 // Small enhancements for links inside posts and pages.
 
 // ---------------------------------------------------------------------
-// Local time in the footer's "currently" line (e.g. "2:32 pm")
+// Local time in the "currently" line, 24-hour (e.g. "19:03"), kept up to date
 // ---------------------------------------------------------------------
 (function () {
   document.querySelectorAll('.local-time').forEach((el) => {
     let format;
     try {
-      format = new Intl.DateTimeFormat('en-US', {
-        timeZone: el.dataset.timezone, hour: 'numeric', minute: '2-digit',
+      format = new Intl.DateTimeFormat('en-GB', {
+        timeZone: el.dataset.timezone, hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
       });
     } catch (e) {
       el.closest('span').remove(); // unknown time zone: leave the time out
       return;
     }
-    const tick = () => { el.textContent = format.format(new Date()).toLowerCase(); };
+    const tick = () => {
+      const now = format.format(new Date());
+      if (el.textContent !== now) el.textContent = now;
+    };
     tick();
-    setInterval(tick, 30 * 1000);
+    setInterval(tick, 1000);
+    document.addEventListener('visibilitychange', tick); // catch up after the tab was hidden
   });
 })();
 

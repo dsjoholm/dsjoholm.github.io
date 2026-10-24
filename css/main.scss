@@ -443,6 +443,14 @@ footer hr.slender { margin: 0 0 1.5rem; }
 .currently em { font-family: var(--serif); font-size: 0.9rem; }
 .currently .sep { color: var(--muted); }
 
+/* On the home page it sits under "Welcome!", like a subtitle */
+.welcome .currently {
+  margin: 0 0 1.75rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
 footer strong { color: var(--fg); font-weight: normal; }
 
 .footer-stats p { margin: 0 0 0.25rem; }
@@ -890,12 +898,44 @@ article a.book-link:hover { background: none; color: var(--fg); }
 
 .subway-inner {
   display: grid;
-  grid-template-columns: 1fr minmax(0, 18rem);
+  grid-template-columns: auto 1fr minmax(0, 18rem);
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   max-width: var(--page);
   margin: 0 auto;
   padding: 0.7rem 2rem;
+}
+
+/* Round line badge, like "Ⓣ" on a metro map */
+.subway-bullet {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+/* Little pixel tram riding the line at your reading position */
+.subway-tram {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  line-height: 0;
+  transform: translateX(-100%);
+  transition: left 120ms linear;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Termini: the first and last stops are drawn bigger, like on a metro map */
+.subway-stop.terminus {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-width: 4px;
 }
 
 .subway-track {
@@ -930,17 +970,25 @@ article a.book-link:hover { background: none; color: var(--fg); }
 .subway-stop:hover,
 .subway-stop:focus-visible { transform: translate(-50%, -50%) scale(1.5); outline: none; border-color: var(--fg); }
 
+/* "next stop" in a small dark sign, like a platform display */
 .subway-next {
+  justify-self: start;
+  max-width: 100%;
+  padding: 0.2rem 0.55rem;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--line);
+  border-radius: 3px;
   font-family: var(--mono);
   font-size: 0.75rem;
-  color: var(--muted);
+  color: var(--fg);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 @media (max-width: 40rem) {
-  .subway-inner { grid-template-columns: 1fr; gap: 0.5rem; padding: 0.6rem 1.25rem; }
+  .subway-inner { grid-template-columns: auto 1fr; gap: 0.5rem 1rem; padding: 0.6rem 1.25rem; }
+  .subway-next { grid-column: 1 / -1; }
 }
 
 /* ==========================================================================
