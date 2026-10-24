@@ -841,6 +841,88 @@ article a.book-link:hover { background: none; color: var(--fg); }
 }
 
 /* ==========================================================================
+   404 page: a closed metro station
+   ========================================================================== */
+
+.lost { max-width: var(--text); }
+
+.station-sign {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem 0.75rem 0.75rem;
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--mono);
+  border-radius: 6px;
+}
+
+.line-bullet {
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 0.95rem;
+}
+
+.station-name { font-size: 1.35rem; }
+
+.lost-text { margin: 2rem 0 1.5rem; }
+
+.lost-cat {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  image-rendering: pixelated;
+  transform: rotate(-8deg);
+  margin: 0 0 2rem 1rem;
+}
+
+.lost-transfer {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+/* The links drawn as stops on a vertical metro line */
+.lost-line {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.75rem;
+  position: relative;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+}
+
+.lost-line::before {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  width: 4px;
+  background: var(--fg);
+}
+
+.lost-line li { position: relative; margin: 0 0 0.9rem; }
+
+.lost-line li::before {
+  content: "";
+  position: absolute;
+  left: -1.6rem;
+  top: 0.3rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--fg);
+}
+
+/* ==========================================================================
    Home page
    ========================================================================== */
 

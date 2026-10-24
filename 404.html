@@ -1,0 +1,24 @@
+---
+layout: default
+title: Station closed
+permalink: /404.html
+sitemap: false
+---
+{% comment %} GitHub Pages shows this page for any address that doesn't exist. {% endcomment %}
+<div class="lost">
+  <div class="station-sign">
+    <span class="line-bullet">404</span>
+    <span class="station-name">this station is closed</span>
+  </div>
+
+  <p class="lost-text">Sorry, there's no page at this stop. The cat went looking for it too and seems to have gotten lost.</p>
+
+  <img class="lost-cat" src="{{ '/favicon.svg' | relative_url }}" alt="A small lost pixel cat" width="96" height="96">
+
+  <p class="lost-transfer">transfer here for:</p>
+  <ul class="lost-line">
+    {% for item in site.data.navigation %}
+    <li><a href="{{ item.url | relative_url }}">{% if item.url == "/" %}home{% else %}{{ item.title }}{% endif %}</a></li>
+    {% endfor %}
+  </ul>
+</div>
