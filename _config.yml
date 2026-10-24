@@ -5,25 +5,19 @@ subtitle: Daniel's website
 author: Daniel Sjoholm
 email: dsjoholm22@gmail.com
 simple_search: http://google.com/search
-description: A Jekyll theme for content-rich sites
+description: Daniel Sjoholm's website, with writing, projects, and résumé
 name: tufte
 markdown: kramdown
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 permalink: /articles/:short_year/:title
 timezone: Europe/Paris
 excerpt_separator: <!--more-->  # you can specify your own separator, of course.
-exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'UploadToGithub.Rakefile', 'README.md', 'vendor', '.bundle']
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md', 'vendor', '.bundle']
 post:
   template: _post.txt
   extension: md
 page:
   template: _page.txt
   extension: md
-editor: gvim
 git:
   branch: master
-transfer:
-  command: rsync
-  settings: -av
-  source: _site/
-  destination: ~/Git/clayh53.github.com/
