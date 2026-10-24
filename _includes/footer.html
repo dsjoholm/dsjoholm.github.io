@@ -47,6 +47,7 @@
       <a href="{{ entry.link }}">[{{ entry.name }}]</a>
     {% endfor %}
     <a href="{{ '/feed.xml' | relative_url }}">[rss]</a>
+    <button type="button" id="neko-toggle" class="neko-toggle" hidden>[hide cat]</button>
   </nav>
 
   <div class="credits">
@@ -58,3 +59,4 @@
 <div id="link-preview" aria-hidden="true"></div>
 <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 <script src="{{ '/assets/js/scramble.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+<script src="{{ '/assets/js/neko.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

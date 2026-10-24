@@ -458,6 +458,36 @@ footer strong { color: var(--fg); font-weight: normal; }
 .footer-links a { color: var(--fg); text-decoration: none; }
 .footer-links a:hover { background: var(--fg); color: var(--bg); }
 
+.neko-toggle {
+  font: inherit;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+.neko-toggle:hover,
+.neko-toggle:focus-visible { background: var(--fg); color: var(--bg); outline: none; }
+
+/* The pixel cat that follows the pointer (assets/js/neko.js) */
+.neko {
+  position: fixed;
+  z-index: 950;
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+.neko-z {
+  position: fixed;
+  z-index: 950;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--fg);
+  pointer-events: none;
+}
+
 .credits a { color: var(--muted); }
 .credits a:hover { color: var(--fg); }
 
