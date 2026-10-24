@@ -1,4 +1,4 @@
-- link: https://www.github.com/dsjoholm
-  icon: icon-github
-- link: https://www.linkedin.com/in/d-sjoholm/
-  icon: icon-linkedin
+- name: github
+  link: https://www.github.com/dsjoholm
+- name: linkedin
+  link: https://www.linkedin.com/in/d-sjoholm/

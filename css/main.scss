@@ -1,0 +1,426 @@
+---
+# Front matter tells Jekyll to compile this file to css/main.css
+---
+@charset "UTF-8";
+
+/* ==========================================================================
+   Settings: change the look of the whole site here
+   ========================================================================== */
+
+:root {
+  --bg: #000758;                       /* the bold background color */
+  --fg: #ffffff;                       /* main text */
+  --muted: #9aa3cf;                    /* dates, captions, sidenotes */
+  --line: rgba(255, 255, 255, 0.25);   /* horizontal rules and borders */
+  --code-bg: rgba(255, 255, 255, 0.08);
+
+  --mono: "Departure Mono", ui-monospace, Menlo, Consolas, monospace;
+  --serif: "ET Book", Palatino, "Palatino Linotype", Georgia, serif;
+
+  --column: 28rem;                     /* width of the main text column */
+  --note: 13rem;                       /* width of sidenotes on wide screens */
+  --gap: 2.5rem;                       /* space between text and sidenotes */
+}
+
+/* ==========================================================================
+   Fonts (both self-hosted, both free licenses)
+   ========================================================================== */
+
+@font-face {
+  font-family: "Departure Mono";
+  src: url("../fonts/departure-mono/DepartureMono-Regular.woff2") format("woff2"),
+       url("../fonts/departure-mono/DepartureMono-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ET Book";
+  src: url("../fonts/et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ET Book";
+  src: url("../fonts/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ET Book";
+  src: url("../fonts/et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Page frame
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  counter-reset: sidenote-counter;
+}
+
+::selection { background: var(--fg); color: var(--bg); }
+
+.container {
+  max-width: var(--column);
+  margin: 0 auto;
+  padding: 4rem 1rem 3rem;
+}
+
+/* ==========================================================================
+   Navigation: [home] [posts] [cv] ...
+   ========================================================================== */
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  margin-bottom: 3rem;
+  font-size: 0.875rem;
+}
+
+.site-nav a {
+  color: var(--fg);
+  text-decoration: none;
+  transition: background-color 150ms, color 150ms;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.site-nav a.active {
+  background: var(--fg);
+  color: var(--bg);
+  outline: none;
+}
+
+/* ==========================================================================
+   Headings and labels (monospace)
+   ========================================================================== */
+
+h1, h2, h3, h4 {
+  font-family: var(--mono);
+  font-weight: normal;
+  line-height: 1.3;
+}
+
+h1 { font-size: 1.5rem; margin: 0 0 0.5rem; }
+h2 { font-size: 1.125rem; margin: 2.5rem 0 1rem; }
+h3 { font-size: 0.875rem; margin: 2rem 0 0.75rem; }
+h4 { font-size: 0.875rem; margin: 1.5rem 0 0.5rem; color: var(--muted); }
+
+.subtitle {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0 0 2rem;
+}
+
+/* ==========================================================================
+   Body text (serif, for reading)
+   ========================================================================== */
+
+article {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+article p,
+article ul,
+article ol,
+article blockquote {
+  margin: 0 0 1rem;
+}
+
+article ul, article ol { padding-left: 1.5rem; }
+article li { margin-bottom: 0.4rem; }
+
+a { color: var(--fg); }
+
+article a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+article a:hover { background: var(--fg); color: var(--bg); text-decoration: none; }
+
+strong { font-weight: bold; }
+
+hr, hr.slender {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2.5rem 0;
+}
+
+blockquote {
+  margin-left: 0;
+  padding-left: 1rem;
+  border-left: 1px solid var(--line);
+}
+
+code, pre, kbd {
+  font-family: var(--mono);
+  font-size: 0.8em;
+}
+
+code { background: var(--code-bg); padding: 0.1em 0.3em; }
+
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+pre code { background: none; padding: 0; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.4rem 0.5rem 0.4rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+img { max-width: 100%; height: auto; }
+
+/* ==========================================================================
+   Tufte tags used in posts: newthought, epigraph, figures
+   ========================================================================== */
+
+.newthought {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  text-transform: lowercase;
+}
+
+.epigraph { margin: 0 0 2.5rem; }
+
+.epigraph blockquote {
+  border: 0;
+  padding: 0;
+  font-style: italic;
+}
+
+.epigraph blockquote p { margin-bottom: 0.25rem; }
+
+.epigraph footer {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-style: normal;
+  color: var(--muted);
+}
+
+.epigraph footer::before { content: "— "; }
+
+figure { margin: 1.5rem 0 2rem; }
+
+figure img { display: block; width: 100%; }
+
+figcaption {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   Sidenotes and margin notes
+   Wide screens: shown in the right margin.
+   Narrow screens: hidden until the reader taps the number or the ⊕.
+   ========================================================================== */
+
+.sidenote-number { counter-increment: sidenote-counter; }
+
+.sidenote-number::after,
+.sidenote::before {
+  content: counter(sidenote-counter);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.sidenote-number::after { top: -0.6rem; left: 0.1rem; }
+.sidenote::before { top: -0.4rem; margin-right: 0.3rem; }
+
+.sidenote,
+.marginnote {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.marginnote img { margin-bottom: 0.5rem; }
+
+input.margin-toggle { display: none; }
+label.margin-toggle { cursor: pointer; }
+label.sidenote-number { display: inline; }
+
+@media (min-width: 62rem) {
+  .sidenote,
+  .marginnote {
+    float: right;
+    clear: right;
+    width: var(--note);
+    margin-right: calc(-1 * (var(--note) + var(--gap)));
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  label.margin-toggle:not(.sidenote-number) { display: none; }
+
+  figure.fullwidth { width: calc(100% + var(--note) + var(--gap)); }
+}
+
+@media (max-width: 61.99rem) {
+  .sidenote,
+  .marginnote { display: none; }
+
+  .margin-toggle:checked + .sidenote,
+  .margin-toggle:checked + .marginnote {
+    display: block;
+    margin: 0.75rem 0 1rem;
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--line);
+  }
+
+  label.margin-toggle:not(.sidenote-number) {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+  }
+}
+
+/* ==========================================================================
+   Tags under posts and on the home page
+   ========================================================================== */
+
+.post-tags,
+.tag-cloud {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.post-tags { margin-top: 2.5rem; }
+
+.post-tags a,
+.tag-link {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.post-tags a:hover,
+.tag-link:hover { background: var(--fg); color: var(--bg); }
+
+.tag-cloud { line-height: 1.8; }
+
+/* ==========================================================================
+   Little extras: favicons after outside links, previews of inside links
+   ========================================================================== */
+
+img.external-favicon {
+  display: inline;
+  width: 0.7em;
+  height: 0.7em;
+  margin-left: 0.2em;
+  vertical-align: baseline;
+  border-radius: 2px;
+}
+
+#link-preview {
+  position: absolute;
+  z-index: 1000;
+  width: 22rem;
+  max-width: calc(100vw - 2rem);
+  max-height: 14rem;
+  overflow: hidden;
+  padding: 1rem;
+  background: var(--bg);
+  border: 1px solid var(--fg);
+  box-shadow: 4px 4px 0 var(--fg);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 150ms;
+}
+
+#link-preview.visible { visibility: visible; opacity: 1; }
+
+#link-preview h3 { margin: 0 0 0.5rem; font-size: 0.875rem; }
+
+#link-preview p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  margin-top: 4rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+footer hr.slender { margin: 0 0 1.5rem; }
+
+footer strong { color: var(--fg); font-weight: normal; }
+
+.footer-stats p { margin: 0 0 0.25rem; }
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+.footer-links a { color: var(--fg); text-decoration: none; }
+.footer-links a:hover { background: var(--fg); color: var(--bg); }
+
+.credits a { color: var(--muted); }
+.credits a:hover { color: var(--fg); }
+
+/* Home page drop caps (restyled in the home page phase) */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--mono);
+  font-size: 3.2em;
+  line-height: 0.85;
+  margin: 0.1em 0.12em 0 0;
+}
