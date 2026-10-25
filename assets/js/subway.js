@@ -12,22 +12,6 @@
   const end = article.querySelector('.post-tags') || article.lastElementChild;
 
   // ---- Build the bar ----------------------------------------------------
-  // A small pixel tram rides the line ("#" body, "w" windows)
-  const TRAM = [
-    '.############.',
-    '#ww#ww#ww#ww##',
-    '#ww#ww#ww#ww##',
-    '##############',
-    '.##........##.',
-  ];
-  const tramSvg =
-    '<svg viewBox="0 0 14 5" width="28" height="10" shape-rendering="crispEdges" aria-hidden="true">' +
-    TRAM.map((row, y) => [...row].map((c, x) =>
-      c === '#' ? `<rect x="${x}" y="${y}" width="1" height="1" fill="var(--fg)"/>`
-      : c === 'w' ? `<rect x="${x}" y="${y}" width="1" height="1" fill="var(--bg)"/>` : ''
-    ).join('')).join('') +
-    '</svg>';
-
   // The line is named after the post's first letter, like a metro line
   const letter = (title.textContent.trim()[0] || '•').toUpperCase();
 
@@ -37,14 +21,13 @@
   bar.innerHTML =
     '<div class="subway-inner">' +
     '  <span class="subway-bullet" aria-hidden="true">' + letter + '</span>' +
-    '  <div class="subway-track"><div class="subway-fill"></div><span class="subway-tram">' + tramSvg + '</span></div>' +
+    '  <div class="subway-track"><div class="subway-fill"></div></div>' +
     '  <span class="subway-next"></span>' +
     '</div>';
   document.body.appendChild(bar);
 
   const track = bar.querySelector('.subway-track');
   const fill = bar.querySelector('.subway-fill');
-  const tram = bar.querySelector('.subway-tram');
   const next = bar.querySelector('.subway-next');
 
   const stations = [
@@ -89,8 +72,6 @@
   function update() {
     const progress = Math.min(1, Math.max(0, (window.scrollY - start) / (finish - start)));
     fill.style.width = (progress * 100) + '%';
-    tram.style.left = (progress * 100) + '%';
-
     let current = 0;
     stations.forEach((s, i) => {
       const passed = s.at <= progress + 0.001;

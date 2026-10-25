@@ -919,18 +919,6 @@ article a.book-link:hover { background: none; color: var(--fg); }
   font-size: 0.8rem;
 }
 
-/* Little pixel tram riding the line at your reading position */
-.subway-tram {
-  position: absolute;
-  bottom: 3px;
-  left: 0;
-  line-height: 0;
-  transform: translateX(-100%);
-  transition: left 120ms linear;
-  pointer-events: none;
-  z-index: 1;
-}
-
 /* Termini: the first and last stops are drawn bigger, like on a metro map */
 .subway-stop.terminus {
   width: 1.1rem;
