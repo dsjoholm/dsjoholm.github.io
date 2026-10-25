@@ -8,12 +8,30 @@
   // ---------------------------------------------------------------------
   // Covers. Order of attempts for each book:
   //   1. the "cover" from books.yml, if there is one
-  //   2. Open Library search by ISBN
-  //   3. Open Library search by title and author
-  //   4. a plain text card with the title (shown if all else fails)
-  // Searching (rather than asking for a cover by ISBN directly) means we
-  // only ever show a cover Open Library has actually matched to the book.
+  //   2. Amazon's cover image for the ISBN (exact match, good quality)
+  //   3. Open Library search by ISBN
+  //   4. Open Library search by title and author
+  //   5. a plain text card with the title (shown if all else fails)
+  // Open Library is searched (rather than asked for a cover by ISBN) so we
+  // only ever show a cover it has actually matched to the book.
   // ---------------------------------------------------------------------
+
+  // Amazon files covers under the 10-digit ISBN; convert 13-digit "978…"
+  // ISBNs (newer "979…" ones have no 10-digit form, so they're skipped).
+  function isbn10(isbn) {
+    const digits = String(isbn || '').replace(/[^0-9X]/gi, '').toUpperCase();
+    if (digits.length === 10) return digits;
+    if (digits.length !== 13 || !digits.startsWith('978')) return null;
+    const core = digits.slice(3, 12);
+    const sum = [...core].reduce((s, d, i) => s + (10 - i) * Number(d), 0);
+    const check = (11 - (sum % 11)) % 11;
+    return core + (check === 10 ? 'X' : String(check));
+  }
+
+  function amazonCover(isbn) {
+    const id = isbn10(isbn);
+    return id ? 'https://m.media-amazon.com/images/P/' + id + '.01.L.jpg' : null;
+  }
   function normalize(text) {
     return text.toLowerCase().normalize('NFD').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, ' ').trim();
   }
@@ -37,36 +55,33 @@
     return hit ? 'https://covers.openlibrary.org/b/id/' + hit.cover_i + '-L.jpg' : null;
   }
 
-  async function findCover(book, isbn) {
-    const title = book.dataset.title.split(':')[0]; // main title, without subtitle
-    const author = book.dataset.author;
-    try {
-      if (isbn) {
-        const byIsbn = await searchCover({ isbn }, title, author);
-        if (byIsbn) return byIsbn;
-      }
-      return await searchCover({ title, author }, title, author);
-    } catch (e) {
-      return null;
-    }
-  }
-
   shelf.querySelectorAll('.book').forEach((book) => {
     const img = book.querySelector('img');
     const cover = book.querySelector('.book-cover');
-    let searched = false;
+    const isbn = img.dataset.isbn;
+    const title = book.dataset.title.split(':')[0]; // main title, without subtitle
+    const author = book.dataset.author;
+
+    // Each step returns an image address to try, or null to skip it
+    const steps = [
+      async () => amazonCover(isbn),
+      async () => (isbn ? searchCover({ isbn }, title, author) : null),
+      async () => searchCover({ title, author }, title, author),
+    ];
 
     function loaded() {
-      if (img.naturalWidth > 10) cover.classList.add('loaded'); // skip 1×1 placeholders
+      // Amazon and others send a tiny 1×1 image when they have no cover
+      if (img.naturalWidth > 10) cover.classList.add('loaded');
       else fallBack();
     }
 
     async function fallBack() {
-      if (searched) { cover.classList.add('no-image'); return; }
-      searched = true;
-      const url = await findCover(book, img.dataset.isbn);
-      if (url) img.src = url;
-      else cover.classList.add('no-image');
+      while (steps.length) {
+        let url = null;
+        try { url = await steps.shift()(); } catch (e) { /* try the next step */ }
+        if (url) { img.src = url; return; }
+      }
+      cover.classList.add('no-image');
     }
 
     img.addEventListener('load', loaded);
