@@ -518,9 +518,15 @@ footer strong { color: var(--fg); font-weight: normal; }
 .neko {
   position: fixed;
   z-index: 950;
-  width: 32px;
-  height: 32px;
   image-rendering: pixelated;
+  pointer-events: none;
+}
+
+/* Nyan's rainbow: a see-through layer over the page, under the cat */
+.neko-trail {
+  position: fixed;
+  inset: 0;
+  z-index: 949;
   pointer-events: none;
 }
 

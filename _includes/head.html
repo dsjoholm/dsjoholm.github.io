@@ -81,6 +81,26 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   {% endif %}
 
+  <!-- Link previews: what iMessage, Slack, LinkedIn, etc. show when the link
+       is shared. A post can set its own `image:` in its front matter. -->
+  {% capture share_description %}{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+  {% assign share_image = page.image | default: '/assets/img/og-image.png' | absolute_url %}
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{% if page.title and page.url != '/' %}{{ page.title | escape }}{% else %}{{ site.author }}{% endif %}">
+  <meta property="og:description" content="{{ share_description | strip | escape }}">
+  <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <meta property="og:image" content="{{ share_image }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A pixel cat next to the name {{ site.author }}">
+  {% if page.layout == 'post' %}
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {% else %}
+  <meta property="og:type" content="website">
+  {% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | absolute_url }}">
 </head>
