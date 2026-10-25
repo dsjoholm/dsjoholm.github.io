@@ -8,8 +8,10 @@
 #   /apple-touch-icon.png  180×180, for "Add to Home Screen" on phones
 #   /cursor-arrow.svg      pixel mouse pointer
 #   /cursor-hand.svg       pixel pointing hand, for links and buttons
+#   /schemes/<name>/...    the SVGs above for every scheme (footer color picker)
 
 require "zlib"
+require "fileutils"
 
 module PixelCatFavicon
   # The cat, one character per pixel ("#" = cat, "." = background)
@@ -154,4 +156,14 @@ Jekyll::Hooks.register :site, :post_write do |site|
   File.binwrite(File.join(site.dest, "apple-touch-icon.png"), PixelCatFavicon.png(180, bg, fg))
   File.write(File.join(site.dest, "cursor-arrow.svg"), PixelCatFavicon.pointer_svg(PixelCatFavicon::ARROW, bg, fg))
   File.write(File.join(site.dest, "cursor-hand.svg"), PixelCatFavicon.pointer_svg(PixelCatFavicon::HAND, bg, fg))
+
+  # The same icon and pointers for every scheme, for the color picker in the
+  # footer: /schemes/<name>/favicon.svg, cursor-arrow.svg, cursor-hand.svg
+  themes.each do |name, scheme|
+    dir = File.join(site.dest, "schemes", name)
+    FileUtils.mkdir_p(dir)
+    File.write(File.join(dir, "favicon.svg"), PixelCatFavicon.svg(scheme["bg"], scheme["fg"]))
+    File.write(File.join(dir, "cursor-arrow.svg"), PixelCatFavicon.pointer_svg(PixelCatFavicon::ARROW, scheme["bg"], scheme["fg"]))
+    File.write(File.join(dir, "cursor-hand.svg"), PixelCatFavicon.pointer_svg(PixelCatFavicon::HAND, scheme["bg"], scheme["fg"]))
+  end
 end

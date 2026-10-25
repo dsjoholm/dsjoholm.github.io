@@ -7,7 +7,7 @@
   <!-- Pixel-cat icons, drawn in the current colors by _plugins/favicon.rb.
        The ?v= part changes with the colors, so browsers don't keep an old icon. -->
   {% capture icon_version %}{{ colors.bg | remove: "#" }}{{ colors.fg | remove: "#" }}{% endcapture %}
-  <link rel="icon" type="image/svg+xml" href="{{ "/favicon.svg" | relative_url }}?v={{ icon_version }}">
+  <link rel="icon" type="image/svg+xml" id="favicon-svg" href="{{ "/favicon.svg" | relative_url }}?v={{ icon_version }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ "/favicon-32.png" | relative_url }}?v={{ icon_version }}">
   <link rel="apple-touch-icon" href="{{ "/apple-touch-icon.png" | relative_url }}?v={{ icon_version }}">
 
@@ -26,20 +26,55 @@
       --ink: {{ colors.ink }};
       --line: {{ colors.fg }}40;
       --code-bg: {{ colors.fg }}14;
+      --cursor-arrow: url("{{ '/cursor-arrow.svg' | relative_url }}?v={{ icon_version }}");
+      --cursor-hand: url("{{ '/cursor-hand.svg' | relative_url }}?v={{ icon_version }}");
     }
 
     /* Pixel mouse pointers, drawn in these colors by _plugins/favicon.rb.
        Text keeps the normal text cursor so selecting it feels familiar. */
-    html { cursor: url("{{ '/cursor-arrow.svg' | relative_url }}?v={{ icon_version }}") 0 0, default; }
-    a, button, label, select, summary, [tabindex="0"] {
-      cursor: url("{{ '/cursor-hand.svg' | relative_url }}?v={{ icon_version }}") 5 0, pointer;
-    }
+    html { cursor: var(--cursor-arrow) 0 0, default; }
+    a, button, label, select, summary, [tabindex="0"] { cursor: var(--cursor-hand) 5 0, pointer; }
     article p, article li, article blockquote, article td, article h1, article h2,
     article h3, figcaption, .sidenote, .marginnote, .cv-desc, input, textarea { cursor: text; }
-    article p a, article li a, .sidenote a, .cv-desc a {
-      cursor: url("{{ '/cursor-hand.svg' | relative_url }}?v={{ icon_version }}") 5 0, pointer;
-    }
+    article p a, article li a, .sidenote a, .cv-desc a { cursor: var(--cursor-hand) 5 0, pointer; }
   </style>
+
+  <!-- A visitor's own color choice from the footer picker, applied before
+       the page is drawn so it doesn't flash the default colors first. -->
+  <script>
+    window.siteSchemes = {
+      all: {{ site.data.themes | jsonify }},
+      standard: {{ site.color_scheme | jsonify }},
+      files: {{ '/schemes/' | relative_url | jsonify }},
+      version: {{ site.time | date: '%s' | jsonify }},
+      apply: function (name) {
+        var s = this.all[name];
+        if (!s) return;
+        var root = document.documentElement.style;
+        root.setProperty('--bg', s.bg);
+        root.setProperty('--fg', s.fg);
+        root.setProperty('--muted', s.muted);
+        root.setProperty('--ink', s.ink);
+        root.setProperty('--line', s.fg + '40');
+        root.setProperty('--code-bg', s.fg + '14');
+        var dir = this.files + name + '/';
+        var v = '?v=' + this.version;
+        root.setProperty('--cursor-arrow', 'url("' + dir + 'cursor-arrow.svg' + v + '")');
+        root.setProperty('--cursor-hand', 'url("' + dir + 'cursor-hand.svg' + v + '")');
+        var icon = document.getElementById('favicon-svg');
+        if (icon) icon.href = dir + 'favicon.svg' + v;
+        var bar = document.querySelector('meta[name="theme-color"]');
+        if (bar) bar.content = s.bg;
+      },
+      chosen: function () {
+        try { return localStorage.getItem('scheme'); } catch (e) { return null; }
+      }
+    };
+    (function () {
+      var picked = siteSchemes.chosen();
+      if (picked && picked !== siteSchemes.standard) siteSchemes.apply(picked);
+    })();
+  </script>
 
   <!-- MathJax loads only if turned on in _data/options.yml -->
   {% if site.data.options.mathjax %}

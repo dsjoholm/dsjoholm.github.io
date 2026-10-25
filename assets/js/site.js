@@ -24,6 +24,34 @@
   });
 })();
 
+// ---------------------------------------------------------------------
+// Color picker in the footer: [navy] [blue] [green] ... The choice is
+// remembered in this browser and applied on every page (see head.html).
+// ---------------------------------------------------------------------
+(function () {
+  const schemes = window.siteSchemes;
+  const buttons = document.querySelectorAll('.scheme-picker button');
+  if (!schemes || !buttons.length) return;
+
+  function mark(name) {
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.scheme === name)));
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const name = button.dataset.scheme;
+      schemes.apply(name);
+      try {
+        if (name === schemes.standard) localStorage.removeItem('scheme');
+        else localStorage.setItem('scheme', name);
+      } catch (e) { /* private browsing: the choice lasts for this page only */ }
+      mark(name);
+    });
+  });
+
+  mark(schemes.chosen() || schemes.standard);
+})();
+
 (function () {
   const article = document.querySelector('article');
   if (!article) return;

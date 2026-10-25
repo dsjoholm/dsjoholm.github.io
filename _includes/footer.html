@@ -42,6 +42,15 @@
     <button type="button" id="neko-toggle" class="neko-toggle" hidden>[hide cat]</button>
   </nav>
 
+  {% comment %} Color picker: one button per scheme in _data/themes.yml {% endcomment %}
+  <nav class="scheme-picker" aria-label="Site colors">
+    <span class="scheme-picker-label">colors:</span>
+    {% for scheme in site.data.themes %}
+      <button type="button" data-scheme="{{ scheme[0] }}" title="{{ scheme[1].name }}"
+              style="--swatch: {{ scheme[1].bg }}">[{{ scheme[1].label | default: scheme[0] }}]</button>
+    {% endfor %}
+  </nav>
+
   <div class="credits">
     <p>&copy; {{ site.time | date: '%Y' }} &nbsp;{{ site.author | upcase }}</p>
     <p>This site was created with love with the <a href="https://github.com/clayh53/tufte-jekyll">Tufte theme</a> in <a href="https://jekyllrb.com">Jekyll</a></p>

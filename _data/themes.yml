@@ -1,10 +1,12 @@
 # Color schemes. Pick one with `color_scheme:` in _config.yml.
+#   label: short name for the color picker in the footer, e.g. [green]
 #   bg:    background
 #   fg:    main text, borders, highlights
 #   muted: dates, captions, sidenotes (a mix of fg and bg, kept readable)
 #   ink:   whichever of bg/fg is darker; used on the white polaroid
 
 navy:
+  label: navy
   name: navy (the original)
   bg: '#000758'
   fg: '#ffffff'
@@ -12,6 +14,7 @@ navy:
   ink: '#000758'
 
 klein-blue:
+  label: blue
   name: klein blue
   bg: '#002fa7'
   fg: '#ffffff'
@@ -19,6 +22,7 @@ klein-blue:
   ink: '#002fa7'
 
 ultraviolet:
+  label: violet
   name: ultraviolet
   bg: '#3a0ca3'
   fg: '#ffffff'
@@ -26,6 +30,7 @@ ultraviolet:
   ink: '#3a0ca3'
 
 racing-green:
+  label: green
   name: racing green
   bg: '#0f3d2e'
   fg: '#f3ebd8'
@@ -33,6 +38,7 @@ racing-green:
   ink: '#0f3d2e'
 
 oxblood:
+  label: oxblood
   name: oxblood
   bg: '#5c0f1b'
   fg: '#f6e7d8'
@@ -40,6 +46,7 @@ oxblood:
   ink: '#5c0f1b'
 
 deep-teal:
+  label: teal
   name: deep teal
   bg: '#004e57'
   fg: '#ffffff'
@@ -47,6 +54,7 @@ deep-teal:
   ink: '#004e57'
 
 tomato:
+  label: red
   name: tomato
   bg: '#c8241c'
   fg: '#ffffff'
@@ -54,6 +62,7 @@ tomato:
   ink: '#c8241c'
 
 magenta:
+  label: magenta
   name: magenta
   bg: '#9c1458'
   fg: '#ffffff'
@@ -61,6 +70,7 @@ magenta:
   ink: '#9c1458'
 
 burnt-orange:
+  label: rust
   name: burnt orange
   bg: '#b8400b'
   fg: '#fff8ee'
@@ -68,6 +78,7 @@ burnt-orange:
   ink: '#b8400b'
 
 chartreuse:
+  label: lime
   name: chartreuse
   bg: '#d9f223'
   fg: '#111111'
@@ -75,6 +86,7 @@ chartreuse:
   ink: '#111111'
 
 safety-orange:
+  label: orange
   name: safety orange
   bg: '#ff5f1f'
   fg: '#111111'
@@ -82,6 +94,7 @@ safety-orange:
   ink: '#111111'
 
 paper-and-ink:
+  label: paper
   name: paper & ink
   bg: '#f1eadb'
   fg: '#1b1b3a'

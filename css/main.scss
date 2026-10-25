@@ -433,6 +433,7 @@ footer hr.slender { margin: 0 0 1.5rem; }
 .currently {
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline;   /* keeps the serif book title on the same line as the rest */
   gap: 0 0.5rem;
   margin: 0 0 1.25rem;
   color: var(--fg);
@@ -465,6 +466,42 @@ footer strong { color: var(--fg); font-weight: normal; }
 
 .footer-links a { color: var(--fg); text-decoration: none; }
 .footer-links a:hover { background: var(--fg); color: var(--bg); }
+
+/* Color picker: [navy] [blue] [green] ..., each with a dot of its color */
+.scheme-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.6rem;
+  margin: -0.75rem 0 1.5rem;
+  font-size: 0.75rem;
+}
+
+.scheme-picker-label { color: var(--muted); }
+
+.scheme-picker button {
+  font: inherit;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+.scheme-picker button::before {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-right: 0.3em;
+  border-radius: 50%;
+  background: var(--swatch);
+  box-shadow: 0 0 0 1px var(--line);
+}
+
+.scheme-picker button:hover,
+.scheme-picker button:focus-visible { background: var(--fg); color: var(--bg); outline: none; }
+
+.scheme-picker button[aria-pressed="true"] { color: var(--fg); }
 
 .neko-toggle {
   font: inherit;
