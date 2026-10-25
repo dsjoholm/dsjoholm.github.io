@@ -14,14 +14,15 @@ module Jekyll
 
     def render(context)
       baseurl = context.registers[:site].config['baseurl']
+      alt = @text[2].to_s.gsub(/<[^>]+>/, "").gsub("'", "&#39;").strip # caption as plain text, for screen readers
       if @text[1].start_with?('http://', 'https://', '//')
         "<label for='#{@text[0]}' class='margin-toggle'>&#8853;</label>"+
         "<input type='checkbox' id='#{@text[0]}' class='margin-toggle'/>"+
-        "<span class='marginnote'><img class='fullwidth' src='#{@text[1]}'/><br>#{@text[2]}</span>"
+        "<span class='marginnote'><img class='fullwidth' src='#{@text[1]}' alt='#{alt}'/><br>#{@text[2]}</span>"
       else
         "<label for='#{@text[0]}' class='margin-toggle'>&#8853;</label>"+
         "<input type='checkbox' id='#{@text[0]}' class='margin-toggle'/>"+
-        "<span class='marginnote'><img class='fullwidth' src='#{baseurl}/#{@text[1]}'/><br>#{@text[2]}</span>"
+        "<span class='marginnote'><img class='fullwidth' src='#{baseurl}/#{@text[1]}' alt='#{alt}'/><br>#{@text[2]}</span>"
       end
     end
   end

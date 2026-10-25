@@ -1,34 +1,26 @@
 url: "https://dsjoholm.github.io"
 baseurl: ""
 title: Bits and bobs
-subtitle: Daniel's website
 author: Daniel Sjoholm
 email: dsjoholm22@gmail.com
-# Shown in the footer's "currently" line, with the local time there
+description: Daniel Sjoholm's website, with writing, projects, and résumé
+
+# Shown in the "currently" line, with the local time there
 location: Washington, DC
 location_timezone: America/New_York
-simple_search: http://google.com/search
-description: Daniel Sjoholm's website, with writing, projects, and résumé
 
 # Site colors: one of the names in _data/themes.yml
 # (navy, klein-blue, ultraviolet, racing-green, oxblood, deep-teal, tomato,
 #  magenta, burnt-orange, chartreuse, safety-orange, paper-and-ink)
 color_scheme: racing-green
-name: tufte
+
+# Posts live at /articles/<year>/<name>
+permalink: /articles/:short_year/:title
+timezone: America/New_York
 markdown: kramdown
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-permalink: /articles/:short_year/:title
-timezone: Europe/Paris
-excerpt_separator: <!--more-->  # you can specify your own separator, of course.
-exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md', 'WRITING.md','vendor', '.bundle']
-post:
-  template: _post.txt
-  extension: md
-page:
-  template: _page.txt
-  extension: md
-git:
-  branch: master
+excerpt_separator: <!--more-->
+exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'WRITING.md', 'vendor', '.bundle']
 
 # Lists: one Markdown file each in the _lists folder, shown at /lists/<file-name>/
 collections:

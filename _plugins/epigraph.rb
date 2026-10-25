@@ -13,8 +13,9 @@ module Jekyll
     end
 
     def render(context)
+        cite = @text[2].to_s.strip.empty? ? "" : ", <cite>#{@text[2]}</cite>"
         "<div class='epigraph'><blockquote><p>#{@text[0]}</p>"+
-        "<footer>#{@text[1]}, "+"<cite>#{@text[2]}</cite></footer></blockquote></div>"
+        "<footer>#{@text[1]}#{cite}</footer></blockquote></div>"
     end
   end
 end
