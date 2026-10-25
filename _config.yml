@@ -20,7 +20,7 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 permalink: /articles/:short_year/:title
 timezone: Europe/Paris
 excerpt_separator: <!--more-->  # you can specify your own separator, of course.
-exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md', 'vendor', '.bundle']
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md', 'WRITING.md','vendor', '.bundle']
 post:
   template: _post.txt
   extension: md
