@@ -1,11 +1,16 @@
 ---
 layout: default
 ---
+{% if page.titles %}
+<h1><span class="lang-title" data-default>{{ page.title }}</span>{% for t in page.titles %}<span class="lang-title" lang="{{ t[0] }}" hidden>{{ t[1] }}</span>{% endfor %}</h1>
+{% else %}
 <h1>{{ page.title }}</h1>
-<p class="subtitle">{{ page.date | date: "%B %-d, %Y" }}</p>
+{% endif %}
+<p class="subtitle">{{ page.date | date: "%B %-d, %Y" }}<span class="lang-switch" hidden></span></p>
 
 {{ content }}
 
+<script src="{{ '/assets/js/languages.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 <script src="{{ '/assets/js/subway.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 
 {% if page.tags.size > 0 %}

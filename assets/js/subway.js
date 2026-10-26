@@ -8,7 +8,6 @@
   const title = article && article.querySelector('h1');
   if (!title) return;
 
-  const headings = [...article.querySelectorAll(':scope > h2')];
   const end = article.querySelector('.post-tags') || article.lastElementChild;
 
   // ---- Build the bar ----------------------------------------------------
@@ -30,25 +29,43 @@
   const fill = bar.querySelector('.subway-fill');
   const next = bar.querySelector('.subway-next');
 
-  const stations = [
-    { name: title.textContent.trim(), el: title },
-    ...headings.map((h) => ({ name: h.textContent.trim(), el: h })),
-    { name: 'end of the line', el: end, terminus: true },
-  ];
+  // Stations: the title, each visible section heading (in a multilingual
+  // post, only the language being shown), and the end. Rebuilt when the
+  // language changes.
+  let stations = [];
 
-  stations.forEach((station, i) => {
-    const stop = document.createElement('button');
-    stop.type = 'button';
-    stop.className = 'subway-stop' + (i === 0 || station.terminus ? ' terminus' : '');
-    stop.title = station.name;
-    stop.setAttribute('aria-label', 'Go to: ' + station.name);
-    stop.addEventListener('click', () => {
-      const top = station.el.getBoundingClientRect().top + window.scrollY - 64;
-      window.scrollTo({ top: station.terminus ? document.body.scrollHeight : top, behavior: 'smooth' });
+  function visibleTitle() {
+    const spans = [...title.querySelectorAll('.lang-title')];
+    const shown = spans.find((s) => !s.hidden);
+    return (shown || title).textContent.trim();
+  }
+
+  function buildStations() {
+    track.querySelectorAll('.subway-stop').forEach((stop) => stop.remove());
+    const headings = [...article.querySelectorAll(':scope > h2, :scope > .lang-block > h2')]
+      .filter((h) => !h.closest('[hidden]'));
+    stations = [
+      { name: visibleTitle(), el: title },
+      ...headings.map((h) => ({ name: h.textContent.trim(), el: h })),
+      { name: 'end of the line', el: end, terminus: true },
+    ];
+    stations.forEach((station, i) => {
+      const stop = document.createElement('button');
+      stop.type = 'button';
+      stop.className = 'subway-stop' + (i === 0 || station.terminus ? ' terminus' : '');
+      stop.title = station.name;
+      stop.setAttribute('aria-label', 'Go to: ' + station.name);
+      stop.addEventListener('click', () => {
+        const top = station.el.getBoundingClientRect().top + window.scrollY - 64;
+        window.scrollTo({ top: station.terminus ? document.body.scrollHeight : top, behavior: 'smooth' });
+      });
+      track.appendChild(stop);
+      station.stop = stop;
     });
-    track.appendChild(stop);
-    station.stop = stop;
-  });
+  }
+
+  buildStations();
+  document.addEventListener('languagechange', () => { buildStations(); measure(); });
 
   // ---- Positions --------------------------------------------------------
   // A station is "reached" when its heading passes 30% down the screen.

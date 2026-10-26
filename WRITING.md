@@ -60,6 +60,31 @@ match. The site numbers them 1, 2, 3 in order, and they can contain links,
 The last line starting with a dash (—, – or --) is what makes it an epigraph.
 Without it, it's an ordinary quote.
 
+## 3b. A post in more than one language
+
+Put each language in its own section; a switch like `[english] [français]`
+appears under the title by itself:
+
+```
+{% lang en %}
+The whole post in English…[^en1]
+
+[^en1]: An English sidenote.
+{% endlang %}
+
+{% lang fr %}
+Tout l'article en français…[^fr1]
+
+[^fr1]: Une note en français.
+{% endlang %}
+```
+
+- Titles in other languages go at the top: `title_fr: "Le titre"`, `title_zh: "标题"`.
+- Give sidenotes different names per language (`[^en1]`, `[^fr1]`).
+- Visitors get their browser's language if the post has it; their choice is
+  remembered. Link to one language with `?lang=fr` at the end of the address.
+- The template (`_drafts/post-template.md`) has these notes too.
+
 ## 4. Publish
 
 ```

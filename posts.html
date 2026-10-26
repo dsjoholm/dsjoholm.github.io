@@ -18,6 +18,9 @@ permalink: /posts/
   <ul class="post-list">
     {% for post in year.items %}
     {% assign words = post.content | number_of_words %}
+    {% comment %} A post in several languages: time to read just one of them {% endcomment %}
+    {% assign languages = post.content | split: 'class="lang-block"' | size | minus: 1 %}
+    {% if languages > 1 %}{% assign words = words | divided_by: languages %}{% endif %}
     {% assign minutes = words | divided_by: 230 | plus: 1 %}
     <li data-tags="{% for t in post.tags %}{{ t | slugify }} {% endfor %}">
       <span class="post-date">{{ post.date | date: "%b %-d" | downcase }}</span>

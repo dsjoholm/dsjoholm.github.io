@@ -1237,3 +1237,41 @@ article a.book-link:hover { background: none; color: var(--fg); }
 .cat button:focus-visible { opacity: 1; background: var(--ink); color: #fff; outline: none; }
 
 .cat button:disabled { opacity: 0.3; cursor: wait; }
+
+/* ==========================================================================
+   Language switch on multilingual posts: [english] [français] [中文]
+   ========================================================================== */
+
+.lang-switch {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.6rem;
+  margin-left: 1rem;
+}
+
+.lang-switch button {
+  font: inherit;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+.lang-switch button:hover,
+.lang-switch button:focus-visible { background: var(--fg); color: var(--bg); outline: none; }
+
+.lang-switch button[aria-pressed="true"] { color: var(--fg); }
+
+.lang-block[hidden], .lang-title[hidden] { display: none; }
+
+/* Sections inside a language block read like the rest of the post */
+article > .lang-block > p,
+article > .lang-block > ul,
+article > .lang-block > ol,
+article > .lang-block > blockquote,
+article > .lang-block > h2,
+article > .lang-block > h3,
+article > .lang-block > .epigraph,
+article > .lang-block > figure:not(.fullwidth) {
+  max-width: var(--text);
+}
