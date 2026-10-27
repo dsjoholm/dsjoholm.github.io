@@ -17,6 +17,16 @@ Type each command, then press Enter.
 
 ---
 
+## Starting a new post? One command does the setup
+
+    bin/new-post "My trip to Lyon"
+
+This creates the post (dated today, title filled in) **and** its photo folder,
+then opens the folder in Finder so you can drag your photos in, and opens the
+post in your text editor. In the post, use photos by file name:
+`![A caption](photo.jpg)`. (For a title in Chinese, add a short name:
+`bin/new-post "台北之旅" taipei-trip`.)
+
 ## Make your change
 
 Open the file in any text editor, edit it, and save. For example:
@@ -25,7 +35,7 @@ Open the file in any text editor, edit it, and save. For example:
 |---|---|
 | Add a film or other list item | `_lists/films.md` (or another file in `_lists/`) |
 | Add or finish a book | `_data/books.yml` |
-| Write a post | a new file in `_posts/` (see `WRITING.md`) |
+| Write a post | `bin/new-post "Title"` (see above and `WRITING.md`) |
 | Change the CV | `_data/cv.yml` |
 
 **Example: adding a film you just watched.** In `_lists/films.md`, move or add

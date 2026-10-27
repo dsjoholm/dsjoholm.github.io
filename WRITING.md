@@ -4,11 +4,20 @@ A quick reference. Copy `_drafts/post-template.md` to start.
 
 ## 1. Make the files
 
-- **The post:** `_posts/2026-11-02-my-post.md`
-  (date, then a short name with dashes; the short name becomes the address:
-  `/articles/26/my-post`)
-- **Its photos:** put them in `assets/img/posts/my-post/`
-  (the folder has the same short name as the post)
+In Terminal, in the site folder (type `site` first), run:
+
+    bin/new-post "My post"
+
+That creates both:
+
+- **The post:** `_posts/<today>-my-post.md`, from the template, with the
+  title and date filled in. The short name (`my-post`) becomes the address:
+  `/articles/26/my-post`
+- **Its photo folder:** `assets/img/posts/my-post/`, opened in Finder so you
+  can drag photos in.
+
+For a title without Latin letters, add a short name:
+`bin/new-post "台北之旅" taipei-trip`.
 
 Photos straight from your phone are fine; the site shrinks them when it
 publishes. Use JPEG or PNG (on iPhone: Settings → Camera → Formats →

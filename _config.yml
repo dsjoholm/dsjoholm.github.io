@@ -20,7 +20,7 @@ timezone: America/New_York
 markdown: kramdown
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 excerpt_separator: <!--more-->
-exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'WRITING.md', 'UPDATING.md', 'vendor', '.bundle']
+exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'WRITING.md', 'UPDATING.md', 'bin', 'vendor', '.bundle']
 
 # Lists: one Markdown file each in the _lists folder, shown at /lists/<file-name>/
 collections:

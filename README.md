@@ -8,7 +8,7 @@ and published by GitHub Pages whenever `master` is pushed. It started from the
 
 | To change | Edit |
 |---|---|
-| A post | `_posts/` (photos in `assets/img/posts/<post-name>/`) — see `WRITING.md` |
+| A post | start one with `bin/new-post "Title"` (creates the post and its photo folder) — see `WRITING.md` |
 | Step-by-step commands | `UPDATING.md` |
 | The bookshelf | `_data/books.yml` (no `finished:` date = reading now) |
 | The CV | `_data/cv.yml` |
