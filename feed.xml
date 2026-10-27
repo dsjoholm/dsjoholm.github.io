@@ -6,7 +6,7 @@ sitemap: false
   The OLD feed address, kept on purpose as an empty feed. Email services
   that were sending new posts from here (e.g. follow.it) will find nothing
   new, so they stop sending, and have no reason to look for the real feed,
-  which now lives at /dsjoholm.xml. The dates are fixed so this never looks
+  whose address is only revealed by a script (see footer.html). The dates are fixed so this never looks
   updated. Don't add posts here.
 {% endcomment %}<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">

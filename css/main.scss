@@ -276,6 +276,14 @@ figure { margin: 1.5rem 0 2rem; }
 /* A wide photo starts below anything in the margin, so they don't overlap */
 figure.fullwidth { clear: both; }
 
+/* The page always ends below the last margin note or photo, so a tall one
+   near the end of a post can't run into the footer */
+article::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 figure img { display: block; width: 100%; }
 
 figcaption {
