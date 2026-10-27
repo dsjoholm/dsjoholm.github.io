@@ -38,9 +38,7 @@
     {% for entry in site.data.social %}
       <a href="{{ entry.link }}">[{{ entry.name }}]</a>
     {% endfor %}
-    {% comment %} The feed's address is filled in by assets/js/site.js, so robots that
-       read the page (like email-subscription services) can't find it. {% endcomment %}
-    <a href="#" class="feed-link" rel="nofollow">[rss]</a>
+    <a href="{{ '/feed.xml' | relative_url }}">[rss]</a>
     <button type="button" id="neko-toggle" class="neko-toggle" hidden>[hide cat]</button>
   </nav>
 

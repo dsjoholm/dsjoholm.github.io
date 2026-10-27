@@ -101,5 +101,9 @@
   {% endif %}
   <meta name="twitter:card" content="summary_large_image">
 
+  <!-- follow.it: proves this site owns its feed, so its email subscriptions can be managed -->
+  <meta name="follow.it-verification-code" content="bAmS00HJWzdsh1PzchNX"/>
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | absolute_url }}">
+
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 </head>

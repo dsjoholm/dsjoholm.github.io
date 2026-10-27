@@ -25,18 +25,6 @@
 })();
 
 // ---------------------------------------------------------------------
-// The [rss] link. Its address isn't written in the page itself, so robots
-// that read pages without running scripts (like email-subscription
-// services) never find the feed; people clicking [rss] get it as usual.
-// ---------------------------------------------------------------------
-(function () {
-  const parts = ['7q3mz', 'dsjoholm'];
-  document.querySelectorAll('.feed-link').forEach((a) => {
-    a.href = '/' + parts.slice().reverse().join('-') + '.xml';
-  });
-})();
-
-// ---------------------------------------------------------------------
 // Color picker in the footer: [navy] [blue] [green] ... The choice is
 // remembered in this browser and applied on every page (see head.html).
 // ---------------------------------------------------------------------
