@@ -234,9 +234,13 @@ table {
 
 th, td {
   text-align: left;
-  padding: 0.4rem 0.5rem 0.4rem 0;
+  padding: 0.4rem 0.6rem;
   border-bottom: 1px solid var(--line);
 }
+
+/* vertical lines between columns (none on the outer edges) */
+th + th, td + td { border-left: 1px solid var(--line); }
+th:first-child, td:first-child { padding-left: 0; }
 
 img { max-width: 100%; height: auto; }
 
