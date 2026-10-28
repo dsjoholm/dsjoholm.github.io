@@ -4,9 +4,9 @@ A quick reference. Copy `_drafts/post-template.md` to start.
 
 ## 1. Make the files
 
-In Terminal, in the site folder (type `site` first), run:
+In Terminal (from any folder), run:
 
-    bin/new-post "My post"
+    newpost "My post"
 
 That creates both:
 
@@ -17,7 +17,7 @@ That creates both:
   can drag photos in.
 
 For a title without Latin letters, add a short name:
-`bin/new-post "台北之旅" taipei-trip`.
+`newpost "台北之旅" taipei-trip`.
 
 Photos straight from your phone are fine; the site shrinks them when it
 publishes. Use JPEG or PNG (on iPhone: Settings → Camera → Formats →

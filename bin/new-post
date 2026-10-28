@@ -1,7 +1,8 @@
 #!/bin/bash
 # Start a new post:
 #
-#   bin/new-post "My trip to Lyon"
+#   newpost "My trip to Lyon"          (the Terminal shortcut, from anywhere)
+#   bin/new-post "My trip to Lyon"     (the same, from the site folder)
 #
 # Creates _posts/<today>-my-trip-to-lyon.md (from _drafts/post-template.md,
 # with the title and today's date filled in) and its photo folder
@@ -9,14 +10,14 @@
 # the post in your text editor.
 #
 # For a title with no Latin letters (e.g. Chinese), give a short name too:
-#   bin/new-post "台北之旅" taipei-trip
+#   newpost "台北之旅" taipei-trip
 
 set -e
 cd "$(dirname "$0")/.."
 
 title="$1"
 if [ -z "$title" ]; then
-  echo 'Usage: bin/new-post "Title of the post" [short-name]'
+  echo 'Usage: newpost "Title of the post" [short-name]'
   exit 1
 fi
 
@@ -31,7 +32,7 @@ print(re.sub(r"[^a-z0-9]+", "-", t).strip("-"))' "$title")
 fi
 if [ -z "$slug" ]; then
   echo "Couldn't make a short name from that title. Add one, e.g.:"
-  echo "  bin/new-post \"$title\" my-short-name"
+  echo "  newpost \"$title\" my-short-name"
   exit 1
 fi
 
