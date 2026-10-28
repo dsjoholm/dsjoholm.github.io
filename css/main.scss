@@ -242,6 +242,13 @@ th, td {
 th + th, td + td { border-left: 1px solid var(--line); }
 th:first-child, td:first-child { padding-left: 0; }
 
+/* Phones: smaller text, and a table that's still too wide scrolls sideways
+   by itself instead of being cut off */
+@media (max-width: 40rem) {
+  article table { display: block; overflow-x: auto; font-size: 0.85rem; }
+  th, td { padding: 0.4rem 0.45rem; line-height: 1.35; }
+}
+
 img { max-width: 100%; height: auto; }
 
 /* ==========================================================================
@@ -1287,3 +1294,126 @@ article > .lang-block > .epigraph,
 article > .lang-block > figure:not(.fullwidth) {
   max-width: var(--text);
 }
+
+/* ==========================================================================
+   Maps in posts ({% include map.html %}, assets/js/map.js)
+   ========================================================================== */
+
+.post-map {
+  position: relative;
+  height: 26rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  font-family: var(--mono);
+  z-index: 0;                 /* keeps the map under the header and sidenotes */
+}
+@media (max-width: 40rem) { .post-map { height: 22rem; } }
+
+/* Darken the street map, then give it a hint of the current color scheme
+   (raise the opacity below for more color, lower it for plain gray) */
+.post-map .leaflet-tile { filter: grayscale(1) invert(1) brightness(0.9) contrast(0.9); }
+.post-map.map-light .leaflet-tile { filter: grayscale(1) contrast(0.85) brightness(1.03); }
+.post-map .leaflet-tile-pane::after {
+  content: "";
+  position: absolute;
+  z-index: 1000;
+  inset: -100000px;
+  background: var(--bg);
+  mix-blend-mode: color;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.map-pin span {
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin: 10px;
+  background: var(--fg);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--fg);
+  transition: transform 0.15s;
+}
+.map-pin-main span { width: 16px; height: 16px; margin: 8px; }
+.map-pin:hover span, .map-pin:focus span { transform: scale(1.3); }
+.map-pin:focus { outline: none; }
+.map-pin:focus-visible span { outline: 1px dashed var(--fg); outline-offset: 3px; }
+
+/* Popups, zoom buttons and credits in the site's style */
+.post-map .leaflet-popup-content-wrapper,
+.post-map .leaflet-popup-tip {
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--fg);
+  border-radius: 0;
+  box-shadow: none;
+}
+.post-map .leaflet-popup-tip { border-width: 0 1px 1px 0; }
+.post-map .leaflet-popup-content {
+  margin: 0.7rem 1.6rem 0.7rem 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+.post-map .leaflet-popup-content strong,
+.post-map .leaflet-popup-content span,
+.post-map .leaflet-popup-content a { display: block; }
+.post-map .leaflet-popup-content strong { font-weight: normal; text-transform: lowercase; }
+.post-map .leaflet-popup-content span { color: var(--muted); margin: 0.2rem 0 0.4rem; }
+.post-map .leaflet-popup-content a { color: var(--fg); }
+.post-map a.leaflet-popup-close-button {
+  color: var(--muted);
+  width: 28px;
+  height: 28px;
+  font: 18px/28px var(--mono);
+}
+.post-map a.leaflet-popup-close-button:hover { color: var(--fg); }
+
+.post-map .leaflet-bar { border: 1px solid var(--fg); border-radius: 0; box-shadow: none; }
+.post-map .leaflet-bar a,
+.post-map .map-all {
+  width: 36px;
+  height: 36px;
+  line-height: 34px;
+  background: var(--bg);
+  color: var(--fg);
+  border-radius: 0 !important;
+  border-color: var(--line);
+  font: 18px/34px var(--mono);
+}
+.post-map .leaflet-bar a:hover { background: var(--fg); color: var(--bg); }
+.post-map .map-all {
+  width: auto;
+  height: 36px;
+  padding: 0 0.6rem;
+  border: 1px solid var(--fg);
+  font-size: 0.75rem;
+  cursor: var(--cursor-hand) 5 0, pointer;
+}
+.post-map .map-all:hover { background: var(--fg); color: var(--bg); }
+
+.post-map .leaflet-control-attribution {
+  background: var(--bg);
+  color: var(--muted);
+  font: 0.6rem var(--mono);
+}
+.post-map .leaflet-control-attribution a { color: var(--muted); }
+
+/* "use two fingers to move the map", on phones */
+.map-hint {
+  position: absolute;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--fg);
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.map-hint.show { opacity: 1; }

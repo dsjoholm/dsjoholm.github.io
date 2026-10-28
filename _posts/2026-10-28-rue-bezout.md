@@ -7,6 +7,29 @@ tags:
   - paris
   - architecture
   - urban-planning
+map:
+  - name: 15 rue de Vanves, Issy-les-Moulineaux
+    coords: [48.825478, 2.279751]
+    text: Blue tiles, no bust. An interesting housing complex.
+  - name: 5 rue de l'Eure
+    coords: [48.832458, 2.322054]
+    text: White tiles, bust.
+  - name: 20 rue de l'Avre
+    coords: [48.847838, 2.297475]
+    text: Blue tile accents, bust (slightly inside).
+  - name: 10 rue de Meudon, Clamart
+    coords: [48.801035, 2.260529]
+    text: White tiles, bust. Contrast with the old tower and buildings.
+  - name: 23 rue Bezout / 78-80 rue Hallé
+    coords: [48.828864, 2.330995]
+    text: Blue, yellow and white tiles, bust.
+    main: true
+  - name: 17 rue du Renard
+    coords: [48.858657, 2.351925]
+    text: No tiles; the bust was removed at some point. Tile mural on the side.
+  - name: 11bis rue Pierre Nicole
+    coords: [48.841743, 2.34035]
+    text: White tiles, no bust. Fake ruins and a fountain on the ground floor.
 ---
 > Less is more
 >
@@ -69,6 +92,8 @@ But, having addressed the question of “why does 23 rue Bezout look like that,�
 | [23 rue Bezout / 78-80 rue Hallé](https://www.google.com/maps/place/78+Rue+Hall%C3%A9,+75014+Paris,+France/@48.8288874,2.331157,63a,75y,228.57h,117.96t/data=!3m7!1e1!3m5!1sQNT6rswyLZKJGPGLBaa09w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-27.95580624204902%26panoid%3DQNT6rswyLZKJGPGLBaa09w%26yaw%3D228.56800595173695!7i16384!8i8192!4m6!3m5!1s0x47e671ba7fc4af23:0xcad57604bcde50ae!8m2!3d48.8288338!4d2.3309979!16s%2Fg%2F11kj0kvj4v?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D) | Y | Y | |
 | [17 rue du Renard](https://www.google.com/maps/place/17+R.+du+Renard,+75004+Paris,+France/@48.8587681,2.3520775,37a,73.4y,232.5h,103.82t/data=!3m8!1e1!3m6!1sVbmY0XHOtzULL4ftXP566Q!2e0!5s20230701T000000!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-13.824382407714381%26panoid%3DVbmY0XHOtzULL4ftXP566Q%26yaw%3D232.50259090458118!7i16384!8i8192!4m6!3m5!1s0x47e66e1c4b22a5f3:0x4eb8eb8e57a9b54a!8m2!3d48.8586691!4d2.3519036!16s%2Fg%2F11rg5xrqpb?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D) | N | Removed at some point | Tile mural on side |
 | [11bis rue Pierre Nicole](https://www.google.com/maps/place/11+bis+Rue+Pierre+Nicole,+75005+Paris,+France/@48.8417566,2.3402581,55a,75y,96.63h,106.37t/data=!3m7!1e1!3m5!1sj3YOTauTFJ22x4ux7fwK-w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-16.372289996273935%26panoid%3Dj3YOTauTFJ22x4ux7fwK-w%26yaw%3D96.63365636772951!7i16384!8i8192!4m6!3m5!1s0x47e671c3d2e5b4ad:0xf2f99d12dbed3fab!8m2!3d48.8417095!4d2.3403343!16s%2Fg%2F11vhg1crvq?entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D) | Y, only white | N | Fake ruins, fountain on ground floor.<br>Ode, homage to the old chapel next door under 14bis, where the first Parisians were introduced to Christianity |
+
+{% include map.html %}
 
 Their most striking architectural work can be found at 15 rue de Vanves, in Issy-les-Moulineaux. This small housing development, which was deservedly honored with a prize in 1986, rises like a spaceship, completely at odds with yet strangely in tune with its surroundings. It, like 23 rue Bezout, has a white tile exterior with blue highlights, but in this project the blue is slightly closer to a green like the color of the ocean on a stormy day. It is a beautiful sight, made even better by the abundant plant life enthusiastically spilling over the walls and out of balconies. The apartments’ curved and angular lines contrast nicely, and the arched doorway with a bright red metal door seems to welcome the visitor into an aquatic kingdom. 
 

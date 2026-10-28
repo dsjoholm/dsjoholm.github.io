@@ -1,0 +1,20 @@
+{%- comment -%}{% raw %}
+  An interactive map of places, in the site's colors.
+
+  In a post:   {% include map.html caption="Optional caption" %}
+  The places come from the post's front matter (see WRITING.md):
+
+    map:
+      - name: 23 rue Bezout
+        coords: [48.828864, 2.330995]
+        text: Optional short note shown when the place is tapped
+        main: true            (optional: draws this place larger)
+{% endraw %}{%- endcomment -%}
+{%- assign places = include.places | default: page.map -%}
+<figure class="map-figure">
+<div class="post-map" data-places="{{ places | jsonify | escape }}" role="region" aria-label="Map of {{ places.size }} places"><span class="map-hint" aria-hidden="true">use two fingers to move the map</span></div>
+{%- if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+<script src="{{ '/assets/js/map.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

@@ -77,6 +77,32 @@ match. The site numbers them 1, 2, 3 in order, and they can contain links,
 The last line starting with a dash (—, – or --) is what makes it an epigraph.
 Without it, it's an ordinary quote.
 
+**A map of places.** List the places at the top of the post, next to `title:`:
+
+```
+map:
+  - name: 23 rue Bezout
+    coords: [48.828864, 2.330995]
+    text: A short note, shown when the place is tapped
+    main: true
+  - name: 17 rue du Renard
+    coords: [48.858657, 2.351925]
+```
+
+then put this line where the map should go (with an empty line above and below):
+
+```
+{% include map.html %}
+```
+
+- **Coordinates:** in Google Maps, right-click the place (long-press on a
+  phone) and click the numbers at the top of the menu. That copies them;
+  paste them between the `[ ]`.
+- `text:` and `main: true` (a bigger square) are optional.
+- For a caption: `{% include map.html caption="Where they all are" %}`.
+- The map takes the site's colors. On phones, one finger scrolls the page and
+  two fingers move the map.
+
 ## 3b. A post in more than one language
 
 Put each language in its own section; a switch like `[english] [français]`

@@ -359,16 +359,67 @@
     });
   }
 
+  // ---- Walking around maps instead of over them ---------------------------
+  const PAD = 30;               // how far from a map's edge the cat walks
+
+  // Does the line from a to b pass through the box r?
+  function crosses(ax, ay, bx, by, r) {
+    const p = [ax - bx, bx - ax, ay - by, by - ay];
+    const q = [ax - r.left, r.right - ax, ay - r.top, r.bottom - ay];
+    let t0 = 0, t1 = 1;
+    for (let i = 0; i < 4; i++) {
+      if (p[i] === 0) { if (q[i] <= 0) return false; continue; }
+      const t = q[i] / p[i];
+      if (p[i] < 0) { if (t > t1) return false; if (t > t0) t0 = t; }
+      else { if (t < t0) return false; if (t < t1) t1 = t; }
+    }
+    return t0 < t1;
+  }
+
+  // If the way to the goal crosses a map, the corner of the map to walk to
+  // first (the one making the shortest trip); otherwise null
+  function detour(goal) {
+    for (const map of document.querySelectorAll('.post-map')) {
+      const b = map.getBoundingClientRect();
+      const r = { left: b.left - PAD + 1, right: b.right + PAD - 1, top: b.top - PAD + 1, bottom: b.bottom + PAD - 1 };
+      if (x > r.left && x < r.right && y > r.top && y < r.bottom) continue; // on it already: just leave
+      if (!crosses(x, y, goal.x, goal.y, r)) continue;
+      const len = (a, c) => Math.hypot(c.x - a.x, c.y - a.y);
+      const corners = [[b.left - PAD, b.top - PAD], [b.right + PAD, b.top - PAD],
+        [b.left - PAD, b.bottom + PAD], [b.right + PAD, b.bottom + PAD]]
+        .map(([cx, cy]) => ({ x: cx, y: cy }))
+        .filter((c) => c.x >= 16 && c.x <= window.innerWidth - 16 && c.y >= 16 && c.y <= window.innerHeight - 16);
+      const clear = (a, c) => !crosses(a.x, a.y, c.x, c.y, r);
+      // the rest of the trip from corner c: straight on, or via a second corner
+      const onward = (c) => (clear(c, goal) ? len(c, goal) : Math.min(Infinity,
+        ...corners.filter((d) => d !== c && clear(c, d) && clear(d, goal)).map((d) => len(c, d) + len(d, goal))));
+      const me = { x, y };
+      let best = null;
+      let cost = Infinity;
+      corners.forEach((c) => {
+        if (len(me, c) < 1 || !clear(me, c)) return;
+        const total = len(me, c) + onward(c);
+        if (total < cost) { cost = total; best = c; }
+      });
+      return best;
+    }
+    return null;
+  }
+
   function step() {
     frame++;
-    const dx = target ? target.x - x : 0;
-    const dy = target ? target.y - y : 0;
+    const corner = target && detour(target);
+    const goal = corner || target;
+    const stopAt = corner ? 0 : NEAR;   // walk right up to a corner, then on
+    const dx = goal ? goal.x - x : 0;
+    const dy = goal ? goal.y - y : 0;
     const dist = Math.hypot(dx, dy);
 
-    if (dist > NEAR) {
+    if (dist > stopAt) {
       idle = 0;
       zzz.hidden = true;
-      const move = Math.min(SPEED, dist - NEAR + 1);
+      const move = corner ? Math.min(SPEED * 1.8, dist)   // trots around maps
+        : Math.min(SPEED, dist - NEAR + 1);
       x += (dx / dist) * move;
       y += (dy / dist) * move;
       const ab = frame % 2 ? 'A' : 'B';
@@ -406,7 +457,25 @@
     }
   }
 
-  function onMove(e) { target = { x: e.clientX, y: e.clientY }; }
+  // Over a map, wait just outside its nearest edge instead of walking on it
+  function onMove(e) {
+    target = { x: e.clientX, y: e.clientY };
+    const map = e.target.closest && e.target.closest('.post-map');
+    if (!map) return;
+    const r = map.getBoundingClientRect();
+    const out = NEAR + 22;
+    const edges = [
+      { d: e.clientX - r.left, x: r.left - out, y: e.clientY },
+      { d: r.right - e.clientX, x: r.right + out, y: e.clientY },
+      { d: e.clientY - r.top, x: e.clientX, y: r.top - out },
+      { d: r.bottom - e.clientY, x: e.clientX, y: r.bottom + out },
+    ];
+    const fits = (p) => p.x >= 16 && p.x <= window.innerWidth - 16 &&
+      p.y >= 16 && p.y <= window.innerHeight - 16;     // room on that side
+    const choices = edges.filter(fits).length ? edges.filter(fits) : edges;
+    const nearest = choices.reduce((a, b) => (b.d < a.d ? b : a));
+    target = { x: nearest.x, y: nearest.y };
+  }
 
   function save() {
     try { sessionStorage.setItem('neko-pos', JSON.stringify({ x, y, idle })); } catch (e) { /* ignore */ }
