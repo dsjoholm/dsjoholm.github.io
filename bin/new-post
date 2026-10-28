@@ -56,6 +56,9 @@ awk -v t="$safe_title" -v d="$today" '
 
 mkdir -p "$photos"
 
+# Make sure online images get saved into the site on every commit
+[ "$(git config core.hooksPath)" = .githooks ] || git config core.hooksPath .githooks
+
 echo "Created:"
 echo "  the post:      $post"
 echo "  photo folder:  $photos/"

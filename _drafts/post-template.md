@@ -44,7 +44,7 @@ First paragraph. Here's a [link](https://example.com) and a sidenote.[^1]
 
 ![A caption for the photo](photo.jpg)
 
-![Another photo, from another website](https://example.com/photo.jpg)
+![Another photo, from another website (saved into the site when you commit)](https://example.com/photo.jpg)
 
 ## A section heading
 

@@ -23,6 +23,14 @@ Photos straight from your phone are fine; the site shrinks them when it
 publishes. Use JPEG or PNG (on iPhone: Settings → Camera → Formats →
 "Most Compatible", or export as JPEG). HEIC photos won't show in most browsers.
 
+**Photos from other websites** can be used by their address,
+`![The caption](https://somewhere.com/picture.jpg)`. When you commit, each one
+is downloaded into the post's photo folder automatically and the line is
+switched to the saved copy, so it keeps working even if the other site
+removes it. (Where each came from is noted in the folder's `sources.txt`.)
+Credit the source in the caption. Right-click → "Open Image in New Tab"
+first, to make sure you're using the full-size picture, not a small preview.
+
 ## 2. The top of the post
 
 ```

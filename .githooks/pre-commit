@@ -1,0 +1,5 @@
+#!/bin/sh
+# Runs before every commit: saves online images in the posts being
+# committed into the site (see bin/save-images). Never stops a commit.
+bin/save-images --staged || true
+exit 0

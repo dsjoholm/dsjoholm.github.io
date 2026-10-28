@@ -50,7 +50,7 @@ ED Architectes’ style was, to my untrained eye, highly playful to the point of
 
 Finally we arrive back to 23 rue Bezout. It was [constructed in 1987](https://www.bercail.com/paris/75014/rue-bezout/23) after the demolition of one or two previously existing buildings on the same site. This part of rue Bézout dates to the Haussmannian period, when it was cut through existing buildings. The neighborhood still boasts many examples of 1-2 story faubourg-style buildings that were common in Paris in the early-mid 1800s. Many of them predate the 1860 annexation of Montrouge by Paris. [^1] I was unable to confirm this, but it is likely that the current building replaced a structure similar to those. 
 
-![The type of buildings that may have been demolished to make way for 23 rue Bezout](https://res.cloudinary.com/hkzss63xa/image/upload/c_thumb,w_1600,h_800/places/poi14-49.jpg)
+![The type of buildings that may have been demolished to make way for 23 rue Bezout](the-type-of-buildings-that-may.jpg)
 
 In my opinion, it is possible to draw a straight line from the Paris metro’s white tiles at the turn of the century to Henri Sauvage’s white tiled apartments to the Mai 1968 protests to the building at 23 rue Bezout. The architects at ED Architectes certainly were aware of Sauvage’s work, and the atmosphere during which they studied clearly influenced their sense of playfulness, joy, and fun in architecture. This is why we see small, unusual architectural quirks such as windows jutting out from the building at a 45 degree angle. This is why we see the roof change direction and give way to a small tile-covered terrace. This is why we see, in a break from tradition, the tiles covering the building’s entire exterior; it is also why we see these tiles make random slanting patterns and geometric shapes. This is why the windowsills are painted bright red. The architecture style here is—as we’ll see later—best described as postmodern, and the architects embrace ornamentation for its own sake. The apartments at 23 rue Bezout are fun, and they’re proud of it. [^4]
 
@@ -82,11 +82,11 @@ At 5 rue de l’Eure, we see a totally white tile facade with no other ornamenta
 
 The final ED Architectes building in this style that I could identify is at 11bis rue Pierre Nicole. It incorporates a white tile exterior with an interestingly jagged façade and bright-red windowsills. By far its most notable feature, though, are the ruins on the ground floor which give the impression that the building was placed directly on top of, or perhaps is growing out of, a Roman hearth. These ruins are not authentic. They were constructed along with the rest of the building in 1980. Behind the faux-Roman ruins is a panorama painting that shows two modern tourists taking a photo in front of a Parisian-style mansion. According to the artist and observers, the scene represents a future Paris that has suffered a tragic, destructive event similar to Pompeii. In the distance, we see angels performing distinctly modern activities: watching TV, eating McDonald’s, playing tennis, grilling a hamburger. These are to show that our current world, inhabited by homo consumator, will one day be no longer, just as Pompeii crumbled under a volcano’s power. 
 
-![The "ruins" at 11bis rue Pierre Nicole](https://scontent-phl2-1.cdninstagram.com/v/t51.82787-15/653928653_18155104102453325_7752791090146017856_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ig_cache_key=MzI5ODgxNDE1Mzk0ODUzMDA0NA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMTQ0MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=7zM7bTeSQM0Q7kNvwEOcZyu&_nc_oc=AdqU6rXd_y3Z186aELd1K4XoWQAIeB_lZ64Uyb4VP7GZ67LmSv_SFfEg9f-KyE4d7-0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-phl2-1.cdninstagram.com&_nc_gid=XmBeYa-SiSvKU3T_kb8Zvg&_nc_ss=7a22e&oh=00_AQTmlDQJVdXe5pNrx4WgEtdA-cFgUsZDRDxMuw-otVgnzQ&oe=6AE81093)
+![The "ruins" at 11bis rue Pierre Nicole](the-ruins-at-11bis-rue-pierre.jpg)
 
 There is a contrast here between the modernity (tiles, a modern-style building) and Parisian history (ruins). Just down the street, at 14bis rue Pierre Nicole, if one takes a dilapidated set of stairs far deeper than the lowest level of the underground garage, one finds the Notre-Dame-des-Champs crypt. The space is eerie and dark. It is here that Saint Denis is said to have baptized the very first Parisians into Christianity, starting, in a way, modern French culture.[^2] Returning to 11bis of the same road, we see the envisaged end of what that culture has become.
 
-![The very underground crypt. Today it is about 50 feet subsurface, but it may have been just under the surface during the time of Saint Denis.](https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Crypte_Notre-Dame-des-Champs_sous_l%27immeuble_du_14bis_rue_Pierre-Nicole_%C3%A0_Paris.jpg/1920px-Crypte_Notre-Dame-des-Champs_sous_l%27immeuble_du_14bis_rue_Pierre-Nicole_%C3%A0_Paris.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail)
+![The very underground crypt. Today it is about 50 feet subsurface, but it may have been just under the surface during the time of Saint Denis.](the-very-underground-crypt-today-it.jpg)
 
 The artist and painter, Ngoc Duong Varoqui, says that her piece is a fiction that tells about our world and a critique that announces its imminent destruction.
 
@@ -98,7 +98,7 @@ This playfulness and humor is, in my mind, the defining feature of ED Architecte
 
 This brings us all the way back to the busts that we discussed at the beginning of this article. They stand on poles and pillars outside of several ED Architectes-designed buildings in Paris, but the man depicted in them does not exist. Who is he, then?
 
-![The bust at 10 rue de Meudon](https://www.clamart.fr/sites/default/files/ACTUALITE/2025/10%20-%20octobre/buste-elmer-dwight-edouard-tour-carree.jpg)
+![The bust at 10 rue de Meudon](the-bust-at-10-rue-de.jpg)
 
 ![The bust at 20 rue de l'Avre, sorry for low quality image](bust-avre.png)
 
@@ -108,8 +108,8 @@ He is Elmer Dwight Édouard. The character has no historical basis but was creat
 [^2]: He was then, according to legend, beheaded atop the Montmartre hill.
 [^3]: This is not exactly a well covered subject, but much of the information here comes from one heroic French forum commenter named Chris, who somehow found a 2-year-old architectural mystery thread [here](https://paris-bise-art.blogspot.com/2017/05/jeu-de-printemps-mai-2017-1.html) on [paris-bise-art.blogspot.com](https://paris-bise-art.blogspot.com) and responded by explaining in detail the concept and purpose of the character. It is also backed up, for some reason, by the [official government site of Clamart](https://www.clamart.fr/fr/actualites/les-secrets-de-la-tour-carree) when discussing ED Architectes' work at 10 rue de Meudon in the context of the Tour Carrée. According to a 2024 article from the [Compagnie des Experts Architectes près de la Cour d’Appel de Paris](https://web.archive.org/web/20251213074751/https://www.ceacap.org/billet-n-179-ed-kit-et-le-concours-des-mille-clubs-de-jeunes-1-2/), the bust actually depicts a real-but-obscure person for whom the architects decided to invent a fake persona—I suspect this is simply wrong, and a result of crossed wires somewhere. 
 [^4]: Another fun aspect of this building is that it is just one block from the best pizza parlor in Paris, [Uno Italian Pizza](https://maps.app.goo.gl/5QY6T7VSDJ4XsW6T7)
-[^color]: ![Typical Parisian style](https://images.mansionglobal.com/im-354350?width=619)
-[^pool]: ![Sauvage's beautiful pool, or pristine piscine](https://focus.telerama.fr/2023/05/11/0/0/4574/5906/1200/0/60/0/5ebd78b_1683815613857-wec1708-afc-amiraux-0444546.jpg)
-[^book]: ![The book cover](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhR2Ef_nyCvp1XK0opSWSS5-eKSGOTdMusXnqWG3jpMp81UHN4DNsWCo8tpYnbJY62YKlHWOd8cFIkraBhHXQ09fd6Uxo2O0J6w_NG8hS8P2wmsmEwqKSxheLv2UWjFEpa6keWdKbipor5SOy45qVompiKlbEqQc5oHgLOj7RtIj1HIsPydZYvPVPmIC2I/w270-h400-rw/Pomo.jpg)
+[^color]: ![Typical Parisian style](typical-parisian-style.jpg)
+[^pool]: ![Sauvage's beautiful pool, or pristine piscine](sauvage-s-beautiful-pool-or-pristine.jpg)
+[^book]: ![The book cover](the-book-cover.webp)
 [^5]: As a side note, I love that Paris is the type of city where answering this sort of question is possible. Every building, no matter how mundane, seems to have at least someone who cares strongly about it and its history. Construction, destruction, and modifications are clearly recorded and tracing architectural history in easier in Paris than just about anywhere else.
-[^site]: ![The façade of a store designed by SITE](https://images.squarespace-cdn.com/content/v1/60e4723671ff06642ecfe8c9/0710c143-2dda-45c4-9d87-849bb8800c05/BEST+Indeter.Fac.front+view.2.300.jpg?format=2500w)
+[^site]: ![The façade of a store designed by SITE](the-facade-of-a-store-designed.webp)

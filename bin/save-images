@@ -1,0 +1,151 @@
+#!/usr/bin/python3
+"""Save a post's online images into the site, so they can't disappear.
+
+Runs by itself on every `git commit` (see .githooks/pre-commit): for each
+post being committed, every image written as
+
+    ![A caption](https://somewhere.com/picture.jpg)
+
+is downloaded into the post's photo folder, assets/img/posts/<post-name>/,
+and the line becomes
+
+    ![A caption](a-caption.jpg)
+
+Where each image came from is noted in that folder's sources.txt.
+An image that can't be downloaded is left as it was, and the commit goes
+ahead anyway.
+
+To run it by hand on a post:   bin/save-images _posts/2026-10-28-rue-bezout.md
+"""
+
+import filecmp
+import os
+import re
+import subprocess
+import sys
+import tempfile
+import unicodedata
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+IMAGE = re.compile(r"!\[([^\]]*)\]\((https?://[^)\s]+)\)")
+EXTENSIONS = {
+    "image/jpeg": ".jpg", "image/jpg": ".jpg", "image/png": ".png",
+    "image/gif": ".gif", "image/webp": ".webp", "image/avif": ".avif",
+    "image/svg+xml": ".svg",
+}
+
+
+def slugify(text, fallback):
+    t = unicodedata.normalize("NFKD", text)
+    t = "".join(c for c in t if not unicodedata.combining(c)).lower()
+    words = re.findall(r"[a-z0-9]+", t)[:6]  # the caption's first few words
+    return "-".join(words) or fallback
+
+
+def post_name(path, text):
+    """The post's short name, as the site uses it for the photo folder."""
+    front = re.match(r"---\n(.*?)\n---", text, re.S)
+    if front:
+        m = re.search(r"^slug:\s*['\"]?([^'\"\n]+)", front.group(1), re.M)
+        if m:
+            return m.group(1).strip()
+    name = os.path.splitext(os.path.basename(path))[0]
+    return re.sub(r"^\d{4}-\d{2}-\d{2}-", "", name)
+
+
+def download(url, tmp):
+    """→ the file extension if url gave an image, otherwise None."""
+    try:
+        out = subprocess.run(
+            ["curl", "-sL", "--max-time", "30", "-o", tmp,
+             "-w", "%{http_code} %{content_type}", url],
+            capture_output=True, text=True, timeout=40).stdout
+    except subprocess.TimeoutExpired:
+        return None
+    code, _, kind = out.partition(" ")
+    kind = kind.split(";")[0].strip().lower()
+    if code != "200" or kind not in EXTENSIONS or os.path.getsize(tmp) == 0:
+        return None
+    return EXTENSIONS[kind]
+
+
+def save_images(path):
+    """Saves the images of one post. → the files it changed or added."""
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+    folder = os.path.join(ROOT, "assets", "img", "posts", post_name(path, text))
+    changed, sources, failed = [], [], []
+
+    lines = text.split("\n")
+    in_code = False
+    for i, line in enumerate(lines):
+        if line.lstrip().startswith("```"):
+            in_code = not in_code
+        if in_code or "](http" not in line:
+            continue
+
+        def replace(m):
+            caption, url = m.group(1), m.group(2)
+            os.makedirs(folder, exist_ok=True)
+            fd, tmp = tempfile.mkstemp()
+            os.close(fd)
+            ext = download(url, tmp)
+            if not ext:
+                os.remove(tmp)
+                failed.append(url)
+                return m.group(0)
+            base = slugify(caption, "image")
+            name, n = base + ext, 2
+            while os.path.exists(os.path.join(folder, name)):
+                if filecmp.cmp(tmp, os.path.join(folder, name), shallow=False):
+                    break  # already saved earlier: use that file
+                name, n = f"{base}-{n}{ext}", n + 1
+            dest = os.path.join(folder, name)
+            os.replace(tmp, dest)
+            os.chmod(dest, 0o644)
+            changed.append(dest)
+            sources.append(f"{name}  ←  {url}")
+            return f"![{caption}]({name})"
+
+        lines[i] = IMAGE.sub(replace, line)
+
+    if sources:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write("\n".join(lines))
+        record = os.path.join(folder, "sources.txt")
+        known = open(record, encoding="utf-8").read() if os.path.exists(record) else ""
+        with open(record, "a", encoding="utf-8") as f:
+            f.writelines(s + "\n" for s in sources if s not in known)
+        changed += [path, record]
+        print(f"Saved {len(sources)} online image(s) from {os.path.relpath(path, ROOT)} "
+              f"into {os.path.relpath(folder, ROOT)}/")
+    for url in failed:
+        print(f"Couldn't save (left as a link): {url[:100]}")
+    return changed
+
+
+def staged_posts():
+    out = subprocess.run(
+        ["git", "diff", "--cached", "--name-only", "--diff-filter=AM", "--", "_posts/"],
+        cwd=ROOT, capture_output=True, text=True).stdout
+    return [os.path.join(ROOT, p) for p in out.splitlines()
+            if p.endswith((".md", ".markdown"))]
+
+
+def main():
+    if sys.argv[1:] == ["--staged"]:
+        changed = []
+        for post in staged_posts():
+            changed += save_images(post)
+        if changed:
+            subprocess.run(["git", "add", "--"] + changed, cwd=ROOT)
+    else:
+        for post in sys.argv[1:]:
+            save_images(os.path.abspath(post))
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except Exception as e:  # never stop a commit
+        print(f"save-images: skipped ({e})")
