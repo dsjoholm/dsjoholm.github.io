@@ -6,3 +6,7 @@ config.codekit
 vendor
 .bundle
 .claude
+
+# Private notes and Word drafts: stay on this Mac, never pushed or published
+_notes
+~$*

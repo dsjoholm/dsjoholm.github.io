@@ -2,6 +2,11 @@
 
 A quick reference. Copy `_drafts/post-template.md` to start.
 
+**Notes and Word drafts** go in the `_notes` folder. Git and the site both
+ignore it, so nothing in it is ever pushed or published, and you never need to
+commit after editing it. It is not backed up to GitHub either (Time Machine
+or iCloud still covers it).
+
 ## 1. Make the files
 
 In Terminal (from any folder), run:
