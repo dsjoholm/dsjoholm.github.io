@@ -941,6 +941,39 @@ article a.book-link:hover { background: none; color: var(--fg); }
   transform: rotate(-4deg);
   z-index: 1;
 }
+/* "did not finish": the same tag, outlined; hovering it shows the reason */
+.book-badge-dnf {
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--fg);
+  transform: rotate(3deg);
+  cursor: help;
+}
+
+.book-why {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  width: max-content;
+  max-width: 13rem;
+  padding: 0.4rem 0.5rem;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 0.7rem;
+  line-height: 1.35;
+  white-space: normal;
+  transform: rotate(-3deg);        /* sits straight under the tilted tag */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms, visibility 200ms;
+  pointer-events: none;
+}
+
+.book-badge-dnf:hover .book-why,
+.book-link:focus-visible .book-why { opacity: 1; visibility: visible; }
+
+.book-why-line { display: none; color: var(--muted); font-style: italic; }
+
 .book-cover.no-image .book-fallback { display: block; }
 .book-cover.no-image img { display: none; }
 
@@ -970,6 +1003,8 @@ article a.book-link:hover { background: none; color: var(--fg); }
 /* Phones and tablets can't hover, so always show the details there */
 @media (hover: none) {
   .book-info { opacity: 1; }
+  .book-why-line { display: block; }   /* no hovering: the reason is written out */
+  .book-badge-dnf { cursor: default; }
 }
 
 @media (max-width: 30rem) {

@@ -4,7 +4,7 @@
   location_timezone in _config.yml). Shown under "Welcome!" on the home page
   and in the footer on every other page.
 {% endcomment %}
-{% assign now_reading = site.data.books | where_exp: "b", "b.finished == nil" | first %}
+{% assign now_reading = site.data.books | where_exp: "b", "b.finished == nil and b.dnf == nil" | first %}
 <p class="currently">
   <span class="currently-label">currently:</span>
   {% if now_reading %}<span>reading <a href="{{ '/books/' | relative_url }}"><em>{{ now_reading.title }}</em></a></span><span class="sep">·</span>{% endif %}

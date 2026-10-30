@@ -3,19 +3,24 @@ layout: page
 title: Bookshelf
 permalink: /books/
 ---
-{% comment %} Books without a "finished" date are being read now; they go first. {% endcomment %}
-{% assign reading = site.data.books | where_exp: "b", "b.finished == nil" %}
-{% assign finished = site.data.books | where_exp: "b", "b.finished" | sort: "finished" | reverse %}
-{% assign books = reading | concat: finished %}
+{% comment %} Books without a "finished" date are being read now; they go first.
+   The others, read or not finished ("dnf"), follow, newest first. {% endcomment %}
+{% assign reading = site.data.books | where_exp: "b", "b.finished == nil and b.dnf == nil" %}
+{% assign done = site.data.books | where_exp: "b", "b.finished" | sort: "finished" | reverse %}
+{% assign undated = site.data.books | where_exp: "b", "b.finished == nil and b.dnf" %}
+{% assign books = reading | concat: done | concat: undated %}
+{% assign finished = site.data.books | where_exp: "b", "b.finished and b.dnf == nil" %}
+{% assign dnf = site.data.books | where_exp: "b", "b.dnf" %}
 
 <div class="shelf-controls">
   <span>sorted by date read</span>
-  <span class="shelf-count">{{ finished.size }} read{% if reading.size > 0 %} · {{ reading.size }} reading{% endif %}</span>
+  <span class="shelf-count">{{ finished.size }} read{% if reading.size > 0 %} · {{ reading.size }} reading{% endif %}{% if dnf.size > 0 %} · {{ dnf.size }} not finished{% endif %}</span>
 </div>
 
 <ul class="shelf" id="shelf">
   {% for book in books %}
-  <li class="book{% unless book.finished %} reading{% endunless %}"
+  {% assign is_reading = false %}{% unless book.finished or book.dnf %}{% assign is_reading = true %}{% endunless %}
+  <li class="book{% if is_reading %} reading{% endif %}{% if book.dnf %} dnf{% endif %}"
       data-title="{{ book.title | escape }}"
       data-author="{{ book.author | escape }}">
     {% if book.review %}<a class="book-link" href="{{ book.review | relative_url }}">{% else %}<div class="book-link" tabindex="0">{% endif %}
@@ -24,12 +29,14 @@ permalink: /books/
              {% if book.cover %}src="{{ book.cover | relative_url }}"{% endif %}
              data-isbn="{{ book.isbn }}">
         <span class="book-fallback">{{ book.title }}<br><small>{{ book.author }}</small></span>
-        {% unless book.finished %}<span class="book-badge">reading now</span>{% endunless %}
+        {% if is_reading %}<span class="book-badge">reading now</span>{% endif %}
+        {% if book.dnf %}<span class="book-badge book-badge-dnf">did not finish{% if book.dnf != true %}<span class="book-why">{{ book.dnf }}</span>{% endif %}</span>{% endif %}
       </div>
       <div class="book-info">
         <span class="book-title">{{ book.title }}</span>
         <span class="book-author">{{ book.author }}</span>
-        <span class="book-date">{% if book.finished %}finished {{ book.finished | date: "%b %Y" | downcase }}{% else %}reading now{% endif %}{% if book.review %} · <u>review</u>{% endif %}</span>
+        <span class="book-date">{% if book.dnf %}did not finish{% if book.finished %} · stopped {{ book.finished | date: "%b %Y" | downcase }}{% endif %}{% elsif book.finished %}finished {{ book.finished | date: "%b %Y" | downcase }}{% else %}reading now{% endif %}{% if book.review %} · <u>review</u>{% endif %}</span>
+        {% if book.dnf and book.dnf != true %}<span class="book-why-line">{{ book.dnf }}</span>{% endif %}
       </div>
     {% if book.review %}</a>{% else %}</div>{% endif %}
   </li>

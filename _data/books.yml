@@ -5,14 +5,25 @@
 #   finished: the date you finished it, as YYYY-MM-DD. Leave it out for a
 #             book you're reading now: it goes first on the shelf, marked
 #             "reading now", and shows in the "currently" line in the footer.
+#   dnf:      optional; for a book you stopped reading. Write why after it,
+#             e.g.  dnf: Too slow; I lost interest halfway through.
+#             (or just  dnf: true  for no reason). It gets a "did not
+#             finish" tag, and the reason shows when you hover over the tag.
+#             Put the date you stopped in "finished" to place it on the shelf.
 #   isbn:     optional; helps find the right cover (copy it from StoryGraph)
 #   cover:    optional; a saved image such as /assets/img/books/my-book.jpg,
 #             or any image link. Leave it out and the cover is found
 #             automatically from the ISBN, or from the title and author.
 #   review:   optional; link to your review post, e.g. /articles/26/my-review
 
+- title: "architect, verb.: The New Language of Building"
+  author: Reinier de Graaf
+  isbn: 9781839761911
+
 - title: "The Amen Effect: Ancient Wisdom to Mend our Broken Hearts and World"
   author: Rabbi Sharon Brous
+  finished: 2026-10-29
+  dnf: I felt it had too many platitudes. Read the first 30 pages and finishing did not seem worth my time.
   isbn: 9780593543313
 
 - title: Crying in H Mart
