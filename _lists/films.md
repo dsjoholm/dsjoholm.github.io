@@ -28,3 +28,6 @@ updated: 2026-10-25
 - Shower (1990)
 - The Usual Suspects (1995)
 - Akira (1988)
+- Paris, je t'aime (2006)
+- Daguerréotypes (1975)
+- Cléo de 5 à 7 (1962)
