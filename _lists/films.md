@@ -18,7 +18,7 @@ updated: 2026-10-25
 ## Recently watched
 
 - Farewell My Concubine (1993)
-- Le lion volatil (2003)
+- Le lion volatil (2003) - A surrealist, almost completely nonsensical and charming small film about a disappearing man. Fun cat special effects at the end. Worth watching for its charm and wit, some stilted acting.
 
 ## To watch
 
