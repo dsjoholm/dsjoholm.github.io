@@ -18,13 +18,13 @@ updated: 2026-10-25
 ## Recently watched
 
 - Farewell My Concubine (1993)
+- Le lion volatil (2003)
 
 ## To watch
 
 - Big Fish (2003)
 - Drive (2011)
 - Les amants réguliers (2005)
-- Le lion volatil (2003)
 - Shower (1990)
 - The Usual Suspects (1995)
 - Akira (1988)
