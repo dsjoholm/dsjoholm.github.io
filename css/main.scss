@@ -815,6 +815,15 @@ article .list-index a:hover .list-index-title { text-decoration: underline; }
   color: var(--muted);
 }
 
+/* A short note under an item ("- Title - the note", _plugins/list_notes.rb) */
+.list-note {
+  display: block;
+  margin: 0.2rem 0 0.9rem;
+  font-size: 0.85em;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
 /* Numbered items get monospace numbers: 01. 02. 03. */
 .list-body ol {
   list-style: none;
