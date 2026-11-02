@@ -1,7 +1,7 @@
 ---
 title: Films
 description: What I've watched lately, and what's next.
-updated: 2026-10-25
+updated: 2026-11-01
 ---
 <!--
   Sections: a line starting with "## " is a section heading.
@@ -9,9 +9,6 @@ updated: 2026-10-25
   To link a film to a review post, put the title in [brackets] followed by
   the post's address in (parentheses), e.g.
     - [Farewell My Concubine](/articles/26/farewell-my-concubine) (1993)
-  For a short note, put it after a dash; it shows under the title in
-  smaller grey text:
-    - Drive (2011) - A sentence or two about it.
 
   How to make a new list: copy this file, give the copy a new name
   (that name becomes the address, e.g. _lists/books-to-read.md →
