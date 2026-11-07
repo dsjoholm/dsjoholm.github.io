@@ -1,0 +1,20 @@
+---
+layout: null
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+{%- comment -%} Tells search engines every page on the site; linked from robots.txt.
+   A page with "sitemap: false" at the top is left out, as are redirects. {%- endcomment %}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for page in site.html_pages %}
+{%- unless page.sitemap == false or page.layout == "redirect" or page.title == nil and page.url != "/" %}
+  <url><loc>{{ page.url | replace: 'index.html', '' | absolute_url }}</loc></url>
+{%- endunless %}
+{%- endfor %}
+{%- for post in site.posts %}
+  <url><loc>{{ post.url | absolute_url }}</loc><lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod></url>
+{%- endfor %}
+{%- for list in site.lists %}
+  <url><loc>{{ list.url | absolute_url }}</loc>{% if list.updated %}<lastmod>{{ list.updated | date_to_xmlschema }}</lastmod>{% endif %}</url>
+{%- endfor %}
+</urlset>

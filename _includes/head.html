@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" href="{{ "/apple-touch-icon.png" | relative_url }}?v={{ icon_version }}">
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="description" content="{% if page.description %}{{ page.description | strip_html | escape }}{% elsif page.excerpt %}{{ page.content | summary: 160 | escape }}{% else %}{{ site.description | escape }}{% endif %}">
 
   <link rel="preload" href="{{ "/fonts/departure-mono/DepartureMono-Regular.woff2" | relative_url }}" as="font" type="font/woff2" crossorigin>
   <!-- ?v= is the build time, so browsers fetch the new file after every change -->
@@ -83,7 +83,7 @@
 
   <!-- Link previews: what iMessage, Slack, LinkedIn, etc. show when the link
        is shared. A post can set its own `image:` in its front matter. -->
-  {% capture share_description %}{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+  {% capture share_description %}{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.content | summary: 200 }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
   {% assign share_image = page.image | default: '/assets/img/og-image.png' | absolute_url %}
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:title" content="{% if page.title and page.url != '/' %}{{ page.title | escape }}{% else %}{{ site.author }}{% endif %}">
