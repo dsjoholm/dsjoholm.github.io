@@ -133,6 +133,36 @@ Tout l'article en français…[^fr1]
   remembered. Link to one language with `?lang=fr` at the end of the address.
 - The template (`_drafts/post-template.md`) has these notes too.
 
+## 3c. Locked lists
+
+A list that only opens with a password: the title shows, the list doesn't.
+Write it in `_notes/locked/` (not in `_lists/`), like any other list, with a
+password at the top:
+
+```
+---
+title: Places I've lived
+description: Every address, in order.
+updated: 2026-11-17
+password: a long password
+---
+- 23 rue Bezout, 75014 Paris - 2025 to 2026
+```
+
+When you commit, a scrambled copy is made in `_lists/` and goes on the site.
+Visitors see the title and a password box; the right password unscrambles the
+list in their browser, a wrong one gets "ah ah ah!". The readable list and
+the password stay on this Mac (`_notes` is never pushed).
+
+- Use a long password (a few words): anyone can download the scrambled copy
+  and try guesses on it, so a short one could be guessed.
+- To change the list or the password, edit the file in `_notes/locked/` and
+  commit. Without a `password:` line, the list isn't published.
+- `_notes/locked/` isn't backed up to GitHub, so keep the password somewhere
+  safe.
+- A GIF for wrong passwords: paste a GIPHY link after `locked_gif:` in
+  `_config.yml`.
+
 ## 4. Publish
 
 ```

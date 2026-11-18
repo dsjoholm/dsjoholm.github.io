@@ -22,6 +22,11 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 excerpt_separator: <!--more-->
 exclude: ['Gemfile', 'Gemfile.lock', 'README.md', 'WRITING.md', 'UPDATING.md', 'bin', 'vendor', '.bundle']
 
+# Locked lists (bin/lock-lists): what a wrong password shows. Paste a GIPHY
+# link here (on giphy.com, the GIF's page address or "Copy GIF link"). Left
+# empty, a wrong password just shows a wagging "ah ah ah!".
+locked_gif: https://giphy.com/gifs/the-magic-word-3ohzdQ1IynzclJldUQ
+
 # Lists: one Markdown file each in the _lists folder, shown at /lists/<file-name>/
 collections:
   lists:

@@ -5,8 +5,31 @@ layout: default
 <h1>{{ page.title }}</h1>
 {% if page.description %}<p class="subtitle">{{ page.description }}</p>{% endif %}
 
+{% if page.locked %}
+{%- comment -%} A locked list (bin/lock-lists): only the scrambled list is in
+   the page; the right password unscrambles it in the browser. {%- endcomment %}
+{%- assign gif = site.locked_gif -%}
+{%- if gif contains "giphy.com/gifs/" -%}
+  {%- assign gif_id = gif | split: "?" | first | split: "/" | last | split: "-" | last -%}
+  {%- capture gif %}https://media.giphy.com/media/{{ gif_id }}/giphy.gif{% endcapture -%}
+{%- endif %}
+<form class="locked" data-locked="{{ page.locked | jsonify | escape }}" autocomplete="off">
+  <label for="locked-password">this list is locked</label>
+  <div class="locked-row">
+    <input id="locked-password" type="password" placeholder="password" required>
+    <button type="submit">[unlock]</button>
+  </div>
+  <div class="locked-nope" hidden>
+    {% if gif and gif != "" %}<img src="{{ gif }}" alt="Ah ah ah! That's not the password.">{% endif %}
+    <p class="locked-ahah"><span>ah</span> <span>ah</span> <span>ah!</span></p>
+  </div>
+</form>
+<div class="list-body" hidden></div>
+<script src="{{ '/assets/js/locked.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+{% else %}
 <div class="list-body">
 {{ content }}
 </div>
+{% endif %}
 
 <p class="list-back"><a href="{{ '/lists/' | relative_url }}">← all lists</a></p>
