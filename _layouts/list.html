@@ -20,8 +20,8 @@ layout: default
     <button type="submit">[unlock]</button>
   </div>
   <div class="locked-nope" hidden>
-    {% if gif and gif != "" %}<img src="{{ gif }}" alt="Ah ah ah! That's not the password.">{% endif %}
-    <p class="locked-ahah"><span>ah</span> <span>ah</span> <span>ah!</span></p>
+    {% if gif and gif != "" %}<img src="{{ gif }}" alt="Ah ah ah! That's not the password.">
+    {% else %}<p class="locked-ahah"><span>ah</span> <span>ah</span> <span>ah!</span></p>{% endif %}
   </div>
 </form>
 <div class="list-body" hidden></div>

@@ -1,0 +1,12 @@
+---
+title: Addresses at which I've lived
+description: Every address, in order.
+updated: 2026-11-17
+layout: list
+locked:
+  iterations: 600000
+  salt: haq66SNOrTuOMbRpgtdu8Q==
+  iv: nezpYsovsAYqegS4
+  data: IyJbXeLKLgnDEIuu6HNu37pYLeUJeTBotYOETdEZYgW8eFBzvdb/SDP86SoOetzLGhH5LV5UmhCD8SxJhQldLzEsvFxTa8kp6A3hulv/UF/ogfV4xlwUvK10cYTuGmfLDOkEdd7pcePxnqGNyHe5ZvDLzZFTNS9Xd7EMPLAaEzgAGD72E0nzYuhBj+dReQ5lFN61vmnPWWvr6sxFg23G31MLgI2WZ7CsSpJ6wqWGAZSMrZrEbo/vWq5iaXWjhLOzjjycbla17VL/Sh+MUcLzFAo/sKso71eviuBvVYMUXl3aOsbPd1e0cdJFnYTM8CQpGR53drcYbhl30i+niqB+fQUYv8ZFCC70bHqPSAkZ91cpS+rajB7U1Hqk+eq7Vk1npjbEXnCRRghAsR/vJrtYB5VFAGxjAXocB4HbxX60EOlIwwB1aewYI6W8glDXGlOdN5SxMhAicKAaBpif0awKw9MsWIFFIW/dgLVDDBcFejsl4DGmW/zFVlW/9A/W/qteuO7T6wu3PHaZygpkSwpygBAR8UUrtS46L+RsTDj6WvbmcXwaOBoiDl4labiUU7XuC/NE1eYemDolvb2DxztQ+YErEBxXKyoQ7+yncf4sqcEeP0o5P19jx2ry1rx+ppxivDG/dDMdTe5p12ppSaBvOxQ8ALwl6TERPDtDYgYAgdJpqZ+fyPVmWAx4JMSWkMUEfDbiDJ+c4Cqn1g/hNO39Sf6pKCoCqn0cy6i5Ey11MDhNluoSBvzRTPJti6OWqrguxLGnlUz2HJIiQB6IdVFPrwzVCmPMp2pYcBcUx++e2/AAwKMY692alG1B6atXHm5/MTdRANiRBIHC3hV1gq03Dk32alVJrv+uudm1zahm9ldQTaFx36edeP/4d7TlecBtUdQsQSBCJ24lc0PBkIK7hA==
+---
+<!-- A locked list: made by bin/lock-lists from _notes/locked/addresses.md. Edit that file, not this one. -->
